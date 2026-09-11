@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -14,13 +14,14 @@
     <link rel="canonical" href="https://ghostbundle.github.io/" />
 
     <!-- ============ OPEN GRAPH (Facebook, LinkedIn, Discord, Slack, etc.) ============ -->
+    <!-- Points at ghostreader.png — PNG for maximum compatibility with social previewers -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="GhostBundle" />
     <meta property="og:title" content="GhostBundle – Free ghost-themed Windows utilities" />
     <meta property="og:description" content="Four free, tiny Windows tools that quietly do their thing. No ads, no tracking, no cloud." />
     <meta property="og:url" content="https://ghostbundle.github.io/" />
     <meta property="og:image" content="https://ghostbundle.github.io/ghostreader.png" />
-    <meta property="og:image:alt" content="GhostBundle mascots" />
+    <meta property="og:image:alt" content="Ghost Reader mascot — one of the four GhostBundle tools" />
     <meta property="og:locale" content="en_US" />
 
     <!-- ============ TWITTER CARD ============ -->
@@ -30,9 +31,10 @@
     <meta name="twitter:image" content="https://ghostbundle.github.io/ghostreader.png" />
 
     <!-- ============ FAVICON & APP ICONS ============ -->
-   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<link rel="alternate icon" type="image/png" href="ghostreader.webp" />
-<link rel="apple-touch-icon" href="ghostreader.webp" />
+    <!-- Modern browsers use the SVG; older ones fall back to the PNG; iOS uses the PNG. -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="alternate icon" type="image/png" href="ghostnotes.png" />
+    <link rel="apple-touch-icon" href="ghostnotes.png" />
 
     <!-- ============ STRUCTURED DATA (JSON-LD) ============ -->
     <script type="application/ld+json">
@@ -298,6 +300,18 @@
             color: #9292aa;
         }
 
+        /* ---- Small-print legal disclaimer ---- */
+        footer p.small {
+            font-size: 0.75rem;
+            color: #9a9ab0;
+            line-height: 1.55;
+            margin-top: 12px;
+            margin-bottom: 12px;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         header, .ghost-card, footer {
             opacity: 0;
             animation: fadeIn 0.8s ease-out forwards;
@@ -391,6 +405,7 @@
 
     <footer>
         <p>Free forever. No ads. No tracking. No cloud.<span class="heart">🖤</span></p>
+        <p class="small">All GhostBundle software is provided "as is," without warranty of any kind. By downloading and using these apps, you accept full responsibility for their use and any consequences arising from it. Full license terms ship with each application.</p>
         <p>&copy; 2026 GhostBundle &bull; Made for Windows</p>
     </footer>
 
