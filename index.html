@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -20,22 +20,22 @@
     <meta property="og:title" content="GhostBundle – Free ghost-themed Windows utilities" />
     <meta property="og:description" content="Four free, tiny Windows tools that quietly do their thing. No ads, no tracking, no cloud." />
     <meta property="og:url" content="https://ghostbundle.github.io/" />
-    <meta property="og:image" content="https://ghostbundle.github.io/ghostreader.png" />
-    <meta property="og:image:alt" content="Ghost Reader mascot — one of the four GhostBundle tools" />
+    <meta property="og:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
+    <meta property="og:image:alt" content="Four GhostBundle mascots in a cozy library scene" />
     <meta property="og:locale" content="en_US" />
 
     <!-- ============ TWITTER CARD ============ -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="GhostBundle – Free ghost-themed Windows utilities" />
     <meta name="twitter:description" content="Four free, tiny Windows tools that quietly do their thing. No ads, no tracking, no cloud." />
-    <meta name="twitter:image" content="https://ghostbundle.github.io/ghostreader.png" />
+    <meta name="twitter:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
 
     <!-- ============ FAVICON & APP ICONS ============ -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👻</text></svg>" />
     <link rel="alternate icon" type="image/png" href="ghostnotes.png" />
     <link rel="apple-touch-icon" href="ghostnotes.png" />
 
-    <!-- ============ STRUCTURED DATA (JSON-LD) ============ -->
+    <!-- ============ STRUCTURED DATA ============ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -50,42 +50,10 @@
         "url": "https://ghostbundle.github.io/"
       },
       "hasPart": [
-        {
-          "@type": "SoftwareApplication",
-          "name": "Ghost Reader",
-          "applicationCategory": "UtilitiesApplication",
-          "operatingSystem": "Windows",
-          "description": "A clipboard reader that speaks whatever you copy.",
-          "url": "https://ghostbundle.github.io/",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-        },
-        {
-          "@type": "SoftwareApplication",
-          "name": "Ghost Cast",
-          "applicationCategory": "MultimediaApplication",
-          "operatingSystem": "Windows",
-          "description": "Multi-voice script studio for dramatic readings.",
-          "url": "https://ghostbundle.github.io/",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-        },
-        {
-          "@type": "SoftwareApplication",
-          "name": "Ghost Notes",
-          "applicationCategory": "ProductivityApplication",
-          "operatingSystem": "Windows",
-          "description": "Hierarchical notes in a single portable file.",
-          "url": "https://ghostbundle.github.io/",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-        },
-        {
-          "@type": "SoftwareApplication",
-          "name": "GhostStamp Pro",
-          "applicationCategory": "BusinessApplication",
-          "operatingSystem": "Windows",
-          "description": "Stamp PDFs and scans with clean vector seals.",
-          "url": "https://ghostbundle.github.io/",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-        }
+        { "@type": "SoftwareApplication", "name": "Ghost Reader", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows", "description": "A clipboard reader that speaks whatever you copy.", "url": "https://ghostbundle.github.io/", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
+        { "@type": "SoftwareApplication", "name": "Ghost Cast", "applicationCategory": "MultimediaApplication", "operatingSystem": "Windows", "description": "Multi-voice script studio for dramatic readings.", "url": "https://ghostbundle.github.io/", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
+        { "@type": "SoftwareApplication", "name": "Ghost Notes", "applicationCategory": "ProductivityApplication", "operatingSystem": "Windows", "description": "Hierarchical notes in a single portable file.", "url": "https://ghostbundle.github.io/", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
+        { "@type": "SoftwareApplication", "name": "GhostStamp Pro", "applicationCategory": "BusinessApplication", "operatingSystem": "Windows", "description": "Stamp PDFs and scans with clean vector seals.", "url": "https://ghostbundle.github.io/", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } }
       ]
     }
     </script>
@@ -97,10 +65,7 @@
 
         body {
             font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
-            background:
-                radial-gradient(circle at 20% 0%, rgba(180, 200, 255, 0.35) 0%, transparent 55%),
-                radial-gradient(circle at 80% 100%, rgba(220, 180, 255, 0.30) 0%, transparent 55%),
-                linear-gradient(180deg, #f4f7ff 0%, #eef1fa 50%, #f7f3ff 100%);
+            background: #eef1fa;
             color: #1e1e2e;
             min-height: 100%;
             display: flex;
@@ -108,6 +73,42 @@
             align-items: center;
             padding: 60px 24px 40px;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ---- Rotating Background Layer ---- */
+        .bg-layer {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .bg-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            opacity: 0;
+            transition: opacity 3s ease-in-out;
+            filter: brightness(0.92) saturate(0.95);
+        }
+        .bg-img.is-active {
+            opacity: 1;
+        }
+
+        /* Soft frosted overlay so text stays readable */
+        .bg-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background:
+                radial-gradient(circle at 20% 0%, rgba(240, 245, 255, 0.72) 0%, rgba(240, 245, 255, 0.35) 45%, transparent 70%),
+                radial-gradient(circle at 80% 100%, rgba(245, 235, 255, 0.70) 0%, rgba(245, 235, 255, 0.30) 45%, transparent 70%),
+                linear-gradient(180deg, rgba(244, 247, 255, 0.78) 0%, rgba(238, 241, 250, 0.65) 50%, rgba(247, 243, 255, 0.78) 100%);
         }
 
         .dots {
@@ -152,6 +153,7 @@
             letter-spacing: -0.8px;
             color: #1a1a2e;
             margin-bottom: 14px;
+            text-shadow: 0 2px 12px rgba(255, 255, 255, 0.75);
         }
         header h1 .ghost {
             font-size: 2rem;
@@ -160,8 +162,9 @@
         }
         header .tagline {
             font-size: 1.05rem;
-            color: #5a5a78;
+            color: #3a3a58;
             line-height: 1.6;
+            text-shadow: 0 1px 10px rgba(255, 255, 255, 0.85);
         }
 
         .grid {
@@ -178,7 +181,6 @@
         @media (min-width: 1000px) {
             .grid { grid-template-columns: repeat(4, 1fr); gap: 24px; }
         }
-
         @media (max-width: 640px) {
             .grid { grid-template-columns: 1fr; gap: 32px; }
             header h1 { font-size: 1.8rem; }
@@ -194,9 +196,7 @@
             transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
             cursor: pointer;
         }
-        .app-card:hover {
-            transform: translateY(-8px);
-        }
+        .app-card:hover { transform: translateY(-8px); }
 
         .image-container {
             position: relative;
@@ -213,8 +213,8 @@
             position: absolute;
             inset: 10%;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(230, 235, 255, 0.5) 45%, transparent 75%);
-            filter: blur(4px);
+            background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(230, 235, 255, 0.6) 45%, transparent 75%);
+            filter: blur(6px);
             z-index: 0;
             transition: transform 0.4s ease, opacity 0.4s ease;
         }
@@ -222,17 +222,15 @@
             transform: scale(1.12);
             opacity: 0.85;
         }
-
         .image-container img {
             position: relative;
             z-index: 1;
             width: 100%;
             height: 100%;
             object-fit: contain;
-            filter: drop-shadow(0 14px 24px rgba(90, 100, 180, 0.18));
+            filter: drop-shadow(0 14px 24px rgba(90, 100, 180, 0.22));
             animation: float 6s ease-in-out infinite;
         }
-
         .app-card:nth-child(1) .image-container img { animation-delay: 0s;    }
         .app-card:nth-child(2) .image-container img { animation-delay: 1.2s;  }
         .app-card:nth-child(3) .image-container img { animation-delay: 2.4s;  }
@@ -249,25 +247,28 @@
             color: #1a1a2e;
             letter-spacing: -0.2px;
             margin-bottom: 4px;
+            text-shadow: 0 1px 8px rgba(255, 255, 255, 0.9);
         }
-        
+
         .version-badge {
             font-size: 0.75rem;
             font-weight: 600;
-            color: #6a6a8a;
-            background: rgba(200, 215, 255, 0.4);
+            color: #5a5a7a;
+            background: rgba(255, 255, 255, 0.75);
             padding: 2px 10px;
             border-radius: 12px;
             margin-bottom: 12px;
             display: inline-block;
+            backdrop-filter: blur(6px);
         }
 
         .app-card .desc {
             font-size: 0.9rem;
-            color: #62627f;
+            color: #4a4a68;
             line-height: 1.5;
             max-width: 220px;
             margin-bottom: 16px;
+            text-shadow: 0 1px 8px rgba(255, 255, 255, 0.85);
         }
 
         .chips {
@@ -282,11 +283,12 @@
             font-size: 0.7rem;
             font-weight: 600;
             letter-spacing: 0.2px;
-            color: #4a5a8a;
-            background: rgba(200, 215, 255, 0.45);
+            color: #3a4a7a;
+            background: rgba(255, 255, 255, 0.75);
             padding: 3px 10px;
             border-radius: 20px;
             white-space: nowrap;
+            backdrop-filter: blur(6px);
         }
 
         .download-btn {
@@ -299,11 +301,11 @@
             border-radius: 20px;
             text-decoration: none;
             transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 12px rgba(90, 122, 238, 0.3);
+            box-shadow: 0 4px 12px rgba(90, 122, 238, 0.4);
         }
         .download-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(90, 122, 238, 0.45);
+            box-shadow: 0 6px 18px rgba(90, 122, 238, 0.55);
         }
 
         /* ---- Support / Donation Section ---- */
@@ -316,9 +318,10 @@
             margin-bottom: 48px;
             padding: 34px 28px;
             border-radius: 28px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.75), rgba(235, 225, 255, 0.55));
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(235, 225, 255, 0.75));
             border: 1px solid rgba(160, 140, 220, 0.25);
-            box-shadow: 0 10px 36px rgba(120, 100, 200, 0.10);
+            box-shadow: 0 10px 36px rgba(120, 100, 200, 0.15);
+            backdrop-filter: blur(12px);
         }
 
         .support-section h3 {
@@ -331,7 +334,7 @@
 
         .support-section p {
             font-size: 0.9rem;
-            color: #5a5a78;
+            color: #4a4a68;
             line-height: 1.6;
             margin-bottom: 22px;
             max-width: 460px;
@@ -349,23 +352,39 @@
             border-radius: 24px;
             text-decoration: none;
             transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 6px 18px rgba(255, 90, 138, 0.35);
+            box-shadow: 0 6px 18px rgba(255, 90, 138, 0.4);
         }
         .donate-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(255, 90, 138, 0.5);
+            box-shadow: 0 8px 24px rgba(255, 90, 138, 0.55);
         }
+
+        /* ---- Community link ---- */
+        .community-link {
+            display: block;
+            text-align: center;
+            color: #5a5a78;
+            font-size: 0.82rem;
+            margin: -20px auto 44px;
+            text-decoration: none;
+            max-width: 620px;
+            width: 100%;
+            transition: color 0.2s;
+            text-shadow: 0 1px 8px rgba(255, 255, 255, 0.85);
+        }
+        .community-link:hover { color: #5a7aee; }
 
         footer {
             position: relative;
             z-index: 1;
             text-align: center;
-            color: #7a7a95;
+            color: #6a6a85;
             font-size: 0.9rem;
             padding-top: 20px;
-            border-top: 1px solid rgba(140, 160, 220, 0.2);
+            border-top: 1px solid rgba(140, 160, 220, 0.3);
             max-width: 620px;
             width: 100%;
+            text-shadow: 0 1px 8px rgba(255, 255, 255, 0.85);
         }
         footer .heart {
             color: #d34c4c;
@@ -374,13 +393,12 @@
         footer p + p {
             margin-top: 6px;
             font-size: 0.82rem;
-            color: #9292aa;
+            color: #7a7a95;
         }
 
-        /* ---- Small-print legal disclaimer ---- */
         footer p.small {
             font-size: 0.75rem;
-            color: #9a9ab0;
+            color: #8a8aa0;
             line-height: 1.55;
             margin-top: 12px;
             margin-bottom: 12px;
@@ -389,7 +407,7 @@
             margin-right: auto;
         }
 
-        header, .app-card, .support-section, footer {
+        header, .app-card, .support-section, .community-link, footer {
             opacity: 0;
             animation: fadeIn 0.8s ease-out forwards;
         }
@@ -399,6 +417,7 @@
         .app-card:nth-child(3) { animation-delay: 0.40s; }
         .app-card:nth-child(4) { animation-delay: 0.50s; }
         .support-section { animation-delay: 0.60s; }
+        .community-link  { animation-delay: 0.65s; }
         footer        { animation-delay: 0.70s; }
 
         @keyframes fadeIn {
@@ -408,6 +427,15 @@
     </style>
 </head>
 <body>
+
+    <!-- Rotating full-page background -->
+    <div class="bg-layer" id="bgLayer" aria-hidden="true">
+        <img class="bg-img" src="ghostbundle-library.webp" alt="" />
+        <img class="bg-img" src="ghostbundle-beach.webp" alt="" />
+    </div>
+
+    <!-- Soft frosted overlay so text stays readable -->
+    <div class="bg-overlay" aria-hidden="true"></div>
 
     <div class="dots" aria-hidden="true">
         <div class="dot"></div>
@@ -495,6 +523,10 @@
         <a href="https://square.link/u/EmMBiWhn" class="donate-btn" target="_blank" rel="noopener">Support GhostBundle →</a>
     </section>
 
+    <a href="https://github.com/ghostbundle/ghostbundle.github.io/discussions" class="community-link" target="_blank" rel="noopener">
+        💬 Got ideas or feedback? Join the discussion on GitHub →
+    </a>
+
     <footer>
         <p>Free forever — never a paybie. No ads. No tracking. No cloud.<span class="heart">🖤</span></p>
         <p class="small">All GhostBundle software is provided "as is," without warranty of any kind. By downloading and using these apps, you accept full responsibility for their use and any consequences arising from it. Full license terms ship with each application.</p>
@@ -511,6 +543,21 @@
     AT: https://ghostbundle.github.io/
     ─────────────────────────────────────────────
     -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var imgs = document.querySelectorAll('#bgLayer .bg-img');
+            if (imgs.length === 0) return;
+            imgs[0].classList.add('is-active');
+            if (imgs.length < 2) return;
+            var current = 0;
+            setInterval(function () {
+                imgs[current].classList.remove('is-active');
+                current = (current + 1) % imgs.length;
+                imgs[current].classList.add('is-active');
+            }, 10000);
+        });
+    </script>
 
 </body>
 </html>
