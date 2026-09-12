@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -32,6 +32,8 @@
 
     <!-- ============ FAVICON & APP ICONS ============ -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👻</text></svg>" />
+    <link rel="alternate icon" type="image/png" href="ghostnotes.png" />
+    <link rel="apple-touch-icon" href="ghostnotes.png" />
 
     <!-- ============ STRUCTURED DATA (JSON-LD) ============ -->
     <script type="application/ld+json">
@@ -304,6 +306,56 @@
             box-shadow: 0 6px 16px rgba(90, 122, 238, 0.45);
         }
 
+        /* ---- Support / Donation Section ---- */
+        .support-section {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 620px;
+            width: 100%;
+            margin-bottom: 48px;
+            padding: 34px 28px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.75), rgba(235, 225, 255, 0.55));
+            border: 1px solid rgba(160, 140, 220, 0.25);
+            box-shadow: 0 10px 36px rgba(120, 100, 200, 0.10);
+        }
+
+        .support-section h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            letter-spacing: -0.2px;
+        }
+
+        .support-section p {
+            font-size: 0.9rem;
+            color: #5a5a78;
+            line-height: 1.6;
+            margin-bottom: 22px;
+            max-width: 460px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .donate-btn {
+            display: inline-block;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #ffffff;
+            background: linear-gradient(135deg, #ff7aa8, #ff5a8a);
+            padding: 12px 32px;
+            border-radius: 24px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 6px 18px rgba(255, 90, 138, 0.35);
+        }
+        .donate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 90, 138, 0.5);
+        }
+
         footer {
             position: relative;
             z-index: 1;
@@ -337,7 +389,7 @@
             margin-right: auto;
         }
 
-        header, .app-card, footer {
+        header, .app-card, .support-section, footer {
             opacity: 0;
             animation: fadeIn 0.8s ease-out forwards;
         }
@@ -346,6 +398,7 @@
         .app-card:nth-child(2) { animation-delay: 0.30s; }
         .app-card:nth-child(3) { animation-delay: 0.40s; }
         .app-card:nth-child(4) { animation-delay: 0.50s; }
+        .support-section { animation-delay: 0.60s; }
         footer        { animation-delay: 0.70s; }
 
         @keyframes fadeIn {
@@ -376,7 +429,7 @@
 
         <article class="app-card">
             <div class="image-container">
-                <img src="reader.webp" alt="Reader mascot reading a book" />
+                <img src="reader.png" alt="Reader mascot reading a book" />
             </div>
             <h2>Ghost Reader</h2>
             <span class="version-badge">v2.3</span>
@@ -391,7 +444,7 @@
 
         <article class="app-card">
             <div class="image-container">
-                <img src="cast.webp" alt="Cast mascot in a director's chair" />
+                <img src="cast.png" alt="Cast mascot in a director's chair" />
             </div>
             <h2>Ghost Cast</h2>
             <span class="version-badge">v1.0</span>
@@ -406,7 +459,7 @@
 
         <article class="app-card">
             <div class="image-container">
-                <img src="notes.webp" alt="Notes mascot holding a notebook" />
+                <img src="notes.png" alt="Notes mascot holding a notebook" />
             </div>
             <h2>Ghost Notes</h2>
             <span class="version-badge">v1.0</span>
@@ -421,7 +474,7 @@
 
         <article class="app-card">
             <div class="image-container">
-                <img src="stamp.webp" alt="Stamp mascot holding a rubber stamp" />
+                <img src="stamp.png" alt="Stamp mascot holding a rubber stamp" />
             </div>
             <h2>GhostStamp Pro</h2>
             <span class="version-badge">v1.0</span>
@@ -434,6 +487,12 @@
             <a href="GhostStampPro.zip" class="download-btn" download>Download</a>
         </article>
 
+    </section>
+
+    <section class="support-section">
+        <h3>💝 Enjoying GhostBundle?</h3>
+        <p>Every app here is free forever — no ads, no tracking, no cloud. If these little ghosts have made your day a bit easier, a small donation keeps them fed and keeps the lights on.</p>
+        <a href="https://square.link/u/EmMBiWhn" class="donate-btn" target="_blank" rel="noopener">Support GhostBundle →</a>
     </section>
 
     <footer>
