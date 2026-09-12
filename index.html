@@ -198,7 +198,7 @@
             transform: translateY(-8px);
         }
 
-        .mascot-wrap {
+        .ghost-illustration-container {
             position: relative;
             width: 100%;
             max-width: 220px;
@@ -208,7 +208,7 @@
             justify-content: center;
             margin-bottom: 22px;
         }
-        .mascot-wrap::before {
+        .ghost-illustration-container::before {
             content: "";
             position: absolute;
             inset: 10%;
@@ -218,12 +218,12 @@
             z-index: 0;
             transition: transform 0.4s ease, opacity 0.4s ease;
         }
-        .ghost-card:hover .mascot-wrap::before {
+        .ghost-card:hover .ghost-illustration-container::before {
             transform: scale(1.12);
             opacity: 0.85;
         }
 
-        .mascot-wrap img {
+        .ghost-illustration-container img {
             position: relative;
             z-index: 1;
             width: 100%;
@@ -233,10 +233,10 @@
             animation: float 6s ease-in-out infinite;
         }
 
-        .ghost-card:nth-child(1) .mascot-wrap img { animation-delay: 0s;    }
-        .ghost-card:nth-child(2) .mascot-wrap img { animation-delay: 1.2s;  }
-        .ghost-card:nth-child(3) .mascot-wrap img { animation-delay: 2.4s;  }
-        .ghost-card:nth-child(4) .mascot-wrap img { animation-delay: 3.6s;  }
+        .ghost-card:nth-child(1) .ghost-illustration-container img { animation-delay: 0s;    }
+        .ghost-card:nth-child(2) .ghost-illustration-container img { animation-delay: 1.2s;  }
+        .ghost-card:nth-child(3) .ghost-illustration-container img { animation-delay: 2.4s;  }
+        .ghost-card:nth-child(4) .ghost-illustration-container img { animation-delay: 3.6s;  }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
@@ -377,8 +377,8 @@
     <section class="grid">
 
         <article class="ghost-card">
-            <div class="mascot-wrap">
-                <img src="ghostbundle-mascot-reader.webp" alt="Ghost Reader mascot reading a book" />
+            <div class="ghost-illustration-container">
+                <img src="ghostreader.webp" alt="Ghost Reader mascot reading a book" />
             </div>
             <h2>Ghost Reader</h2>
             <span class="version-badge">v2.3</span>
@@ -392,8 +392,8 @@
         </article>
 
         <article class="ghost-card">
-            <div class="mascot-wrap">
-                <img src="ghostbundle-mascot-cast.webp" alt="Ghost Cast mascot in a director's chair" />
+            <div class="ghost-illustration-container">
+                <img src="ghostcast.webp" alt="Ghost Cast mascot in a director's chair" />
             </div>
             <h2>Ghost Cast</h2>
             <span class="version-badge">v1.0</span>
@@ -407,8 +407,8 @@
         </article>
 
         <article class="ghost-card">
-            <div class="mascot-wrap">
-                <img src="ghostbundle-mascot-notes.webp" alt="Ghost Notes mascot holding a notebook" />
+            <div class="ghost-illustration-container">
+                <img src="ghostnotes.webp" alt="Ghost Notes mascot holding a notebook" />
             </div>
             <h2>Ghost Notes</h2>
             <span class="version-badge">v1.0</span>
@@ -422,8 +422,8 @@
         </article>
 
         <article class="ghost-card">
-            <div class="mascot-wrap">
-                <img src="ghostbundle-mascot-stamp.webp" alt="GhostStamp Pro mascot holding a rubber stamp" />
+            <div class="ghost-illustration-container">
+                <img src="ghoststamp.webp" alt="GhostStamp Pro mascot holding a rubber stamp" />
             </div>
             <h2>GhostStamp Pro</h2>
             <span class="version-badge">v1.0</span>
