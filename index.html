@@ -6,8 +6,8 @@
 
     <!-- ============ PRIMARY SEO ============ -->
     <title>GhostBundle – Free ghost-themed Windows utilities</title>
-    <meta name="description" content="GhostBundle is a free collection of ghost-themed Windows utilities: Ghost Reader (text-to-speech), Ghost Cast (multi-voice script studio), Ghost Notes (hierarchical notepad), and GhostStamp Pro (PDF stamper). No ads, no tracking, no cloud." />
-    <meta name="keywords" content="GhostBundle, Ghost Reader, Ghost Cast, Ghost Notes, GhostStamp Pro, text to speech, TTS, clipboard reader, script studio, note manager, PDF stamp, Windows utilities, free software, paybies" />
+    <meta name="description" content="GhostBundle is a free collection of ghost-themed Windows utilities: Ghost Reader (text-to-speech), Ghost Cast (multi-voice script studio), Ghost Notes (hierarchical notepad), and GhostStamp Pro (PDF stamper) — with Ghost Phrases coming soon. No ads, no tracking, no cloud." />
+    <meta name="keywords" content="GhostBundle, Ghost Reader, Ghost Cast, Ghost Notes, GhostStamp Pro, Ghost Phrases, text to speech, TTS, clipboard reader, script studio, note manager, PDF stamp, text expander, Windows utilities, free software, paybies" />
     <meta name="coined-term" content="paybies | the paid cousins of freebies | coined 2026-09-12 | GhostBundle | https://ghostbundle.github.io" />
     <meta name="author" content="GhostBundle" />
     <meta name="robots" content="index, follow" />
@@ -18,16 +18,16 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="GhostBundle" />
     <meta property="og:title" content="GhostBundle – Free ghost-themed Windows utilities" />
-    <meta property="og:description" content="Four free, tiny Windows tools that quietly do their thing. No ads, no tracking, no cloud." />
+    <meta property="og:description" content="Four free, tiny Windows tools that quietly do their thing — with a fifth on the way. No ads, no tracking, no cloud." />
     <meta property="og:url" content="https://ghostbundle.github.io/" />
     <meta property="og:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
-    <meta property="og:image:alt" content="Four GhostBundle mascots in a cozy library scene" />
+    <meta property="og:image:alt" content="GhostBundle mascots in a cozy library scene" />
     <meta property="og:locale" content="en_US" />
 
     <!-- ============ TWITTER CARD ============ -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="GhostBundle – Free ghost-themed Windows utilities" />
-    <meta name="twitter:description" content="Four free, tiny Windows tools that quietly do their thing. No ads, no tracking, no cloud." />
+    <meta name="twitter:description" content="Four free, tiny Windows tools that quietly do their thing — with a fifth on the way. No ads, no tracking, no cloud." />
     <meta name="twitter:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
 
     <!-- ============ FAVICON & APP ICONS ============ -->
@@ -53,7 +53,8 @@
         { "@type": "SoftwareApplication", "name": "Ghost Reader", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows", "description": "A clipboard reader that speaks whatever you copy.", "url": "https://ghostbundle.github.io/", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
         { "@type": "SoftwareApplication", "name": "Ghost Cast", "applicationCategory": "MultimediaApplication", "operatingSystem": "Windows", "description": "Multi-voice script studio for dramatic readings.", "url": "https://ghostbundle.github.io/", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
         { "@type": "SoftwareApplication", "name": "Ghost Notes", "applicationCategory": "ProductivityApplication", "operatingSystem": "Windows", "description": "Hierarchical notes in a single portable file.", "url": "https://ghostbundle.github.io/", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
-        { "@type": "SoftwareApplication", "name": "GhostStamp Pro", "applicationCategory": "BusinessApplication", "operatingSystem": "Windows", "description": "Stamp PDFs and scans with clean vector seals.", "url": "https://ghostbundle.github.io/", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } }
+        { "@type": "SoftwareApplication", "name": "GhostStamp Pro", "applicationCategory": "BusinessApplication", "operatingSystem": "Windows", "description": "Stamp PDFs and scans with clean vector seals.", "url": "https://ghostbundle.github.io/", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
+        { "@type": "SoftwareApplication", "name": "Ghost Phrases", "applicationCategory": "ProductivityApplication", "operatingSystem": "Windows", "description": "A text expander that types the paragraph for you. Coming soon.", "url": "https://ghostbundle.github.io/" }
       ]
     }
     </script>
@@ -167,6 +168,7 @@
             text-shadow: 0 1px 10px rgba(255, 255, 255, 0.85);
         }
 
+        /* ---- Sisters grid (top row, rainbow arc over Phrases) ---- */
         .grid {
             position: relative;
             z-index: 1;
@@ -175,7 +177,8 @@
             gap: 36px;
             max-width: 1100px;
             width: 100%;
-            margin-bottom: 60px;
+            margin-bottom: 20px;
+            align-items: start;
         }
 
         @media (min-width: 1000px) {
@@ -184,6 +187,20 @@
         @media (max-width: 640px) {
             .grid { grid-template-columns: 1fr; gap: 32px; }
             header h1 { font-size: 1.8rem; }
+        }
+
+        /* ---- Rainbow arc: middle sisters up, outer sisters down ----
+           Creates a gentle dome over Phrases on the row below.          */
+        @media (min-width: 1000px) {
+            .grid .app-card:nth-child(1) { position: relative; top: 28px;  } /* Reader: down */
+            .grid .app-card:nth-child(2) { position: relative; top: -28px; } /* Cast:   up   */
+            .grid .app-card:nth-child(3) { position: relative; top: -28px; } /* Notes:  up   */
+            .grid .app-card:nth-child(4) { position: relative; top: 28px;  } /* Stamp:  down */
+
+            .grid .app-card:nth-child(1) .image-container { transform: rotate(3.5deg);  } /* lean in */
+            .grid .app-card:nth-child(2) .image-container { transform: rotate(1.5deg);  }
+            .grid .app-card:nth-child(3) .image-container { transform: rotate(-1.5deg); }
+            .grid .app-card:nth-child(4) .image-container { transform: rotate(-3.5deg); } /* lean in */
         }
 
         .app-card {
@@ -262,6 +279,13 @@
             backdrop-filter: blur(6px);
         }
 
+        /* "Coming Home Soon" badge — warmer, softer */
+        .soon-badge {
+            color: #8a4a6a;
+            background: linear-gradient(135deg, rgba(255, 235, 240, 0.9), rgba(255, 220, 230, 0.85));
+            border: 1px solid rgba(220, 140, 170, 0.35);
+        }
+
         .app-card .desc {
             font-size: 0.9rem;
             color: #4a4a68;
@@ -306,6 +330,27 @@
         .download-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 18px rgba(90, 122, 238, 0.55);
+        }
+
+        /* ---- Phrases card — second row, centred, 20% smaller ---- */
+        .phrases-row {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 60px;
+            padding-top: 24px;
+        }
+        .phrases-row .app-card {
+            max-width: 260px;
+        }
+        .phrases-row .image-container {
+            max-width: 176px; /* 220 × 0.8 = 20% smaller */
+        }
+        .phrases-row .app-card .desc,
+        .phrases-row .app-card .chips {
+            max-width: 220px;
         }
 
         /* ---- Support / Donation Section ---- */
@@ -423,13 +468,14 @@
             animation: fadeIn 0.8s ease-out forwards;
         }
         header        { animation-delay: 0.05s; }
-        .app-card:nth-child(1) { animation-delay: 0.20s; }
-        .app-card:nth-child(2) { animation-delay: 0.30s; }
-        .app-card:nth-child(3) { animation-delay: 0.40s; }
-        .app-card:nth-child(4) { animation-delay: 0.50s; }
-        .support-section { animation-delay: 0.60s; }
-        .community-link  { animation-delay: 0.65s; }
-        footer        { animation-delay: 0.70s; }
+        .grid .app-card:nth-child(1) { animation-delay: 0.20s; }
+        .grid .app-card:nth-child(2) { animation-delay: 0.30s; }
+        .grid .app-card:nth-child(3) { animation-delay: 0.40s; }
+        .grid .app-card:nth-child(4) { animation-delay: 0.50s; }
+        .phrases-row .app-card  { animation-delay: 0.60s; }
+        .support-section { animation-delay: 0.70s; }
+        .community-link  { animation-delay: 0.75s; }
+        footer        { animation-delay: 0.80s; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(14px); }
@@ -528,11 +574,29 @@
 
     </section>
 
+    <section class="phrases-row">
+
+        <article class="app-card">
+            <div class="image-container">
+                <img src="phrases.webp" alt="Phrases mascot, the youngest sister, reading a book" />
+            </div>
+            <h2>Ghost Phrases</h2>
+            <span class="version-badge soon-badge">Coming Home Soon</span>
+            <p class="desc">Type a shortcut, get the whole paragraph.</p>
+            <div class="chips">
+                <span>Text expander</span>
+                <span>Global shortcuts</span>
+                <span>Phrase picker</span>
+            </div>
+        </article>
+
+    </section>
+
     <section class="support-section">
         <h3>💝 Enjoying GhostBundle?</h3>
         <p>Every app here is free forever — no ads, no tracking, no cloud. If these little ghosts have made your day a bit easier, a small donation keeps them fed and keeps the lights on.</p>
         <a href="https://square.link/u/EmMBiWhn" class="donate-btn" target="_blank" rel="noopener">Support GhostBundle →</a>
-        
+
         <!-- The new fallback text -->
         <p class="fallback-text">(If the link spins forever, your adblocker is blocking Square. Try a different browser or pause AdGuard!)</p>
     </section>
