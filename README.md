@@ -17,7 +17,8 @@ All apps are **free forever**. No ads, no tracking, no cloud. Just download, unz
 | **Ghost Notes** | Hierarchical notes in a single portable file. Rich text, auto-backup, and search all notes. | [GhostNotes.zip](GhostNotes.zip) |
 | **GhostStamp Pro** | Stamp PDFs and scans with clean vector seals. 16 preset stamps, PNG & PDF output, fully offline. | [GhostStampPro.zip](GhostStampPro.zip) |
 | **Ghost Phrases** | A text expander that types the paragraph for you. Type a shortcut anywhere, get the full text. | *I am Home, find me!* |
-| Ghost Calc | A calculator that types its answer into any window. Standard keypad, memory, percent, plus five worksheets: mortgage, fixed deposit, recurring saver, unit conversion, and date calculation. | GhostCalc.zip |
+| **Ghost Calc** | A calculator that types its answer into any window. Standard keypad, memory, percent, plus five worksheets: mortgage, fixed deposit, recurring saver, unit conversion, and date calculation. | [GhostCalc.zip](GhostCalc.zip) |
+
 
 ---
 
