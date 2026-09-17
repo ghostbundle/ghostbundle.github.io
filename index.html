@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- ============ PRIMARY SEO ============ -->
-    <title>GhostBundle – Free ghost-themed Windows utilities (GhostReader, GhostCast, GhostNotes, GhostStamp, GhostPhrases)</title>
-    <meta name="description" content="GhostBundle is a free collection of ghost-themed Windows utilities: Ghost Reader (GhostReader) text-to-speech, Ghost Cast (GhostCast) multi-voice script studio, Ghost Notes (GhostNotes) hierarchical notepad, GhostStamp Pro (Ghost Stamp) PDF stamper, and Ghost Phrases (GhostPhrases) text expander — coming soon. No ads, no tracking, no cloud." />
-    <meta name="keywords" content="GhostBundle, Ghost Bundle, ghostbundle, Ghost Reader, GhostReader, ghostreader, ghost reader TTS, Ghost Cast, GhostCast, ghostcast, ghost cast script studio, Ghost Notes, GhostNotes, ghostnotes, ghost notes notepad, GhostStamp Pro, GhostStamp, GhostStampPro, ghoststamp, ghost stamp, Ghost Phrases, GhostPhrases, ghostphrases, ghost phrases, Ghost Calc, GhostCalc, ghostcalc, ghost calc, text to speech, TTS, clipboard reader, script studio, note manager, PDF stamp, text expander, Windows utilities, free software, paybies" />
+    <title>GhostBundle – Free ghost-themed Windows utilities (GhostReader, GhostCast, GhostNotes, GhostStamp, GhostPhrases, GhostCalc)</title>
+    <meta name="description" content="GhostBundle is a free collection of ghost-themed Windows utilities: Ghost Reader (GhostReader) text-to-speech, Ghost Cast (GhostCast) multi-voice script studio, Ghost Notes (GhostNotes) hierarchical notepad, GhostStamp Pro (Ghost Stamp) PDF stamper, Ghost Phrases (GhostPhrases) text expander, and Ghost Calc (GhostCalc) insert-anywhere calculator. No ads, no tracking, no cloud." />
+    <meta name="keywords" content="GhostBundle, Ghost Bundle, ghostbundle, Ghost Reader, GhostReader, ghostreader, ghost reader TTS, Ghost Cast, GhostCast, ghostcast, ghost cast script studio, Ghost Notes, GhostNotes, ghostnotes, ghost notes notepad, GhostStamp Pro, GhostStamp, GhostStampPro, ghoststamp, ghost stamp, Ghost Phrases, GhostPhrases, ghostphrases, ghost phrases, Ghost Calc, GhostCalc, ghostcalc, ghost calc, ghost calc insert, text to speech, TTS, clipboard reader, script studio, note manager, PDF stamp, text expander, calculator, insert into app, mortgage calculator, unit converter, Windows utilities, free software, paybies" />
     <meta name="coined-term" content="paybies | the paid cousins of freebies | coined 2026-09-12 | GhostBundle | https://ghostbundle.github.io" />
     <meta name="author" content="GhostBundle" />
     <meta name="robots" content="index, follow" />
@@ -18,16 +18,16 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="GhostBundle" />
     <meta property="og:title" content="GhostBundle – Free ghost-themed Windows utilities" />
-    <meta property="og:description" content="Four free, tiny Windows tools that quietly do their thing — with a fifth on the way. GhostReader, GhostCast, GhostNotes, GhostStamp, GhostPhrases. No ads, no tracking, no cloud." />
+    <meta property="og:description" content="Six free, tiny Windows tools that quietly do their thing. GhostReader, GhostCast, GhostNotes, GhostStamp, GhostPhrases, GhostCalc. No ads, no tracking, no cloud." />
     <meta property="og:url" content="https://ghostbundle.github.io/" />
     <meta property="og:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
-    <meta property="og:image:alt" content="GhostBundle mascots in a cozy library scene — GhostReader, GhostCast, GhostNotes, GhostStamp, and GhostPhrases" />
+    <meta property="og:image:alt" content="GhostBundle mascots in a cozy library scene — GhostReader, GhostCast, GhostNotes, GhostStamp, GhostPhrases, and GhostCalc" />
     <meta property="og:locale" content="en_US" />
 
     <!-- ============ TWITTER CARD ============ -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="GhostBundle – Free ghost-themed Windows utilities" />
-    <meta name="twitter:description" content="Four free, tiny Windows tools that quietly do their thing — with a fifth on the way. GhostReader, GhostCast, GhostNotes, GhostStamp, GhostPhrases. No ads, no tracking, no cloud." />
+    <meta name="twitter:description" content="Six free, tiny Windows tools that quietly do their thing. GhostReader, GhostCast, GhostNotes, GhostStamp, GhostPhrases, GhostCalc. No ads, no tracking, no cloud." />
     <meta name="twitter:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
 
     <!-- ============ FAVICON & APP ICONS ============ -->
@@ -98,8 +98,19 @@
           "alternateName": ["GhostPhrases", "ghostphrases", "Ghost Phrases text expander"],
           "applicationCategory": "ProductivityApplication",
           "operatingSystem": "Windows",
-          "description": "A text expander that types the paragraph for you. Type a shortcut anywhere, get the full text. Coming soon.",
-          "url": "https://ghostbundle.github.io/"
+          "description": "A text expander that types the paragraph for you. Type a shortcut anywhere, get the full text.",
+          "url": "https://ghostbundle.github.io/",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Ghost Calc",
+          "alternateName": ["GhostCalc", "ghostcalc", "Ghost Calc insert-anywhere calculator", "Ghost Calc calculator"],
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Windows",
+          "description": "A calculator that types its answer into any window. Standard keypad, memory, percent, plus five worksheets: mortgage, fixed deposit, recurring saver, unit conversion, and date calculation.",
+          "url": "https://ghostbundle.github.io/",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
         }
       ]
     }
@@ -225,7 +236,7 @@
             text-shadow: 0 1px 10px rgba(255, 255, 255, 0.85);
         }
 
-        /* ---- Sisters grid (top row, rainbow arc over Phrases) ---- */
+        /* ---- Sisters grid (top row, rainbow arc over the younger sisters below) ---- */
         .grid {
             position: relative;
             z-index: 1;
@@ -247,7 +258,7 @@
         }
 
         /* ---- Rainbow arc: middle sisters up, outer sisters down ----
-           Creates a gentle dome over Phrases on the row below.          */
+           Creates a gentle dome over the younger sisters on the row below. */
         @media (min-width: 1000px) {
             .grid .app-card:nth-child(1) { position: relative; top: 28px;  } /* Reader: down */
             .grid .app-card:nth-child(2) { position: relative; top: -28px; } /* Cast:   up   */
@@ -389,12 +400,14 @@
             box-shadow: 0 6px 18px rgba(90, 122, 238, 0.55);
         }
 
-        /* ---- Phrases card — second row, centred, 20% smaller ---- */
+        /* ---- Younger sisters row — second row, centred, 20% smaller ---- */
         .phrases-row {
             position: relative;
             z-index: 1;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
+            gap: 36px;
             width: 100%;
             margin-bottom: 60px;
             padding-top: 24px;
@@ -543,10 +556,11 @@
         .grid .app-card:nth-child(2) { animation-delay: 0.30s; }
         .grid .app-card:nth-child(3) { animation-delay: 0.40s; }
         .grid .app-card:nth-child(4) { animation-delay: 0.50s; }
-        .phrases-row .app-card  { animation-delay: 0.60s; }
-        .support-section { animation-delay: 0.70s; }
-        .community-link  { animation-delay: 0.75s; }
-        footer        { animation-delay: 0.80s; }
+        .phrases-row .app-card:nth-child(1) { animation-delay: 0.60s; }
+        .phrases-row .app-card:nth-child(2) { animation-delay: 0.70s; }
+        .support-section { animation-delay: 0.80s; }
+        .community-link  { animation-delay: 0.85s; }
+        footer        { animation-delay: 0.90s; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(14px); }
@@ -666,6 +680,22 @@
             </div>
         </article>
 
+        <article class="app-card">
+            <div class="image-container">
+                <img src="calc.webp" alt="GhostCalc (Ghost Calc) mascot holding a pink calculator — free calculator that inserts its answer into any window on Windows" />
+            </div>
+            <h2>Ghost Calc</h2>
+            <span class="version-badge">v1.0</span>
+            <span class="sr-only">Also known as GhostCalc, ghostcalc, Ghost Calc insert-anywhere calculator.</span>
+            <p class="desc">A calculator that types its answer into any window.</p>
+            <div class="chips">
+                <span>Insert anywhere</span>
+                <span>5 worksheets</span>
+                <span>Portable</span>
+            </div>
+            <a href="GhostCalc.zip" class="download-btn" download>Download</a>
+        </article>
+
     </section>
 
     <section class="support-section">
@@ -686,7 +716,7 @@
 
         <!-- Name variants — visible, subtle, helps search engines and humans -->
         <p class="name-variants">
-            Also searchable as: <strong>GhostReader</strong> &bull; <strong>GhostCast</strong> &bull; <strong>GhostNotes</strong> &bull; <strong>GhostStamp</strong> &bull; <strong>GhostPhrases</strong> &bull; <strong>GhostBundle</strong>
+            Also searchable as: <strong>GhostReader</strong> &bull; <strong>GhostCast</strong> &bull; <strong>GhostNotes</strong> &bull; <strong>GhostStamp</strong> &bull; <strong>GhostPhrases</strong> &bull; <strong>GhostCalc</strong> &bull; <strong>GhostBundle</strong>
         </p>
 
         <p class="small">All GhostBundle software is provided "as is," without warranty of any kind. By downloading and using these apps, you accept full responsibility for their use and any consequences arising from it. Full license terms ship with each application.</p>
