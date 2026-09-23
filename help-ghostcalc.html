@@ -1,0 +1,690 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ============ PRIMARY SEO ============ -->
+    <title>Ghost Calc — Help &amp; Documentation | GhostBundle</title>
+    <meta name="description" content="Ghost Calc help and documentation: a calculator that types its answer into any window. Standard keypad with memory and percent, plus five worksheets: mortgage, fixed deposit, recurring saver, unit conversion, and date calculation. Free from GhostBundle." />
+    <meta name="author" content="GhostBundle" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#f7f2e8" />
+    <link rel="canonical" href="https://ghostbundle.github.io/help-ghostcalc.html" />
+
+    <!-- ============ OPEN GRAPH ============ -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="GhostBundle" />
+    <meta property="og:title" content="Ghost Calc — Help &amp; Documentation" />
+    <meta property="og:description" content="Every worksheet, every shortcut, every setting — the complete Ghost Calc reference." />
+    <meta property="og:url" content="https://ghostbundle.github.io/help-ghostcalc.html" />
+    <meta property="og:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ============ TWITTER CARD ============ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ghost Calc — Help &amp; Documentation" />
+    <meta name="twitter:description" content="Every worksheet, every shortcut, every setting — the complete Ghost Calc reference." />
+    <meta name="twitter:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
+
+    <!-- ============ FAVICON ============ -->
+    <link rel="icon" type="image/x-icon" href="ghostcalc.ico">
+
+    <!-- ============ STRUCTURED DATA ============ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Ghost Calc — Help & Documentation",
+      "description": "Complete feature guide for Ghost Calc, an insert-anywhere calculator for Windows.",
+      "url": "https://ghostbundle.github.io/help-ghostcalc.html",
+      "inLanguage": "en",
+      "author": { "@type": "Organization", "name": "GhostBundle" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GhostBundle",
+        "url": "https://ghostbundle.github.io/"
+      },
+      "mainEntity": {
+        "@type": "SoftwareApplication",
+        "name": "Ghost Calc",
+        "alternateName": "GhostCalc",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Windows",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    }
+    </script>
+
+    <style>
+        /* ===== GhostBundle site nav (matches index.html) ===== */
+        .site-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 6px 14px;
+            max-width: 960px;
+            width: 100%;
+            margin: 0 auto 32px;
+            padding: 12px 20px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(160, 170, 220, 0.22);
+            box-shadow: 0 6px 20px rgba(120, 130, 200, 0.10);
+        }
+        .site-nav a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #3a4a7a;
+            text-decoration: none;
+            padding: 4px 10px;
+            border-radius: 12px;
+            transition: background 0.2s, color 0.2s;
+            white-space: nowrap;
+        }
+        .site-nav a:hover {
+            background: rgba(90, 122, 238, 0.12);
+            color: #5a7aee;
+        }
+        .site-nav a.nav-home {
+            font-weight: 700;
+            color: #5a7aee;
+        }
+        .site-nav .nav-sep {
+            color: rgba(120, 130, 180, 0.4);
+            font-size: 0.75rem;
+        }
+        .site-nav a.nav-current {
+            background: rgba(166, 124, 82, 0.15);
+            color: #7a5c33;
+        }
+
+        /* ===== Original Ghost Calc styles (unchanged) ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: #f7f2e8;
+            color: #2b2118;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fffdf8;
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(60,45,25,0.10);
+            padding: 40px 50px;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #2b2118;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+        .version-pill {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: #f2e8ce;
+            color: #8b6914;
+            padding: 4px 12px;
+            border-radius: 20px;
+            vertical-align: middle;
+            margin-left: 10px;
+            position: relative;
+            top: -8px;
+        }
+        .subtitle {
+            color: #6b5b45;
+            font-size: 1rem;
+            border-left: 4px solid #b8a378;
+            padding-left: 16px;
+            margin-bottom: 30px;
+        }
+        .search-wrap {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .search-wrap input {
+            width: 100%;
+            padding: 14px 20px;
+            font-size: 1rem;
+            border: 2px solid #e5dac2;
+            border-radius: 60px;
+            background: #fbf7ee;
+            transition: 0.2s;
+            outline: none;
+            padding-left: 48px;
+            color: #2b2118;
+        }
+        .search-wrap input::placeholder { color: #a89a7c; }
+        .search-wrap input:focus {
+            border-color: #a67c52;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(166,124,82,0.10);
+        }
+        .search-wrap .icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #b8a378;
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .feature-item {
+            background: #fdfaf3;
+            border-radius: 14px;
+            padding: 16px 24px;
+            border: 1px solid #ede4d0;
+            transition: 0.15s;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .feature-item:hover {
+            background: #f7f1e2;
+            border-color: #d4c4a0;
+        }
+        .feature-item .badge {
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: #8b6914;
+            background: #f2e8ce;
+            padding: 2px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .feature-item .content {
+            flex: 1;
+        }
+        .feature-item .title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #2b2118;
+        }
+        .feature-item .desc {
+            color: #4a3f2e;
+            font-size: 0.95rem;
+            margin-top: 2px;
+        }
+        .feature-item.hidden {
+            display: none;
+        }
+        .no-results {
+            text-align: center;
+            padding: 40px 0;
+            color: #8b7a5c;
+            font-size: 1.1rem;
+            display: none;
+        }
+        .about-section {
+            margin-top: 40px;
+            padding: 24px 28px;
+            background: #f5eedc;
+            border-radius: 18px;
+            border-left: 6px solid #a67c52;
+        }
+        .about-section h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2b2118;
+            margin-bottom: 6px;
+        }
+        .about-section p {
+            color: #3e3424;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #8b7a5c;
+            text-align: center;
+            border-top: 1px solid #ede4d0;
+            padding-top: 20px;
+            line-height: 1.8;
+        }
+        .footer a {
+            color: #a67c52;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dotted #d4c4a0;
+            transition: 0.15s;
+        }
+        .footer a:hover {
+            color: #7a5c33;
+            border-bottom-color: #a67c52;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 24px 18px; }
+            .feature-item { padding: 14px 16px; flex-wrap: wrap; }
+            .feature-item .badge { order: 2; }
+        }
+        code {
+            background: #f2ead8;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        kbd {
+            background: #f5efe0;
+            border: 1px solid #ddd1b5;
+            border-bottom-width: 2px;
+            border-radius: 4px;
+            padding: 0 6px;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 0.85rem;
+            color: #2b2118;
+        }
+        .new-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: #e8d08a;
+            color: #6b4a00;
+            padding: 1px 6px;
+            border-radius: 3px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+        .family-note {
+            margin-top: 8px;
+            padding: 12px 18px;
+            background: #fbf7ee;
+            border-radius: 12px;
+            border: 1px dashed #ddd1b5;
+            color: #5a4d3a;
+            font-size: 0.9rem;
+        }
+        .family-note strong { color: #2b2118; }
+        .example {
+            background: #fbf7ee;
+            border-left: 3px solid #b8a378;
+            padding: 8px 14px;
+            border-radius: 6px;
+            margin-top: 8px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #3e3424;
+            white-space: pre-line;
+        }
+
+        /* ===== Back-to-home link ===== */
+        .back-home {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #7a5c33;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(180, 160, 120, 0.35);
+            margin-bottom: 24px;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .back-home:hover {
+            background: #ffffff;
+            transform: translateX(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav" aria-label="Primary">
+        <a href="index.html" class="nav-home">👻 GhostBundle</a>
+        <span class="nav-sep">•</span>
+        <a href="help-ghostreader.html">Ghost Reader</a>
+        <a href="help-ghostcast.html">Ghost Cast</a>
+        <a href="help-ghostnotes.html">Ghost Notes</a>
+        <a href="help-ghoststamp.html">GhostStamp Pro</a>
+        <a href="help-ghostphrases.html">Ghost Phrases</a>
+        <a href="help-ghostcalc.html" class="nav-current">Ghost Calc</a>
+        <span class="nav-sep">•</span>
+        <a href="index.html#about">About</a>
+        <a href="index.html#faq">FAQ</a>
+    </nav>
+
+<div class="container">
+
+    <a href="index.html" class="back-home">← Back to GhostBundle</a>
+
+    <h1>🧮 Ghost Calc <span class="version-pill">v1.0</span></h1>
+    <div class="subtitle">A calculator that types its answer into any window – search below to find what you need</div>
+
+    <div class="search-wrap">
+        <span class="icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search features, e.g. 'insert', 'mortgage', 'unit', 'date'..." autofocus />
+    </div>
+
+    <div class="feature-grid" id="featureGrid">
+
+        <!-- ===== THE MAIN EVENT ===== -->
+        <div class="feature-item" data-keywords="insert type answer into window target notepad send type into app paste anywhere">
+            <span class="badge">⭐ Insert</span>
+            <div class="content">
+                <div class="title">Insert — the reason Ghost Calc exists <span class="new-badge">SIGNATURE</span></div>
+                <div class="desc">
+                    The <strong>Insert →</strong> button types the current display value into whichever window had focus before Ghost Calc opened. Open Notepad, click into it, open Ghost Calc from the tray, work out <code>250 * 0.15</code>, click Insert — <code>37.5</code> appears at your cursor in Notepad. No copy, no paste, no alt-tab.
+                    <div class="example">Typical flow:
+1. Click into your notes / email / spreadsheet
+2. Open Ghost Calc from the tray
+3. Do the calculation
+4. Click "Insert →"
+5. The answer lands right where you were typing</div>
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="target window label shown destination focus which app">
+            <span class="badge">⭐ Insert</span>
+            <div class="content"><div class="title">Target Window Label</div><div class="desc">Just below the display, a small grey label reads <em>"Target: Untitled — Notepad"</em>. It shows exactly which window Insert will send to. Check it before clicking — no more "oops, sent 36 to my boss's Slack." The target updates whenever you click away and back.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="copy clipboard insert both manual paste">
+            <span class="badge">⭐ Insert</span>
+            <div class="content"><div class="title">Copy (and Copy-on-Insert)</div><div class="desc">The <strong>Copy</strong> button sends the display value to the clipboard — useful when you want to paste it manually, or send it somewhere Insert can't reach. There's also a Settings toggle: <em>"Also copy the answer to clipboard on Insert."</em> On by default, so every Insert also leaves the value on the clipboard. Belt and braces.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="close after insert hide stay open one-shot setting">
+            <span class="badge">⭐ Insert</span>
+            <div class="content"><div class="title">Close After Insert (toggle)</div><div class="desc">By default Ghost Calc stays open after an Insert, so you can do more calculations in one sitting. A Settings toggle changes that: turn <strong>"Close Ghost Calc after Insert"</strong> on and the window hides itself the moment the answer lands. Perfect for one-shot calculations.</div></div>
+        </div>
+
+        <!-- ===== BASIC CALCULATOR ===== -->
+        <div class="feature-item" data-keywords="standard calculator arithmetic basic add subtract multiply divide windows calculator replacement">
+            <span class="badge">🧮 Calculator</span>
+            <div class="content"><div class="title">Standard Calculator</div><div class="desc">Familiar Windows-Calculator layout: memory row (MC, MR, MS, M+, M−), clear functions (←, CE, C, ±, √), digits and operators in the middle, and a tall <strong>=</strong> button on the right. Every key you know, nothing you don't.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="expression line chain history top of display calculation">
+            <span class="badge">🧮 Calculator</span>
+            <div class="content"><div class="title">Expression Line</div><div class="desc">Above the big display, a smaller grey line shows your whole calculation chain as you build it: <code>15 + 6 × 9</code>. Just like Windows Calculator. When you press <kbd>=</kbd>, the chain clears and the big display shows the result.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="sister panel overflow long expression clip left fun second window">
+            <span class="badge">🧮 Calculator</span>
+            <div class="content"><div class="title">The Sister Panel <span class="new-badge">FUN</span></div><div class="desc">If your expression gets so long that the top line overflows, Ghost Calc grows a second panel to the left — a sister window that continues the display. Type <code>1+2+3+4+5+6+7+8+9+10+11+12+13+14+15</code> and watch her slide in. When you press <kbd>C</kbd> or <kbd>=</kbd>, she slides back home. Purely cosmetic, entirely delightful.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="percent percentage discount add subtract tax">
+            <span class="badge">🧮 Calculator</span>
+            <div class="content"><div class="title">Percent ( <kbd>Shift</kbd>+<kbd>5</kbd> or the % button )</div><div class="desc">Matches Windows Calculator's behaviour: <code>100 + 10%</code> gives <code>110</code> (add 10% of the left operand), and <code>100 - 25%</code> gives <code>75</code> (subtract 25% of the left operand). <code>50 * 10%</code> gives <code>5</code>. If no operator is pending, <code>50%</code> alone gives <code>0.5</code>.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="memory mc mr ms m+ m- store recall clear">
+            <span class="badge">🧮 Calculator</span>
+            <div class="content"><div class="title">Memory Buttons</div><div class="desc"><strong>MS</strong> stores the display value, <strong>MR</strong> recalls it, <strong>MC</strong> clears it, <strong>M+</strong> and <strong>M−</strong> add or subtract the display from memory. The same memory model as any pocket calculator.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="square root reciprocal sign flip clear backspace divide by zero error">
+            <span class="badge">🧮 Calculator</span>
+            <div class="content"><div class="title">√, 1/x, ±, CE, C, ←</div><div class="desc"><strong>√</strong> square root, <strong>1/x</strong> reciprocal, <strong>±</strong> sign flip, <strong>CE</strong> clears just the current entry, <strong>C</strong> clears everything, <strong>←</strong> backspaces one digit. Divide-by-zero shows <em>Error</em> and refuses to crash — you just press C and carry on.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="digit grouping comma thousands separator setting display">
+            <span class="badge">🧮 Calculator</span>
+            <div class="content"><div class="title">Digit Grouping</div><div class="desc">Optional — off by default. Turn on in Settings and the display shows <code>1,234,567</code> instead of <code>1234567</code>. Purely visual; the underlying value is unaffected.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="keyboard numpad main row keys shortcuts hotkeys">
+            <span class="badge">⌨️ Keyboard</span>
+            <div class="content">
+                <div class="title">Keyboard Support</div>
+                <div class="desc">
+                    Everything works from either the main keyboard or the numpad:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><kbd>0</kbd>–<kbd>9</kbd> — digits (both rows)</li>
+                        <li><kbd>+</kbd> <kbd>-</kbd> <kbd>*</kbd> <kbd>/</kbd> — operators (numpad or Shift-modified main row)</li>
+                        <li><kbd>.</kbd> — decimal point</li>
+                        <li><kbd>Enter</kbd> or <kbd>=</kbd> — equals</li>
+                        <li><kbd>Backspace</kbd> — backspace one digit</li>
+                        <li><kbd>Esc</kbd> — clear all</li>
+                        <li><kbd>Shift</kbd>+<kbd>5</kbd> — percent</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== WORKSHEETS ===== -->
+        <div class="feature-item" data-keywords="worksheets fill any three solve fourth pattern financial calculator solve for unknown">
+            <span class="badge">📐 Worksheets</span>
+            <div class="content">
+                <div class="title">The "Fill Any Four, Solve the Fifth" Pattern</div>
+                <div class="desc">
+                    Every worksheet in Ghost Calc follows one simple rule: fill in all but one field, click Calculate, and the missing field gets solved. No "solve for rate" dropdown, no mode switch — the shape of what you left blank tells the calculator what to do.
+                    <div class="example">Example: Mortgage
+Principal  = 250000
+Rate       = 5.25
+Term       = 30          ← Monthly payment blank
+→ Calculate → Monthly payment solves to 1379.17
+
+Or go the other way — leave Rate blank instead:
+→ Calculate → Rate solves to 5.25%</div>
+                    Only one worksheet is open at a time — clicking another in the View menu swaps them. <kbd>Ctrl</kbd>+<kbd>F4</kbd> (or <strong>View → Basic</strong>) folds everything back to just the calculator.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="mortgage loan repayment principal rate term payment home loan amortization interest">
+            <span class="badge">📐 Worksheets</span>
+            <div class="content">
+                <div class="title">Mortgage Repayment</div>
+                <div class="desc">Four fields: <strong>Principal</strong>, <strong>Rate (% per year)</strong>, <strong>Term (years)</strong>, <strong>Monthly payment</strong>. Any three known → the fourth is solved.
+                    <div class="example">Reverse-check a loan offer:
+Principal = 250000
+Term      = 30
+Payment   = 1379.17
+Rate      = (blank)
+→ Calculate → Rate = 5.25% per year</div>
+                    Rate-solving uses an iterative method under the hood, so it's exact to 4 decimal places.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="fixed deposit lump sum savings interest compounding maturity term bank">
+            <span class="badge">📐 Worksheets</span>
+            <div class="content">
+                <div class="title">Fixed Deposit</div>
+                <div class="desc">Lump-sum savings that grows untouched. Five fields: <strong>Principal</strong>, <strong>Rate</strong>, <strong>Term (years)</strong>, <strong>Compounding</strong> (Daily / Monthly / Quarterly / Semi-annually / Annually), and <strong>Maturity</strong>. Fill any four, solve the fifth.
+                    <div class="example">Principal  = 10000
+Rate       = 5
+Term       = 5
+Compounding = Annually
+Maturity   = (blank)
+→ Calculate → Maturity = 12,762.82</div>
+                    Same inputs with Daily compounding instead of Annually → <code>12,840.03</code>. That's the daily-compounding advantage, made visible.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="recurring saver monthly deposit ongoing savings initial principal annuity target">
+            <span class="badge">📐 Worksheets</span>
+            <div class="content">
+                <div class="title">Recurring Saver</div>
+                <div class="desc">Savings where you deposit money every month <em>and</em> start with a lump sum. Five numeric fields: <strong>Initial principal</strong>, <strong>Monthly deposit</strong>, <strong>Rate</strong>, <strong>Term</strong>, <strong>Maturity</strong> — plus a <strong>Compounding</strong> dropdown that defaults to <em>Daily</em>, because that's what high-yield savings accounts use.
+                    <div class="example">Initial principal = 10000
+Monthly deposit   = 500
+Rate              = 5
+Term              = 3
+Compounding       = Daily
+→ Calculate → Maturity ≈ 30,998
+
+Or leave Monthly deposit blank to find out how much
+you'd need to deposit each month to reach a target.</div>
+                    The math blends fixed-deposit growth on the initial principal with annuity accumulation on the deposits — matching how real savings accounts actually work.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="unit conversion length weight temperature volume area speed time data metric imperial convert">
+            <span class="badge">📐 Worksheets</span>
+            <div class="content">
+                <div class="title">Unit Conversion</div>
+                <div class="desc">Eight categories, dozens of units, live conversion as you type. Pick a category, pick From, pick To, type a value — the result appears instantly. The <strong>Swap</strong> button flips From and To in one click.
+                    <div class="example">Categories:
+• Length — m, km, cm, mm, mi, yd, ft, in
+• Weight — kg, g, mg, lb, oz, st, t
+• Temperature — °C, °F, K
+• Volume — L, mL, m³, US gal, qt, pt, cup, fl oz
+• Area — m², km², ft², yd², acres, hectares
+• Speed — m/s, km/h, mph, knots, ft/s
+• Time — s, min, h, days, weeks
+• Data — bytes, KB, MB, GB, TB, bits</div>
+                    Temperature gets proper offset handling (0°C = 32°F = 273.15K). Everything else is straightforward factor multiplication.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="date calculation difference add subtract days weeks months years calendar between dates">
+            <span class="badge">📐 Worksheets</span>
+            <div class="content">
+                <div class="title">Date Calculation</div>
+                <div class="desc">
+                    Two modes, chosen from a dropdown:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>Difference</strong> — pick two dates, get the gap as "3 years, 2 months, 14 days" plus the total day count</li>
+                        <li><strong>Add / Subtract</strong> — pick a start date, an amount, and a unit (Days, Weeks, Months, Years), choose Add or Subtract, and get the resulting date</li>
+                    </ul>
+                    Add/Subtract correctly handles calendar arithmetic — "1 month from Jan 31" gives Feb 28/29, not March 3.
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PANELS & MENUS ===== -->
+        <div class="feature-item" data-keywords="view menu worksheets basic fold ctrl f4 switch panel">
+            <span class="badge">🗂️ Menus</span>
+            <div class="content"><div class="title">View Menu</div><div class="desc">The only menu that matters. <strong>Basic</strong> (<kbd>Ctrl</kbd>+<kbd>F4</kbd>) folds every worksheet back to just the calculator. Below that: Mortgage, Fixed deposit, Recurring saver, Unit conversion, Date calculation. A radio dot shows which worksheet is currently open; clicking the same one again closes it.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="basic fold close all panels escape hatch home">
+            <span class="badge">🗂️ Menus</span>
+            <div class="content"><div class="title">Basic — the fold-up escape hatch</div><div class="desc">One command, one purpose: close every open worksheet and return to the plain calculator. No hunting for X buttons. <kbd>Ctrl</kbd>+<kbd>F4</kbd> or View → Basic, and you're home.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="edit menu copy display ctrl c clipboard">
+            <span class="badge">🗂️ Menus</span>
+            <div class="content"><div class="title">Edit Menu</div><div class="desc">One item: <strong>Copy display</strong> (<kbd>Ctrl</kbd>+<kbd>C</kbd>). Same as the Copy button below the keypad.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="tray icon menu open settings help about exit notification area">
+            <span class="badge">🖥️ Tray</span>
+            <div class="content"><div class="title">Tray Icon</div><div class="desc">Ghost Calc lives in the notification area. Double-click the tray icon to bring the window forward — this is how you capture the target window (whatever was focused before the click becomes the Insert destination). Right-click for the menu: Open Calculator, Settings, Help Contents, About, Exit.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="settings close after insert copy on insert always on top digit grouping toggles">
+            <span class="badge">⚙️ Settings</span>
+            <div class="content">
+                <div class="title">Settings</div>
+                <div class="desc">
+                    Four toggles, saved to <code>ghostcalc.ini</code>:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>Close Ghost Calc after Insert</strong> — off by default; on = window hides after the answer lands</li>
+                        <li><strong>Also copy the answer to clipboard on Insert</strong> — on by default; belt-and-braces backup</li>
+                        <li><strong>Always on top</strong> — on by default; keeps Calc above your other windows</li>
+                        <li><strong>Digit grouping</strong> — off by default; on = <code>1,234,567</code> instead of <code>1234567</code></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== FILES ===== -->
+        <div class="feature-item" data-keywords="settings ini file config ghostcalc">
+            <span class="badge">💾 Files</span>
+            <div class="content"><div class="title">Settings File: <code>ghostcalc.ini</code></div><div class="desc">Sits next to the exe. Stores the four toggles. Editable by hand if you prefer that to the Settings dialog — changes take effect next launch.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="no registry portable usb stick install no setup">
+            <span class="badge">💾 Files</span>
+            <div class="content"><div class="title">Fully Portable</div><div class="desc">No registry keys, no AppData clutter, no installer. Everything Ghost Calc needs sits in its own folder. Copy the folder to a USB stick and it works anywhere with .NET Framework 4.x installed.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="single instance mutex second copy duplicate">
+            <span class="badge">💾 Files</span>
+            <div class="content"><div class="title">Single Instance</div><div class="desc">Only one copy of Ghost Calc can run at a time. Launching again just brings the existing window forward.</div></div>
+        </div>
+
+        <!-- ===== INTEROP ===== -->
+        <div class="feature-item" data-keywords="ghost phrases coexist sibling calc together keyboard hook interop">
+            <span class="badge">👻 Bundle</span>
+            <div class="content"><div class="title">Coexisting with Ghost Phrases</div><div class="desc">Ghost Phrases (the text expander) runs in the tray alongside Ghost Calc. Both watch the keyboard, but Phrases recognises when Ghost Calc has focus and steps aside so the two never fight over keystrokes. Type <code>100+10%</code> in Calc while Phrases is running — it just works. The moment you click away to another app, Phrases resumes expanding normally.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="elevated admin hook restriction setforegroundwindow sendinput">
+            <span class="badge">⚙️ Advanced</span>
+            <div class="content"><div class="title">Elevated Windows Caveat</div><div class="desc">Insert uses <code>SetForegroundWindow</code> + <code>SendInput</code>. If the target app is running as Administrator and Ghost Calc is not, Windows may block the foreground switch. Run Ghost Calc as Administrator too, or copy the value and paste it manually.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="no telemetry offline privacy network cloud-free">
+            <span class="badge">⚙️ Advanced</span>
+            <div class="content"><div class="title">Offline &amp; Private</div><div class="desc">Ghost Calc never touches the network. No analytics, no update check, no cloud. Everything runs locally on your machine.</div></div>
+        </div>
+
+        <!-- ===== GHOST BUNDLE ===== -->
+        <div class="feature-item" data-keywords="ghost bundle family utilities companion reader stamp cast notes phrases calc">
+            <span class="badge">👻 Bundle</span>
+            <div class="content">
+                <div class="title">The Ghost Bundle Family</div>
+                <div class="desc">
+                    Ghost Calc is one of six small utilities under the Ghost Bundle umbrella:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong><a href="help-ghostreader.html" style="color:#a67c52;">Ghost Reader</a></strong> — clipboard reader that speaks whatever you copy</li>
+                        <li><strong><a href="help-ghostcast.html" style="color:#a67c52;">Ghost Cast</a></strong> — multi-voice script studio</li>
+                        <li><strong><a href="help-ghostnotes.html" style="color:#a67c52;">Ghost Notes</a></strong> — hierarchical notebook</li>
+                        <li><strong><a href="help-ghoststamp.html" style="color:#a67c52;">GhostStamp Pro</a></strong> — PDF and scan stamper with vector seals</li>
+                        <li><strong><a href="help-ghostphrases.html" style="color:#a67c52;">Ghost Phrases</a></strong> — text expander</li>
+                        <li><strong><a href="help-ghostcalc.html" style="color:#a67c52;">Ghost Calc</a></strong> — calculator that types its answer into any window <em>(you are here)</em></li>
+                    </ul>
+                </div>
+                <div class="family-note">Six utilities. One family. Each does one thing well and stays out of your way. 💚</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="no-results" id="noResults">✨ No features match your search.</div>
+
+    <div class="about-section">
+        <h2>🧮 About Ghost Calc</h2>
+        <p>Ghost Calc is a small calculator that does something no other Windows calculator does: it can type its own answer into whatever you were working on. Open it from the tray, do your arithmetic, click Insert — and the number lands at your cursor, in Notepad, an email, a spreadsheet, anywhere. Underneath it's a proper Windows-Calculator-style keypad with memory buttons, percent, square root, and a proper expression line. Push further and you'll find five worksheets — mortgage, fixed deposit, recurring saver, unit conversion, and date calculation — all built around the same "fill any four, solve the fifth" idea. No accounts, no cloud, no nagging. Ghost Calc is free, and it always will be. 💚</p>
+    </div>
+
+    <div class="footer">
+        Ghost Calc Help &bull; Self-contained &bull; No internet needed<br>
+        Part of the Ghost Bundle — <a href="index.html">Back to GhostBundle</a> &bull; <a href="https://ghostbundle.github.io" target="_blank" rel="noopener">ghostbundle.github.io</a>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const searchInput = document.getElementById('searchInput');
+        const items = document.querySelectorAll('.feature-item');
+        const noResults = document.getElementById('noResults');
+
+        function filterFeatures(query) {
+            const lower = query.toLowerCase().trim();
+            let found = 0;
+            items.forEach(item => {
+                const keywords = (item.dataset.keywords || '').toLowerCase();
+                const title = item.querySelector('.title')?.textContent?.toLowerCase() || '';
+                const desc = item.querySelector('.desc')?.textContent?.toLowerCase() || '';
+                const match = (keywords + ' ' + title + ' ' + desc).includes(lower);
+                if (lower === '') {
+                    item.classList.remove('hidden');
+                    found++;
+                } else if (match) {
+                    item.classList.remove('hidden');
+                    found++;
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+            noResults.style.display = (found === 0 && lower !== '') ? 'block' : 'none';
+        }
+
+        searchInput.addEventListener('input', function(e) {
+            filterFeatures(e.target.value);
+        });
+
+        filterFeatures('');
+    })();
+</script>
+
+</body>
+</html>

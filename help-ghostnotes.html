@@ -1,0 +1,747 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ============ PRIMARY SEO ============ -->
+    <title>Ghost Notes — Help &amp; Documentation | GhostBundle</title>
+    <meta name="description" content="Ghost Notes help and documentation: hierarchical portable notebook for Windows. Rich text, favourites, cross-note find &amp; replace, auto-backup, dark mode, and keyboard-driven navigation. Free from GhostBundle." />
+    <meta name="author" content="GhostBundle" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#f7f2e8" />
+    <link rel="canonical" href="https://ghostbundle.github.io/help-ghostnotes.html" />
+
+    <!-- ============ OPEN GRAPH ============ -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="GhostBundle" />
+    <meta property="og:title" content="Ghost Notes — Help &amp; Documentation" />
+    <meta property="og:description" content="Every shortcut, every menu, every hidden file — the complete Ghost Notes reference." />
+    <meta property="og:url" content="https://ghostbundle.github.io/help-ghostnotes.html" />
+    <meta property="og:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ============ TWITTER CARD ============ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ghost Notes — Help &amp; Documentation" />
+    <meta name="twitter:description" content="Every shortcut, every menu, every hidden file — the complete Ghost Notes reference." />
+    <meta name="twitter:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
+
+    <!-- ============ FAVICON ============ -->
+    <link rel="icon" type="image/x-icon" href="gn.ico">
+
+    <!-- ============ STRUCTURED DATA ============ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Ghost Notes — Help & Documentation",
+      "description": "Complete feature guide for Ghost Notes, a hierarchical portable notebook for Windows.",
+      "url": "https://ghostbundle.github.io/help-ghostnotes.html",
+      "inLanguage": "en",
+      "author": { "@type": "Organization", "name": "GhostBundle" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GhostBundle",
+        "url": "https://ghostbundle.github.io/"
+      },
+      "mainEntity": {
+        "@type": "SoftwareApplication",
+        "name": "Ghost Notes",
+        "alternateName": "GhostNotes",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "Windows",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    }
+    </script>
+
+    <style>
+        /* ===== GhostBundle site nav (matches index.html) ===== */
+        .site-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 6px 14px;
+            max-width: 960px;
+            width: 100%;
+            margin: 0 auto 32px;
+            padding: 12px 20px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(160, 170, 220, 0.22);
+            box-shadow: 0 6px 20px rgba(120, 130, 200, 0.10);
+        }
+        .site-nav a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #3a4a7a;
+            text-decoration: none;
+            padding: 4px 10px;
+            border-radius: 12px;
+            transition: background 0.2s, color 0.2s;
+            white-space: nowrap;
+        }
+        .site-nav a:hover {
+            background: rgba(90, 122, 238, 0.12);
+            color: #5a7aee;
+        }
+        .site-nav a.nav-home {
+            font-weight: 700;
+            color: #5a7aee;
+        }
+        .site-nav .nav-sep {
+            color: rgba(120, 130, 180, 0.4);
+            font-size: 0.75rem;
+        }
+        .site-nav a.nav-current {
+            background: rgba(166, 124, 82, 0.15);
+            color: #7a5c33;
+        }
+
+        /* ===== Original Ghost Notes styles (unchanged) ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: #f7f2e8;
+            color: #2b2118;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fffdf8;
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(60,45,25,0.10);
+            padding: 40px 50px;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #2b2118;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+        .subtitle {
+            color: #6b5b45;
+            font-size: 1rem;
+            border-left: 4px solid #b8a378;
+            padding-left: 16px;
+            margin-bottom: 30px;
+        }
+        .search-wrap {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .search-wrap input {
+            width: 100%;
+            padding: 14px 20px;
+            font-size: 1rem;
+            border: 2px solid #e5dac2;
+            border-radius: 60px;
+            background: #fbf7ee;
+            transition: 0.2s;
+            outline: none;
+            padding-left: 48px;
+            color: #2b2118;
+        }
+        .search-wrap input::placeholder { color: #a89a7c; }
+        .search-wrap input:focus {
+            border-color: #a67c52;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(166,124,82,0.10);
+        }
+        .search-wrap .icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #b8a378;
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .feature-item {
+            background: #fdfaf3;
+            border-radius: 14px;
+            padding: 16px 24px;
+            border: 1px solid #ede4d0;
+            transition: 0.15s;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .feature-item:hover {
+            background: #f7f1e2;
+            border-color: #d4c4a0;
+        }
+        .feature-item .badge {
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: #8b6914;
+            background: #f2e8ce;
+            padding: 2px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .feature-item .content {
+            flex: 1;
+        }
+        .feature-item .title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #2b2118;
+        }
+        .feature-item .desc {
+            color: #4a3f2e;
+            font-size: 0.95rem;
+            margin-top: 2px;
+        }
+        .feature-item.hidden {
+            display: none;
+        }
+        .no-results {
+            text-align: center;
+            padding: 40px 0;
+            color: #8b7a5c;
+            font-size: 1.1rem;
+            display: none;
+        }
+        .about-section {
+            margin-top: 40px;
+            padding: 24px 28px;
+            background: #f5eedc;
+            border-radius: 18px;
+            border-left: 6px solid #a67c52;
+        }
+        .about-section h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2b2118;
+            margin-bottom: 6px;
+        }
+        .about-section p {
+            color: #3e3424;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #8b7a5c;
+            text-align: center;
+            border-top: 1px solid #ede4d0;
+            padding-top: 20px;
+            line-height: 1.8;
+        }
+        .footer a {
+            color: #a67c52;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dotted #d4c4a0;
+            transition: 0.15s;
+        }
+        .footer a:hover {
+            color: #7a5c33;
+            border-bottom-color: #a67c52;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 24px 18px; }
+            .feature-item { padding: 14px 16px; flex-wrap: wrap; }
+            .feature-item .badge { order: 2; }
+        }
+        code {
+            background: #f2ead8;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        kbd {
+            background: #f5efe0;
+            border: 1px solid #ddd1b5;
+            border-bottom-width: 2px;
+            border-radius: 4px;
+            padding: 0 6px;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 0.85rem;
+            color: #2b2118;
+        }
+        .new-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: #e8d08a;
+            color: #6b4a00;
+            padding: 1px 6px;
+            border-radius: 3px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+        .family-note {
+            margin-top: 8px;
+            padding: 12px 18px;
+            background: #fbf7ee;
+            border-radius: 12px;
+            border: 1px dashed #ddd1b5;
+            color: #5a4d3a;
+            font-size: 0.9rem;
+        }
+        .family-note strong { color: #2b2118; }
+
+        /* ===== Back-to-home link ===== */
+        .back-home {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #7a5c33;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(180, 160, 120, 0.35);
+            margin-bottom: 24px;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .back-home:hover {
+            background: #ffffff;
+            transform: translateX(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav" aria-label="Primary">
+        <a href="index.html" class="nav-home">👻 GhostBundle</a>
+        <span class="nav-sep">•</span>
+        <a href="help-ghostreader.html">Ghost Reader</a>
+        <a href="help-ghostcast.html">Ghost Cast</a>
+        <a href="help-ghostnotes.html" class="nav-current">Ghost Notes</a>
+        <a href="help-ghoststamp.html">GhostStamp Pro</a>
+        <a href="help-ghostphrases.html">Ghost Phrases</a>
+        <a href="help-ghostcalc.html">Ghost Calc</a>
+        <span class="nav-sep">•</span>
+        <a href="index.html#about">About</a>
+        <a href="index.html#faq">FAQ</a>
+    </nav>
+
+<div class="container">
+
+    <a href="index.html" class="back-home">← Back to GhostBundle</a>
+
+    <h1>📝 Ghost Notes</h1>
+    <div class="subtitle">Hierarchical note manager – search below to find what you need</div>
+
+    <div class="search-wrap">
+        <span class="icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search features, e.g. 'auto-save', 'find', 'backup'..." autofocus />
+    </div>
+
+    <div class="feature-grid" id="featureGrid">
+
+        <!-- ===== NOTES ===== -->
+        <div class="feature-item" data-keywords="new note create add entry ctrl+n">
+            <span class="badge">📝 Notes</span>
+            <div class="content"><div class="title">New Note <kbd>Ctrl</kbd>+<kbd>N</kbd></div><div class="desc">Adds a new note under the currently selected one. Prompts for a name; duplicate names within the same parent are rejected. Default name is "New Note".</div></div>
+        </div>
+        <div class="feature-item" data-keywords="child note right click nested subtree">
+            <span class="badge">📝 Notes</span>
+            <div class="content"><div class="title">New Child Note (right-click)</div><div class="desc">Right-click any note → "New Child Note" adds a note *inside* the selected one, indented one level. Same behaviour as the toolbar's New button.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="insert before prior sibling">
+            <span class="badge">📝 Notes</span>
+            <div class="content"><div class="title">Insert Note Before (right-click)</div><div class="desc">Adds a new note *above* the current one, at the same level. Useful for inserting an entry into the middle of a list.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="add as next after sibling">
+            <span class="badge">📝 Notes</span>
+            <div class="content"><div class="title">Add Note as Next (right-click)</div><div class="desc">Adds a new note *below* the current one, at the same level.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="rename title edit name f2">
+            <span class="badge">📝 Notes</span>
+            <div class="content"><div class="title">Rename <kbd>F2</kbd></div><div class="desc">Puts the selected note's name into inline edit mode. Press <kbd>Enter</kbd> to confirm or <kbd>Esc</kbd> to cancel. Blank names are rejected.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="delete remove note del">
+            <span class="badge">📝 Notes</span>
+            <div class="content"><div class="title">Delete <kbd>Del</kbd></div><div class="desc">Deletes the selected note and everything inside it. Shows a confirmation dialog first. The root <code>ToDoList</code> node is protected.</div></div>
+        </div>
+
+        <!-- ===== NAVIGATION ===== -->
+        <div class="feature-item" data-keywords="back forward navigate history alt left right">
+            <span class="badge">🧭 Navigation</span>
+            <div class="content"><div class="title">Back / Forward <kbd>Alt</kbd>+<kbd>←</kbd> / <kbd>Alt</kbd>+<kbd>→</kbd></div><div class="desc">Walks through every note depth-first. Wraps around: Forward at the last note goes back to the first. Useful for quickly skimming every note in a long tree.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="collapse expand all tree alt c alt x">
+            <span class="badge">🧭 Navigation</span>
+            <div class="content"><div class="title">Collapse All <kbd>Alt</kbd>+<kbd>C</kbd> / Expand All <kbd>Alt</kbd>+<kbd>X</kbd></div><div class="desc">Collapse tucks every branch away so you only see top-level notes. Expand opens the entire tree at once.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="sort alphabetical order ascending descending z a b c">
+            <span class="badge">🧭 Navigation</span>
+            <div class="content"><div class="title">Sort A–Z / Sort Z–A <span class="new-badge">NEW</span></div><div class="desc">Right-click any note → <strong>Sort A–Z</strong> orders its children alphabetically (case-insensitive). <strong>Sort Z–A</strong> reverses the order. Only the children of the selected note are sorted; the rest of the tree is untouched.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="favorites pin bookmark alt f">
+            <span class="badge">🧭 Navigation</span>
+            <div class="content"><div class="title">Favorites <kbd>Alt</kbd>+<kbd>F</kbd></div><div class="desc">Pin a frequently used note as your favorite. Pressing the shortcut again jumps straight back to it. If the favorite was deleted or renamed, the pin clears itself gracefully.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="get page path copy breadcrumb alt o">
+            <span class="badge">🧭 Navigation</span>
+            <div class="content"><div class="title">Get Page Path <kbd>Alt</kbd>+<kbd>O</kbd></div><div class="desc">Copies the full path of the current note to the clipboard, using <code>/</code> as separator — e.g. <code>ToDoList/Work/Q4 Report</code>. Shows the path in a dialog for confirmation.</div></div>
+        </div>
+
+        <!-- ===== ORGANIZE ===== -->
+        <div class="feature-item" data-keywords="move up down reorder alt arrow">
+            <span class="badge">🌳 Organize</span>
+            <div class="content"><div class="title">Move Up / Move Down <kbd>Alt</kbd>+<kbd>↑</kbd> / <kbd>Alt</kbd>+<kbd>↓</kbd></div><div class="desc">Reorders the selected note among its siblings. Content and children travel with it.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="move parent level child level ctrl alt arrow indent outdent">
+            <span class="badge">🌳 Organize</span>
+            <div class="content"><div class="title">To Parent Level / To Child Level</div><div class="desc"><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>←</kbd> promotes the note up one level of the tree — it becomes a sibling of its old parent. <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>→</kbd> demotes it under the sibling above it. Content and children travel intact.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="right click context tree menu">
+            <span class="badge">🌳 Organize</span>
+            <div class="content"><div class="title">Tree Right-Click Menu</div><div class="desc">Right-click any note in the tree to reveal the full toolkit: New Child Note, Insert Note Before, Add Note as Next, Delete, Rename, Insert Emoji, Move up/down, To Parent/Child level, Collapse/Expand all, Sort A–Z / Z–A, Get page path, Set as Favorites.</div></div>
+        </div>
+
+        <!-- ===== EDITING ===== -->
+        <div class="feature-item" data-keywords="rich text bold italic color format rtf emoji">
+            <span class="badge">✏️ Editing</span>
+            <div class="content"><div class="title">Rich Text Editing</div><div class="desc">The editor is a RichTextBox — you can use <kbd>Ctrl</kbd>+<kbd>B</kbd>, <kbd>Ctrl</kbd>+<kbd>I</kbd>, <kbd>Ctrl</kbd>+<kbd>U</kbd>, change font, colour, and highlight. Everything is stored as RTF inside the data file. Emoji are supported (monochrome silhouettes, tinted by the current text colour).</div></div>
+        </div>
+        <div class="feature-item" data-keywords="paste plain text strip formatting ctrl v">
+            <span class="badge">✏️ Editing</span>
+            <div class="content"><div class="title">Plain-Text Paste <kbd>Ctrl</kbd>+<kbd>V</kbd></div><div class="desc">Pasting from another app strips any font formatting and inserts plain text — so pasted content always adopts your editor's font and emoji display correctly.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="insert date time timestamp cursor ctrl shift d t b">
+            <span class="badge">✏️ Editing</span>
+            <div class="content"><div class="title">Insert Date / Time / Date+Time <span class="new-badge">NEW</span></div><div class="desc">
+                Insert a timestamp at the cursor. All three formats use ISO-style sorting-friendly notation.
+                <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                    <li><strong>Insert Date</strong> — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> → <code>2026-09-11</code></li>
+                    <li><strong>Insert Time</strong> — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> → <code>14:23</code></li>
+                    <li><strong>Insert Date + Time</strong> — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> → <code>2026-09-11 14:23</code></li>
+                </ul>
+                Also available in the Edit menu and the editor's right-click menu.
+            </div></div>
+        </div>
+        <div class="feature-item" data-keywords="find search replace ctrl f h shift f cross-note all notes titles dialog live results list">
+            <span class="badge">✏️ Editing</span>
+            <div class="content">
+                <div class="title">Find &amp; Replace <span class="new-badge">UPDATED</span> <kbd>Ctrl</kbd>+<kbd>F</kbd> / <kbd>Ctrl</kbd>+<kbd>H</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd></div>
+                <div class="desc">
+                    All three shortcuts now open the same unified dialog — <strong>Find &amp; Replace</strong>. It searches <strong>every note's title AND body</strong>, live, as you type. Results appear in a scrollable list with a snippet of context, each tagged 📑 for title matches or 📄 for body matches, and showing the note's full path.
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>Click any result</strong> (or press <kbd>Enter</kbd>) to jump straight to that note — the editor scrolls to the match and highlights it.</li>
+                        <li><strong>Match case</strong> and <strong>Whole word</strong> checkboxes</li>
+                        <li><strong>◄ Previous / Next ►</strong> cycle through results without going back to the list</li>
+                        <li><strong>Find All</strong> re-runs the search on demand</li>
+                        <li>The dialog stays open while you bounce between results, so you can review every hit</li>
+                    </ul>
+                    Also reachable from the Edit menu, the toolbar's <em>Find All</em> button, and the editor's right-click menu.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="replace all cross-note bulk titles notes ctrl h find swap confirmation">
+            <span class="badge">✏️ Editing</span>
+            <div class="content">
+                <div class="title">Replace / Replace All — Across All Notes</div>
+                <div class="desc">
+                    Inside the same Find &amp; Replace dialog:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>Replace</strong> — swaps the currently selected match. Requires a match to be selected in the editor first.</li>
+                        <li><strong>Replace All</strong> — replaces every occurrence across <em>every note body and every title</em> in a single pass. A confirmation prompt warns you before the bulk operation runs, since it can't be undone in one step.</li>
+                    </ul>
+                    A true notebook-wide find-and-replace — great for renaming a project, fixing a typo everywhere, or updating a recurring phrase across dozens of notes. After Replace All, the results list refreshes so you can see the updated state.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="word wrap ctrl w toggle">
+            <span class="badge">✏️ Editing</span>
+            <div class="content"><div class="title">Word Wrap <kbd>Ctrl</kbd>+<kbd>W</kbd></div><div class="desc">Toggles soft line wrapping. Off: long lines scroll horizontally. On: they wrap to the editor's width.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="select all ctrl a">
+            <span class="badge">✏️ Editing</span>
+            <div class="content"><div class="title">Select All <kbd>Ctrl</kbd>+<kbd>A</kbd></div><div class="desc">Selects the entire content of the current note.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="insert emoji icon picker smiley tabbed right click title body">
+            <span class="badge">✏️ Editing</span>
+            <div class="content">
+                <div class="title">Insert Emoji <span class="new-badge">NEW</span></div>
+                <div class="desc">
+                    Right-click in either the <strong>tree</strong> or the <strong>editor</strong> and choose <strong>Insert Emoji…</strong> to open a tabbed picker with 144 emoji grouped into twelve categories across four top-level tabs (Expressions, Food, Things, Office).
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>In the tree:</strong> the emoji is prepended to the note's title.</li>
+                        <li><strong>In the editor:</strong> it's inserted at the cursor.</li>
+                    </ul>
+                    All emoji are Unicode 11 or earlier, so they render identically on any modern Windows. The picker uses a 6×2 grid of 32×32 buttons per category.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="insert menu tokens date time clip text">
+            <span class="badge">✏️ Editing</span>
+            <div class="content">
+                <div class="title">Insert Menu (right-click)</div>
+                <div class="desc">
+                    Loads up to three text files for quick snippet insertion:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><code>InsCtrl.txt</code> — <kbd>Ctrl</kbd>-prefix snippets</li>
+                        <li><code>InsShift.txt</code> — <kbd>Shift</kbd>-prefix snippets</li>
+                        <li><code>InsShiftCtrl.txt</code> — <kbd>Ctrl</kbd>+<kbd>Shift</kbd> snippets</li>
+                    </ul>
+                    Each line is <code>Label; text</code>. The text supports tokens like <code>$dddd</code> (weekday), <code>$dd</code>, <code>$mm</code>, <code>$yyyy</code>, <code>$hh</code>, <code>$ss</code>, <code>%hh:mm:ss</code>, <code>%h:mm tt</code>, and <code>^</code> which becomes a newline.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="lookup search browser url word">
+            <span class="badge">✏️ Editing</span>
+            <div class="content"><div class="title">Lookup Menu (right-click)</div><div class="desc">Loads <code>Lookup.txt</code> (lines of <code>Name; url$query</code>). Highlight a word in the editor, pick a lookup entry, and the app opens the URL in your browser with the word substituted. Great for dictionaries, wikis, and search engines.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="editor right click cut copy paste find replace">
+            <span class="badge">✏️ Editing</span>
+            <div class="content"><div class="title">Editor Right-Click Menu</div><div class="desc">Insert, Lookup, Insert Date/Time, Insert Emoji, Cut, Copy, Paste, Select All, Find and Replace, and Word Wrap — all in one menu.</div></div>
+        </div>
+
+        <!-- ===== SAVING ===== -->
+        <div class="feature-item" data-keywords="save ctrl s persist disk">
+            <span class="badge">💾 Saving</span>
+            <div class="content"><div class="title">Save <kbd>Ctrl</kbd>+<kbd>S</kbd></div><div class="desc">Writes every note and its formatting to the XML data file <code>ghostnotes.ghn</code>. A green "Saved" toast blinks on the toolbar for a moment to confirm.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="save as different file ghn">
+            <span class="badge">💾 Saving</span>
+            <div class="content"><div class="title">Save As</div><div class="desc">Saves the entire notebook to a different <code>.ghn</code> file — useful for backups, project splits, or sharing a subset of notes with someone.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="auto save interval timer configurable view menu">
+            <span class="badge">💾 Saving</span>
+            <div class="content">
+                <div class="title">Auto-Save (View menu)</div>
+                <div class="desc">
+                    Automatic background saves at your chosen interval:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li>Off</li>
+                        <li>30 seconds</li>
+                        <li>1 minute</li>
+                        <li>4 minutes <em>(default)</em></li>
+                        <li>10 minutes</li>
+                        <li>30 minutes</li>
+                    </ul>
+                    The currently active interval is shown with a radio dot. Setting is saved to <code>ghostnotes.ini</code>.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="saved toast indicator toolbar green blink">
+            <span class="badge">💾 Saving</span>
+            <div class="content"><div class="title">"Saved" Toast</div><div class="desc">After a manual save, a small green "Saved" appears at the right end of the toolbar. It blinks three times, holds for a moment, then fades gently. No popup boxes interrupt your workflow.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="auto backup daily snapshot folder archives">
+            <span class="badge">💾 Saving</span>
+            <div class="content"><div class="title">Auto-Backup <span class="new-badge">NEW</span></div><div class="desc">Every save also writes a dated snapshot to a <code>Backups\</code> folder next to the exe — e.g. <code>Backups\ghostnotes_2026-09-11.ghn</code>. Only one snapshot per day; the most recent 30 are kept, older ones are pruned automatically. If you ever need to roll back after an accidental deletion or corruption, your last month of versions is right there.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="data file ghostnotes ghn xml format">
+            <span class="badge">💾 Saving</span>
+            <div class="content"><div class="title">Data File: <code>ghostnotes.ghn</code></div><div class="desc">A single XML file sits next to the exe and holds everything: the tree structure, note names, RTF content, and each note's created / modified timestamps. Copy it to back up the entire notebook.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="settings file ini config">
+            <span class="badge">💾 Saving</span>
+            <div class="content"><div class="title">Settings File: <code>ghostnotes.ini</code></div><div class="desc">Stores your splitter width, dark mode state, auto-save choice, tray preference, and favorite note. Editable by hand if you ever need to reset something.</div></div>
+        </div>
+
+        <!-- ===== IMPORT / EXPORT ===== -->
+        <div class="feature-item" data-keywords="import text file load txt">
+            <span class="badge">📥 Import</span>
+            <div class="content"><div class="title">Import Text File <span class="new-badge">NEW</span></div><div class="desc">File menu → <strong>Import Text File</strong>. Picks a <code>.txt</code> file and creates a new note under the current selection with that file's text as the body. If a note with the same name already exists in that parent, the import is auto-numbered ("My File (1)", "My File (2)", …) so nothing is overwritten. Great for pulling in quick notes from other apps.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="export text plain txt">
+            <span class="badge">📤 Export</span>
+            <div class="content"><div class="title">Export as Text</div><div class="desc">Writes every note to a single <code>.txt</code> file, with the tree structure shown as indented headings and the note content beneath each one. RTF codes are stripped so the output is clean and readable.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="export html web page">
+            <span class="badge">📤 Export</span>
+            <div class="content"><div class="title">Export as HTML</div><div class="desc">Produces a styled HTML document with each note in its own rounded card. Handy for sharing notes on the web or archiving them in a browser-readable format.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="export rtf rich text word wordpad formatting">
+            <span class="badge">📤 Export</span>
+            <div class="content"><div class="title">Export as RTF <span class="new-badge">NEW</span></div><div class="desc">Merges every note into a single <code>.rtf</code> file with each note as a bold heading followed by its <strong>fully formatted</strong> body — bold, italics, colours, and font changes are preserved. Opens cleanly in Word, WordPad, LibreOffice, and most rich-text editors. Ideal when you want to print or share a formatted copy of the whole notebook.</div></div>
+        </div>
+
+        <!-- ===== LAUNCHER ===== -->
+        <div class="feature-item" data-keywords="launcher toolbar button quick access programs">
+            <span class="badge">🚀 Launcher</span>
+            <div class="content"><div class="title">Launcher Menu</div><div class="desc">The toolbar's "⚡ Launcher" button opens a dropdown built from <code>Launcher.txt</code> (lines of <code>Label; command</code>). Each entry runs the command when clicked — perfect for opening your browser, favourite apps, or scripts without leaving Ghost Notes.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="environment variables launcher expand">
+            <span class="badge">🚀 Launcher</span>
+            <div class="content"><div class="title">Environment Variables</div><div class="desc">Launcher commands can include environment variables like <code>%USERPROFILE%</code> or <code>%SystemRoot%</code>. They're expanded before running, so shortcuts stay portable across machines.</div></div>
+        </div>
+
+        <!-- ===== STATUS BAR ===== -->
+        <div class="feature-item" data-keywords="status bar word count character count position">
+            <span class="badge">📊 Status</span>
+            <div class="content"><div class="title">Status Bar <span class="new-badge">NEW</span></div><div class="desc">The bottom strip shows live information: the current note's name, the cursor position (<code>Ln 5, Col 12</code>), the word and character count (updates every keystroke), and an unsaved-changes indicator (<code>*</code>).</div></div>
+        </div>
+
+        <!-- ===== VIEW ===== -->
+        <div class="feature-item" data-keywords="dark mode night theme ctrl d">
+            <span class="badge">👁️ View</span>
+            <div class="content"><div class="title">Dark Mode <kbd>Ctrl</kbd>+<kbd>D</kbd></div><div class="desc">Switches the whole window to a dark theme — editor, tree, toolbar, status bar. A checkmark appears next to the menu item when active, and the setting is remembered between sessions.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="status bar hide show bottom">
+            <span class="badge">👁️ View</span>
+            <div class="content"><div class="title">Status Bar Toggle</div><div class="desc">Shows or hides the bottom strip that displays the current note, cursor position, word count, and modification indicator. Checkmark syncs with the actual state.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="toolbar hide show icons">
+            <span class="badge">👁️ View</span>
+            <div class="content"><div class="title">Toolbar Toggle</div><div class="desc">Shows or hides the icon strip below the menu (New, Save, Delete, Back, Forward, Favorites, Launcher, Lookup, Find All, and the "Saved" toast).</div></div>
+        </div>
+        <div class="feature-item" data-keywords="splitter resize drag pane">
+            <span class="badge">👁️ View</span>
+            <div class="content"><div class="title">Adjustable Splitter</div><div class="desc">Drag the divider between the tree and the editor to resize the two panes. The position is saved to <code>ghostnotes.ini</code> so it reappears exactly where you left it.</div></div>
+        </div>
+
+        <!-- ===== TRAY ===== -->
+        <div class="feature-item" data-keywords="tray systray minimize icon background">
+            <span class="badge">🖥️ Tray</span>
+            <div class="content"><div class="title">System Tray Mode</div><div class="desc">When enabled, minimizing or clicking the X hides the app to the tray instead of closing it. Double-click the tray icon to restore. Right-click for Open / Exit.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="exit close quit">
+            <span class="badge">🖥️ Tray</span>
+            <div class="content"><div class="title">Exit</div><div class="desc">Truly closes the app, saving everything first. Available from the File menu, the tray menu, or by clicking the X when tray mode is disabled.</div></div>
+        </div>
+
+        <!-- ===== SHORTCUTS ===== -->
+        <div class="feature-item" data-keywords="keyboard shortcuts keys cheat sheet reference">
+            <span class="badge">⌨️ Shortcuts</span>
+            <div class="content">
+                <div class="title">Keyboard Reference</div>
+                <div class="desc">
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><kbd>Ctrl</kbd>+<kbd>N</kbd> – New Note</li>
+                        <li><kbd>Ctrl</kbd>+<kbd>S</kbd> – Save</li>
+                        <li><kbd>Ctrl</kbd>+<kbd>F</kbd> / <kbd>Ctrl</kbd>+<kbd>H</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> – Find &amp; Replace (across all notes)</li>
+                        <li><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> – Insert Date</li>
+                        <li><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> – Insert Time</li>
+                        <li><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> – Insert Date + Time</li>
+                        <li><kbd>Ctrl</kbd>+<kbd>A</kbd> – Select all</li>
+                        <li><kbd>Ctrl</kbd>+<kbd>D</kbd> / <kbd>Ctrl</kbd>+<kbd>W</kbd> – Dark mode / Word wrap</li>
+                        <li><kbd>F2</kbd> / <kbd>Del</kbd> – Rename / Delete note</li>
+                        <li><kbd>Alt</kbd>+<kbd>←</kbd> / <kbd>Alt</kbd>+<kbd>→</kbd> – Back / Forward</li>
+                        <li><kbd>Alt</kbd>+<kbd>↑</kbd> / <kbd>Alt</kbd>+<kbd>↓</kbd> – Move up / down</li>
+                        <li><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>←</kbd> / <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>→</kbd> – To parent / child</li>
+                        <li><kbd>Alt</kbd>+<kbd>C</kbd> / <kbd>Alt</kbd>+<kbd>X</kbd> – Collapse / Expand all</li>
+                        <li><kbd>Alt</kbd>+<kbd>O</kbd> – Copy page path</li>
+                        <li><kbd>Alt</kbd>+<kbd>F</kbd> – Favorites</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== ADVANCED ===== -->
+        <div class="feature-item" data-keywords="single instance multiple copies">
+            <span class="badge">⚙️ Advanced</span>
+            <div class="content"><div class="title">Single Instance</div><div class="desc">Only one copy of Ghost Notes can run at a time. Double-clicking the shortcut while it's already running simply brings the existing window to the front, so your notes never end up in two conflicting edit sessions.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="unsaved indicator star title modified">
+            <span class="badge">⚙️ Advanced</span>
+            <div class="content"><div class="title">Unsaved Changes Indicator</div><div class="desc">Whenever the current note has unsaved edits, an asterisk <code>*</code> appears in the title bar and next to the cursor position in the status bar. Close the app and you'll be prompted to save first.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="manual reset delete ini defaults">
+            <span class="badge">⚙️ Advanced</span>
+            <div class="content"><div class="title">Manual Reset</div><div class="desc">If the layout ever looks wrong or a setting misbehaves, close the app and delete <code>ghostnotes.ini</code>. On next launch Ghost Notes recreates it with defaults. Your notes in <code>ghostnotes.ghn</code> are never touched.</div></div>
+        </div>
+
+        <!-- ===== HIDDEN ===== -->
+        <div class="feature-item" data-keywords="root ToDoList invisible top level">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">The Invisible Root</div><div class="desc">Every note lives under an internal root node called <code>ToDoList</code>. You'll see it in the tree but can't rename or delete it — it holds the entire notebook together. You can still add children to it just like any note.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="timestamps created modified metadata xml">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">Note Timestamps</div><div class="desc">Every note silently stores its creation and last-modified time in the data file, even though nothing in the UI shows them yet. This is groundwork — future versions may use it for "sort by date" and journal-style views.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="log debug single_instance">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">Single-Instance Log</div><div class="desc">Every second-launch event is recorded in <code>Logs\single_instance.log</code> next to the exe, along with any mutex or event errors. Useful if you ever need to trace why the app behaved oddly on launch.</div></div>
+        </div>
+
+        <!-- ===== GHOST BUNDLE ===== -->
+        <div class="feature-item" data-keywords="ghost bundle family utilities companion reader stamp cast notes phrases calc">
+            <span class="badge">👻 Bundle</span>
+            <div class="content">
+                <div class="title">The Ghost Bundle Family</div>
+                <div class="desc">
+                    Ghost Notes is one of six small utilities under the Ghost Bundle umbrella:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong><a href="help-ghostreader.html" style="color:#a67c52;">Ghost Reader</a></strong> — distraction-free reader</li>
+                        <li><strong><a href="help-ghoststamp.html" style="color:#a67c52;">Ghost Stamp</a></strong> — file timestamping &amp; signing</li>
+                        <li><strong><a href="help-ghostcast.html" style="color:#a67c52;">Ghost Cast</a></strong> — multi-voice script studio</li>
+                        <li><strong><a href="help-ghostnotes.html" style="color:#a67c52;">Ghost Notes</a></strong> — hierarchical notebook <em>(you are here)</em></li>
+                        <li><strong><a href="help-ghostphrases.html" style="color:#a67c52;">Ghost Phrases</a></strong> — text expander</li>
+                        <li><strong><a href="help-ghostcalc.html" style="color:#a67c52;">Ghost Calc</a></strong> — standalone calculator with insert-into-app</li>
+                    </ul>
+                </div>
+                <div class="family-note">Six utilities. One family. Each does one thing well and stays out of your way. 💚</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="no-results" id="noResults">✨ No features match your search.</div>
+
+    <div class="about-section">
+        <h2>📝 About Ghost Notes</h2>
+        <p>Ghost Notes is a small hierarchical notebook inspired by the classic MemPad by Horst Schaeffer — the sort of tool that quietly does one thing well and then stays out of your way. It keeps every note in a single XML file, so backing up your entire notebook means copying one file to a USB stick or a cloud folder. Rich text, dark mode, favourites, back/forward navigation, auto-backup, cross-note find &amp; replace, and a handful of keyboard-driven niceties are all baked in. There are no accounts, no cloud sync, no telemetry, and no ads. Ghost Notes is free, and it always will be. 💚</p>
+    </div>
+
+    <div class="footer">
+        Ghost Notes Help &bull; Self-contained &bull; No internet needed<br>
+        Part of the Ghost Bundle — <a href="index.html">Back to GhostBundle</a> &bull; <a href="https://ghostbundle.github.io" target="_blank" rel="noopener">ghostbundle.github.io</a>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const searchInput = document.getElementById('searchInput');
+        const items = document.querySelectorAll('.feature-item');
+        const noResults = document.getElementById('noResults');
+
+        function filterFeatures(query) {
+            const lower = query.toLowerCase().trim();
+            let found = 0;
+            items.forEach(item => {
+                const keywords = (item.dataset.keywords || '').toLowerCase();
+                const title = item.querySelector('.title')?.textContent?.toLowerCase() || '';
+                const desc = item.querySelector('.desc')?.textContent?.toLowerCase() || '';
+                const match = (keywords + ' ' + title + ' ' + desc).includes(lower);
+                if (lower === '') {
+                    item.classList.remove('hidden');
+                    found++;
+                } else if (match) {
+                    item.classList.remove('hidden');
+                    found++;
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+            noResults.style.display = (found === 0 && lower !== '') ? 'block' : 'none';
+        }
+
+        searchInput.addEventListener('input', function(e) {
+            filterFeatures(e.target.value);
+        });
+
+        filterFeatures('');
+    })();
+</script>
+
+</body>
+</html>

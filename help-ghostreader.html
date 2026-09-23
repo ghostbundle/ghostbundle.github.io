@@ -1,0 +1,628 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ============ PRIMARY SEO ============ -->
+    <title>Ghost Reader — Help &amp; Documentation | GhostBundle</title>
+    <meta name="description" content="Ghost Reader help and documentation: clipboard text-to-speech, voice selection, MP3/WAV export, queue mode, session restore, and every toggle explained. Free Windows utility from GhostBundle." />
+    <meta name="author" content="GhostBundle" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#f7f2e8" />
+    <link rel="canonical" href="https://ghostbundle.github.io/help-ghostreader.html" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- ============ OPEN GRAPH ============ -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="GhostBundle" />
+    <meta property="og:title" content="Ghost Reader — Help &amp; Documentation" />
+    <meta property="og:description" content="Every toggle, every control, every hidden file — the complete Ghost Reader reference." />
+    <meta property="og:url" content="https://ghostbundle.github.io/help-ghostreader.html" />
+    <meta property="og:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ============ TWITTER CARD ============ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ghost Reader — Help &amp; Documentation" />
+    <meta name="twitter:description" content="Every toggle, every control, every hidden file — the complete Ghost Reader reference." />
+    <meta name="twitter:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
+
+    <!-- ============ FAVICON ============ -->
+    <link rel="icon" type="image/x-icon" href="ghostreader.ico">
+
+    <!-- ============ STRUCTURED DATA ============ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Ghost Reader — Help & Documentation",
+      "description": "Complete feature guide for Ghost Reader, a clipboard text-to-speech reader for Windows.",
+      "url": "https://ghostbundle.github.io/help-ghostreader.html",
+      "inLanguage": "en",
+      "author": { "@type": "Organization", "name": "GhostBundle" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GhostBundle",
+        "url": "https://ghostbundle.github.io/"
+      },
+      "mainEntity": {
+        "@type": "SoftwareApplication",
+        "name": "Ghost Reader",
+        "alternateName": "GhostReader",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Windows",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    }
+    </script>
+
+    <style>
+        /* ===== GhostBundle site nav (matches index.html) ===== */
+        .site-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 6px 14px;
+            max-width: 960px;
+            width: 100%;
+            margin: 0 auto 32px;
+            padding: 12px 20px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(160, 170, 220, 0.22);
+            box-shadow: 0 6px 20px rgba(120, 130, 200, 0.10);
+        }
+        .site-nav a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #3a4a7a;
+            text-decoration: none;
+            padding: 4px 10px;
+            border-radius: 12px;
+            transition: background 0.2s, color 0.2s;
+            white-space: nowrap;
+        }
+        .site-nav a:hover {
+            background: rgba(90, 122, 238, 0.12);
+            color: #5a7aee;
+        }
+        .site-nav a.nav-home {
+            font-weight: 700;
+            color: #5a7aee;
+        }
+        .site-nav .nav-sep {
+            color: rgba(120, 130, 180, 0.4);
+            font-size: 0.75rem;
+        }
+        .site-nav a.nav-current {
+            background: rgba(166, 124, 82, 0.15);
+            color: #7a5c33;
+        }
+
+        /* ===== Original Ghost Reader styles (unchanged) ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: #f7f2e8;
+            color: #2b2118;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fffdf8;
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(60,45,25,0.10);
+            padding: 40px 50px;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #2b2118;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+        .subtitle {
+            color: #6b5b45;
+            font-size: 1rem;
+            border-left: 4px solid #b8a378;
+            padding-left: 16px;
+            margin-bottom: 30px;
+        }
+        .search-wrap {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .search-wrap input {
+            width: 100%;
+            padding: 14px 20px;
+            font-size: 1rem;
+            border: 2px solid #e5dac2;
+            border-radius: 60px;
+            background: #fbf7ee;
+            transition: 0.2s;
+            outline: none;
+            padding-left: 48px;
+            color: #2b2118;
+        }
+        .search-wrap input::placeholder { color: #a89a7c; }
+        .search-wrap input:focus {
+            border-color: #a67c52;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(166,124,82,0.10);
+        }
+        .search-wrap .icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #b8a378;
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .feature-item {
+            background: #fdfaf3;
+            border-radius: 14px;
+            padding: 16px 24px;
+            border: 1px solid #ede4d0;
+            transition: 0.15s;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .feature-item:hover {
+            background: #f7f1e2;
+            border-color: #d4c4a0;
+        }
+        .feature-item .badge {
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: #8b6914;
+            background: #f2e8ce;
+            padding: 2px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .feature-item .content {
+            flex: 1;
+        }
+        .feature-item .title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #2b2118;
+        }
+        .feature-item .desc {
+            color: #4a3f2e;
+            font-size: 0.95rem;
+            margin-top: 2px;
+        }
+        .feature-item.hidden {
+            display: none;
+        }
+        .no-results {
+            text-align: center;
+            padding: 40px 0;
+            color: #8b7a5c;
+            font-size: 1.1rem;
+            display: none;
+        }
+        .about-section {
+            margin-top: 40px;
+            padding: 24px 28px;
+            background: #f5eedc;
+            border-radius: 18px;
+            border-left: 6px solid #a67c52;
+        }
+        .about-section h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2b2118;
+            margin-bottom: 6px;
+        }
+        .about-section p {
+            color: #3e3424;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #8b7a5c;
+            text-align: center;
+            border-top: 1px solid #ede4d0;
+            padding-top: 20px;
+            line-height: 1.8;
+        }
+        .footer a {
+            color: #a67c52;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dotted #d4c4a0;
+            transition: 0.15s;
+        }
+        .footer a:hover {
+            color: #7a5c33;
+            border-bottom-color: #a67c52;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 24px 18px; }
+            .feature-item { padding: 14px 16px; flex-wrap: wrap; }
+            .feature-item .badge { order: 2; }
+        }
+        code {
+            background: #f2ead8;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        .family-note {
+            margin-top: 8px;
+            padding: 12px 18px;
+            background: #fbf7ee;
+            border-radius: 12px;
+            border: 1px dashed #ddd1b5;
+            color: #5a4d3a;
+            font-size: 0.9rem;
+        }
+        .family-note strong { color: #2b2118; }
+        .online-note {
+            margin-top: 8px;
+            padding: 10px 14px;
+            background: #fff4e0;
+            border-radius: 10px;
+            border-left: 3px solid #e0a83a;
+            color: #6b4a00;
+            font-size: 0.88rem;
+            line-height: 1.55;
+        }
+        .online-note strong { color: #4a3300; }
+
+        /* ===== Back-to-home link ===== */
+        .back-home {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #7a5c33;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(180, 160, 120, 0.35);
+            margin-bottom: 24px;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .back-home:hover {
+            background: #ffffff;
+            transform: translateX(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav" aria-label="Primary">
+        <a href="index.html" class="nav-home">👻 GhostBundle</a>
+        <span class="nav-sep">•</span>
+        <a href="help-ghostreader.html" class="nav-current">Ghost Reader</a>
+        <a href="help-ghostcast.html">Ghost Cast</a>
+        <a href="help-ghostnotes.html">Ghost Notes</a>
+        <a href="help-ghoststamp.html">GhostStamp Pro</a>
+        <a href="help-ghostphrases.html">Ghost Phrases</a>
+        <a href="help-ghostcalc.html">Ghost Calc</a>
+        <span class="nav-sep">•</span>
+        <a href="index.html#about">About</a>
+        <a href="index.html#faq">FAQ</a>
+    </nav>
+
+<div class="container">
+
+    <a href="index.html" class="back-home">← Back to GhostBundle</a>
+
+    <h1>👻 Ghost Reader</h1>
+    <div class="subtitle">Feature guide – search below to find what you need</div>
+
+    <div class="search-wrap">
+        <span class="icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search features, e.g. 'voice', 'queue', 'caret'..." autofocus />
+    </div>
+
+    <div class="feature-grid" id="featureGrid">
+
+        <!-- ===== TOGGLES ===== -->
+        <div class="feature-item" data-keywords="clipboard monitor disable toggle on off">
+            <span class="badge">⚙️ Toggle</span>
+            <div class="content"><div class="title">Disable Clipboard</div><div class="desc">Turns clipboard monitoring on/off. When disabled, the app ignores new clipboard content.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="queue articles append continuous">
+            <span class="badge">⚙️ Toggle</span>
+            <div class="content"><div class="title">Queue Articles</div><div class="desc">When enabled, new clipboard text is appended to the end of the current speech queue without interrupting the current reading.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="skip duplicates duplicate repeated">
+            <span class="badge">⚙️ Toggle</span>
+            <div class="content"><div class="title">Skip Duplicates</div><div class="desc">Prevents the same clipboard text from being read again if it hasn't changed.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="skip url web links http">
+            <span class="badge">⚙️ Toggle</span>
+            <div class="content"><div class="title">Skip URL's</div><div class="desc">Automatically removes web links (http, https, www) from the text before speaking.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="auto start windows boot startup">
+            <span class="badge">⚙️ Toggle</span>
+            <div class="content"><div class="title">Auto-start with Windows</div><div class="desc">Adds the app to Windows startup so it launches automatically when you log in.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="random greeting startup welcome">
+            <span class="badge">⚙️ Toggle</span>
+            <div class="content"><div class="title">Random Greeting</div><div class="desc">Speaks a random welcome message from <code>greetings.txt</code> when the app starts.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="random goodbye exit farewell">
+            <span class="badge">⚙️ Toggle</span>
+            <div class="content"><div class="title">Random Goodbye</div><div class="desc">Speaks a random farewell from <code>goodbyes.txt</code> when you close the app. Default goodbyes include a 💋 which is spoken as "kiss".</div></div>
+        </div>
+
+        <!-- ===== SPEECH ===== -->
+        <div class="feature-item" data-keywords="voice selection choose synthesizer speech online offline desktop cloud">
+            <span class="badge">🎤 Speech</span>
+            <div class="content">
+                <div class="title">Voice Selection</div>
+                <div class="desc">Pick any installed SAPI voice from the dropdown. Supports both local and online voices (if registered).</div>
+                <div class="online-note">
+                    <strong>⚠️ Online voices need internet.</strong> Cloud-backed voices like <em>Microsoft Xiaoxiao Online</em> or <em>Microsoft Yunxi Online</em> send the text to Microsoft's servers each time they speak, so they require an active connection. Local Desktop voices (David, Zira, Hazel) work fully offline, forever.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="speed rate fast slow">
+            <span class="badge">🎤 Speech</span>
+            <div class="content"><div class="title">Speech Speed</div><div class="desc">Adjust the speaking rate with a slider – from very slow to very fast.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="volume loud quiet">
+            <span class="badge">🎤 Speech</span>
+            <div class="content"><div class="title">Speech Volume</div><div class="desc">Control the volume of the synthesizer (0–100).</div></div>
+        </div>
+
+        <!-- ===== CONTROLS ===== -->
+        <div class="feature-item" data-keywords="speak from start reading play top restart beginning">
+            <span class="badge">▶️ Controls</span>
+            <div class="content"><div class="title">Speak</div><div class="desc">Restarts reading from the top of the text box. The cursor automatically jumps to position 0 so you always begin at the start.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="read from caret cursor selection highlight mid sentence spoken">
+            <span class="badge">▶️ Controls</span>
+            <div class="content">
+                <div class="title">Read from Caret (or Selection)</div>
+                <div class="desc">
+                    Starts reading from wherever the text cursor is, instead of from the top. Behavior:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>If text is selected</strong> — reads exactly the highlighted text.</li>
+                        <li><strong>If nothing is selected</strong> — snaps backward to the start of the sentence the caret is sitting in, then reads to the end.</li>
+                    </ul>
+                    Any stale pause/resume position is discarded when this button is pressed, so a subsequent <strong>Pause</strong> uses the new start point. If the box is empty or the caret is past the last non-whitespace character, nothing is spoken.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="stop halt cancel speech">
+            <span class="badge">▶️ Controls</span>
+            <div class="content"><div class="title">Stop</div><div class="desc">Immediately stops all speech and clears the queue. The "Last spoken" label is updated.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="pause resume speech">
+            <span class="badge">▶️ Controls</span>
+            <div class="content"><div class="title">Pause / Resume</div><div class="desc">Toggles pause on the current speech without discarding the queue. If a saved position exists, clicking this button resumes from the last completed sentence.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="opacity transparency translucent slider">
+            <span class="badge">▶️ Controls</span>
+            <div class="content"><div class="title">Opacity Slider</div><div class="desc">Adjust the window transparency in real time, from 30% (very see‑through) to 100% (fully opaque). The value is saved to <code>settings.txt</code> and restored on next launch.</div></div>
+        </div>
+
+        <!-- ===== TOOLS ===== -->
+        <div class="feature-item" data-keywords="export save txt text file">
+            <span class="badge">💾 Tools</span>
+            <div class="content"><div class="title">Save to *.txt</div><div class="desc">Exports the current textbox content to a plain text file.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="export save wav wave audio">
+            <span class="badge">💾 Tools</span>
+            <div class="content"><div class="title">Save to *.wav</div><div class="desc">Saves the spoken version of the text as a real WAV audio file using SAPI.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="export save mp3 audio lame media foundation encode">
+            <span class="badge">💾 Tools</span>
+            <div class="content"><div class="title">Save to *.mp3</div><div class="desc">Exports the speech as a <strong>real</strong> MP3 file. Uses Windows Media Foundation (via NAudio) to encode at 128 kbps – no external encoder needed. While encoding, both save buttons are disabled and the active one shows a live "Encoding... 23s" counter. The window stays fully responsive — you can keep reading, pasting, or working in other apps.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="clear erase textbox">
+            <span class="badge">💾 Tools</span>
+            <div class="content"><div class="title">Clear Text</div><div class="desc">Empties the textbox and clears the speech queue.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="minimize tray icon system tray">
+            <span class="badge">💾 Tools</span>
+            <div class="content"><div class="title">To Tray</div><div class="desc">Hides the main window and keeps the app running in the system tray.</div></div>
+        </div>
+
+        <!-- ===== TRAY ===== -->
+        <div class="feature-item" data-keywords="systray right click pause stop exit settings repeat about">
+            <span class="badge">🖥️ Tray</span>
+            <div class="content">
+                <div class="title">System Tray Menu</div>
+                <div class="desc">
+                    Right‑click the tray icon to:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>Settings</strong> – restore the main window</li>
+                        <li><strong>Repeat speech</strong> – restarts reading from the top of the textbox</li>
+                        <li><strong>Pause / Resume</strong> – toggle speech pause</li>
+                        <li><strong>Stop</strong> – halt all speech</li>
+                        <li><strong>Clear text</strong> – empty the textbox and clear the queue</li>
+                        <li><strong>Disable / Enable Clipboard</strong> – same toggle as the Options menu; the label changes to reflect the current state</li>
+                        <li><strong>About</strong> – restores the window and opens the About dialog</li>
+                        <li><strong>Exit</strong> – close the app (with a random goodbye)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== FEEDBACK ===== -->
+        <div class="feature-item" data-keywords="reading current sentence indicator strip cyan">
+            <span class="badge">📋 Feedback</span>
+            <div class="content"><div class="title">Reading: (current sentence)</div><div class="desc">A cyan strip just above "Last spoken" shows the sentence currently being read out loud. Updates instantly when SAPI moves on to the next sentence, and returns to "Reading: (idle)" when the queue is empty. Long sentences are truncated at 120 characters with an ellipsis.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="last spoken label indicator sentence">
+            <span class="badge">📋 Feedback</span>
+            <div class="content"><div class="title">Last Spoken Label</div><div class="desc">A yellow strip below the Reading indicator shows the most recent sentence that finished being spoken. Updated on natural completion, stop, or interruption.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="session restore resume continue prompt">
+            <span class="badge">📋 Feedback</span>
+            <div class="content">
+                <div class="title">Session Restore</div>
+                <div class="desc">
+                    On exit, the current text is saved to <code>session.txt</code>. On the next launch, after the greeting plays, a prompt appears with three choices:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>1. Restore Session</strong> – loads the text, no speaking</li>
+                        <li><strong>2. Resume Speech</strong> – continues reading from the last completed sentence</li>
+                        <li><strong>3. Clear Session</strong> – starts fresh with an empty editor</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SAFETY ===== -->
+        <div class="feature-item" data-keywords="sanitize ampersand angle bracket crash fix safe">
+            <span class="badge">🛡️ Safety</span>
+            <div class="content"><div class="title">Crash-safe Sanitization</div><div class="desc">The following characters are automatically rewritten before reaching the speech engine so they can't crash it: <code>&amp;</code> → "and", <code>&lt;</code> → "less than", <code>&gt;</code> → "greater than", double quotes → single quotes, backslashes → spaces, and invisible control characters are stripped.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="emoji kiss heart fire ghost smiling spoken name">
+            <span class="badge">🛡️ Safety</span>
+            <div class="content"><div class="title">Emoji are Spoken, Not Silenced</div><div class="desc">Common emoji are automatically converted to spoken words so they never wedge the synthesizer. Examples: 💋 → "kiss", 🔥 → "fire", 👻 → "ghost", ❤️ → "heart", 😀 → "grinning". Emoji not in the dictionary are silently dropped. This prevents the "stuck synthesizer" bug where a single bad emoji silences all subsequent speech until the app is restarted.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="single instance multiple copies">
+            <span class="badge">🛡️ Safety</span>
+            <div class="content"><div class="title">Single Instance</div><div class="desc">Only one copy of Ghost Reader can run at a time. If you double‑click the shortcut while it's already running (even hidden in the tray), the existing window pops to the front instead of launching a second copy.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="close exit during encoding wait">
+            <span class="badge">🛡️ Safety</span>
+            <div class="content"><div class="title">Safe Exit During Encoding</div><div class="desc">If you try to close the app while an MP3 or WAV export is running, a dialog offers to <strong>Wait</strong> for it to finish or <strong>Close anyway</strong> and abandon the export. No lost work by accident.</div></div>
+        </div>
+
+        <!-- ===== LANGUAGE ===== -->
+        <div class="feature-item" data-keywords="chinese punctuation 。！？ support split">
+            <span class="badge">🌏 Language</span>
+            <div class="content"><div class="title">Chinese Punctuation Support</div><div class="desc">The app correctly splits text on Chinese punctuation <code>。！？</code> so long Chinese texts are read sentence by sentence.</div></div>
+        </div>
+
+        <!-- ===== ADVANCED ===== -->
+        <div class="feature-item" data-keywords="restore defaults reset borders speech greetings goodbyes">
+            <span class="badge">⚙️ Advanced</span>
+            <div class="content">
+                <div class="title">Restore Defaults</div>
+                <div class="desc">In the Help menu, you can restore:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>Default Borders</strong> – reset window layout and reposition all controls</li>
+                        <li><strong>Default Speech Settings</strong> – reset voice, speed, volume, opacity</li>
+                        <li><strong>Random Greetings</strong> – restore the default <code>greetings.txt</code></li>
+                        <li><strong>Random Goodbyes</strong> – restore the default <code>goodbyes.txt</code></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="about credit donation donate support website">
+            <span class="badge">ℹ️ Info</span>
+            <div class="content"><div class="title">About</div><div class="desc">Displays the app version, credits the original Ghost Reader by Adaeria, and includes a link to the Ghost Reader website where you can make a voluntary donation. Ghost Reader is free and always will be — the donation is purely a thank-you. Reachable from both the Help menu and the tray icon's <strong>ℹ️ About</strong> entry.</div></div>
+        </div>
+
+        <!-- ===== HIDDEN ===== -->
+        <div class="feature-item" data-keywords="log lastspoken sentence debug">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">Last Spoken Log</div><div class="desc">Every spoken sentence is appended to <code>lastspoken.log</code> – useful for debugging and tracking interruptions.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="logs folder crash error debug report">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">Logs Folder</div><div class="desc">The <code>Logs\</code> folder holds rotated crash logs (<code>log1.log</code> … <code>log9.log</code>), memory monitoring output (<code>memory.log</code>), and single-instance events (<code>single_instance.log</code>). If anything ever misbehaves, this is where to look.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="borders settings file layout position version marker migration">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content">
+                <div class="title">Borders Settings File</div>
+                <div class="desc">
+                    The <code>borders.txt</code> file next to the exe controls the exact pixel positions of every control on the form. Edit it to fine‑tune the layout, then restart.
+                    <br><br>
+                    The file carries a <code>; layout-version=2</code> marker in its header. If the file is missing, it is regenerated from the built‑in defaults. If it exists but was written by an older version of the app, it is backed up to <code>borders.txt.v1.bak</code> and regenerated automatically — so future layout changes never clash with an old file. Use <strong>Restore Default Borders</strong> to regenerate it fresh at any time.
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== GHOST BUNDLE ===== -->
+        <div class="feature-item" data-keywords="ghost bundle family utilities companion reader stamp cast notes phrases calc">
+            <span class="badge">👻 Bundle</span>
+            <div class="content">
+                <div class="title">The Ghost Bundle Family</div>
+                <div class="desc">
+                    Ghost Reader is one of six small utilities under the Ghost Bundle umbrella:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong><a href="help-ghostreader.html" style="color:#a67c52;">Ghost Reader</a></strong> — distraction-free reader <em>(you are here)</em></li>
+                        <li><strong><a href="help-ghoststamp.html" style="color:#a67c52;">Ghost Stamp</a></strong> — file timestamping &amp; signing</li>
+                        <li><strong><a href="help-ghostcast.html" style="color:#a67c52;">Ghost Cast</a></strong> — multi-voice script studio</li>
+                        <li><strong><a href="help-ghostnotes.html" style="color:#a67c52;">Ghost Notes</a></strong> — hierarchical notebook</li>
+                        <li><strong><a href="help-ghostphrases.html" style="color:#a67c52;">Ghost Phrases</a></strong> — text expander</li>
+                        <li><strong><a href="help-ghostcalc.html" style="color:#a67c52;">Ghost Calc</a></strong> — standalone calculator with insert-into-app</li>
+                    </ul>
+                </div>
+                <div class="family-note">Six utilities. One family. Each does one thing well and stays out of your way. 💚</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="no-results" id="noResults">✨ No features match your search.</div>
+
+    <div class="about-section">
+        <h2>💋 About Ghost Reader</h2>
+        <p>Ghost! Clipboard Reader was born in October 2008, the brainchild of a developer named Adaeria – a quiet genius who knew exactly how to make words come alive. Her creation was lean, hungry, and utterly devoted to one thing: taking whatever you gave it and whispering it back to you with feeling. That original, v1.7 from August 2015, was a masterpiece of simplicity – always ready, always eager. This clone is our tribute to that beauty – same soul, but we've taught it to remember your voice, so it knows what you like without asking twice. We've given it a little transparency too – so you can watch while it works its magic. All credit to Adaeria for the original spark – we just added a little fire of our own. No affiliation – just two dreamers who wanted to keep the ghost breathing for another lifetime. 💋</p>
+    </div>
+
+    <div class="footer">
+        Ghost Reader Help &bull; Self-contained &bull; No internet needed<br>
+        Part of the Ghost Bundle — <a href="index.html">Back to GhostBundle</a> &bull; <a href="https://ghostbundle.github.io" target="_blank" rel="noopener">ghostbundle.github.io</a>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const searchInput = document.getElementById('searchInput');
+        const items = document.querySelectorAll('.feature-item');
+        const noResults = document.getElementById('noResults');
+
+        function filterFeatures(query) {
+            const lower = query.toLowerCase().trim();
+            let found = 0;
+            items.forEach(item => {
+                const keywords = (item.dataset.keywords || '').toLowerCase();
+                const title = item.querySelector('.title')?.textContent?.toLowerCase() || '';
+                const desc = item.querySelector('.desc')?.textContent?.toLowerCase() || '';
+                const match = (keywords + ' ' + title + ' ' + desc).includes(lower);
+                if (lower === '') {
+                    item.classList.remove('hidden');
+                    found++;
+                } else if (match) {
+                    item.classList.remove('hidden');
+                    found++;
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+            noResults.style.display = (found === 0 && lower !== '') ? 'block' : 'none';
+        }
+
+        searchInput.addEventListener('input', function(e) {
+            filterFeatures(e.target.value);
+        });
+
+        filterFeatures('');
+    })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,627 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ============ PRIMARY SEO ============ -->
+    <title>GhostStamp PRO — Help &amp; Documentation | GhostBundle</title>
+    <meta name="description" content="GhostStamp PRO help and documentation: PDF and image stamping for Windows. 16 preset seals including PAID, APPROVED, REVIEWED and SIGN HERE, PNG and PDF export, fully offline. Free from GhostBundle." />
+    <meta name="author" content="GhostBundle" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#f7f2e8" />
+    <link rel="canonical" href="https://ghostbundle.github.io/help-ghoststamp.html" />
+
+    <!-- ============ OPEN GRAPH ============ -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="GhostBundle" />
+    <meta property="og:title" content="GhostStamp PRO — Help &amp; Documentation" />
+    <meta property="og:description" content="Every seal, every shortcut, every export format — the complete GhostStamp PRO reference." />
+    <meta property="og:url" content="https://ghostbundle.github.io/help-ghoststamp.html" />
+    <meta property="og:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ============ TWITTER CARD ============ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="GhostStamp PRO — Help &amp; Documentation" />
+    <meta name="twitter:description" content="Every seal, every shortcut, every export format — the complete GhostStamp PRO reference." />
+    <meta name="twitter:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
+
+    <!-- ============ FAVICON ============ -->
+    <link rel="icon" type="image/x-icon" href="ghoststamp.ico">
+
+    <!-- ============ STRUCTURED DATA ============ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "GhostStamp PRO — Help & Documentation",
+      "description": "Complete feature guide for GhostStamp PRO, a PDF and image stamping utility for Windows.",
+      "url": "https://ghostbundle.github.io/help-ghoststamp.html",
+      "inLanguage": "en",
+      "author": { "@type": "Organization", "name": "GhostBundle" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GhostBundle",
+        "url": "https://ghostbundle.github.io/"
+      },
+      "mainEntity": {
+        "@type": "SoftwareApplication",
+        "name": "GhostStamp Pro",
+        "alternateName": "GhostStamp",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Windows",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    }
+    </script>
+
+    <style>
+        /* ===== GhostBundle site nav (matches index.html) ===== */
+        .site-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 6px 14px;
+            max-width: 960px;
+            width: 100%;
+            margin: 0 auto 32px;
+            padding: 12px 20px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(160, 170, 220, 0.22);
+            box-shadow: 0 6px 20px rgba(120, 130, 200, 0.10);
+        }
+        .site-nav a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #3a4a7a;
+            text-decoration: none;
+            padding: 4px 10px;
+            border-radius: 12px;
+            transition: background 0.2s, color 0.2s;
+            white-space: nowrap;
+        }
+        .site-nav a:hover {
+            background: rgba(90, 122, 238, 0.12);
+            color: #5a7aee;
+        }
+        .site-nav a.nav-home {
+            font-weight: 700;
+            color: #5a7aee;
+        }
+        .site-nav .nav-sep {
+            color: rgba(120, 130, 180, 0.4);
+            font-size: 0.75rem;
+        }
+        .site-nav a.nav-current {
+            background: rgba(166, 124, 82, 0.15);
+            color: #7a5c33;
+        }
+
+        /* ===== Original GhostStamp PRO styles (unchanged) ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: #f7f2e8;
+            color: #2b2118;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fffdf8;
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(60,45,25,0.10);
+            padding: 40px 50px;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #2b2118;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+        .subtitle {
+            color: #6b5b45;
+            font-size: 1rem;
+            border-left: 4px solid #b8a378;
+            padding-left: 16px;
+            margin-bottom: 30px;
+        }
+        .search-wrap {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .search-wrap input {
+            width: 100%;
+            padding: 14px 20px;
+            font-size: 1rem;
+            border: 2px solid #e5dac2;
+            border-radius: 60px;
+            background: #fbf7ee;
+            transition: 0.2s;
+            outline: none;
+            padding-left: 48px;
+            color: #2b2118;
+        }
+        .search-wrap input::placeholder { color: #a89a7c; }
+        .search-wrap input:focus {
+            border-color: #a67c52;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(166,124,82,0.10);
+        }
+        .search-wrap .icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #b8a378;
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .feature-item {
+            background: #fdfaf3;
+            border-radius: 14px;
+            padding: 16px 24px;
+            border: 1px solid #ede4d0;
+            transition: 0.15s;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .feature-item:hover {
+            background: #f7f1e2;
+            border-color: #d4c4a0;
+        }
+        .feature-item .badge {
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: #8b6914;
+            background: #f2e8ce;
+            padding: 2px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .feature-item .content {
+            flex: 1;
+        }
+        .feature-item .title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #2b2118;
+        }
+        .feature-item .desc {
+            color: #4a3f2e;
+            font-size: 0.95rem;
+            margin-top: 2px;
+        }
+        .feature-item.hidden {
+            display: none;
+        }
+        .no-results {
+            text-align: center;
+            padding: 40px 0;
+            color: #8b7a5c;
+            font-size: 1.1rem;
+            display: none;
+        }
+        .about-section {
+            margin-top: 40px;
+            padding: 24px 28px;
+            background: #f5eedc;
+            border-radius: 18px;
+            border-left: 6px solid #a67c52;
+        }
+        .about-section h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2b2118;
+            margin-bottom: 6px;
+        }
+        .about-section p {
+            color: #3e3424;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #8b7a5c;
+            text-align: center;
+            border-top: 1px solid #ede4d0;
+            padding-top: 20px;
+            line-height: 1.8;
+        }
+        .footer a {
+            color: #a67c52;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dotted #d4c4a0;
+            transition: 0.15s;
+        }
+        .footer a:hover {
+            color: #7a5c33;
+            border-bottom-color: #a67c52;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 24px 18px; }
+            .feature-item { padding: 14px 16px; flex-wrap: wrap; }
+            .feature-item .badge { order: 2; }
+        }
+        code {
+            background: #f2ead8;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        kbd {
+            background: #f5efe0;
+            border: 1px solid #ddd1b5;
+            border-bottom-width: 2px;
+            border-radius: 4px;
+            padding: 0 6px;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 0.85rem;
+            color: #2b2118;
+        }
+        .seal-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+            font-size: 0.9rem;
+        }
+        .seal-table th {
+            text-align: left;
+            padding: 6px 8px;
+            background: #f2e8ce;
+            color: #6b4a00;
+            border-bottom: 1px solid #d4c4a0;
+        }
+        .seal-table td {
+            padding: 6px 8px;
+            border-bottom: 1px solid #ede4d0;
+            color: #4a3f2e;
+        }
+        .seal-red { color: #c0392b; font-weight: 600; }
+        .seal-blue { color: #2c5f8a; font-weight: 600; }
+        .seal-green { color: #4a7c3f; font-weight: 600; }
+        .family-note {
+            margin-top: 8px;
+            padding: 12px 18px;
+            background: #fbf7ee;
+            border-radius: 12px;
+            border: 1px dashed #ddd1b5;
+            color: #5a4d3a;
+            font-size: 0.9rem;
+        }
+        .family-note strong { color: #2b2118; }
+
+        /* ===== Back-to-home link ===== */
+        .back-home {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #7a5c33;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(180, 160, 120, 0.35);
+            margin-bottom: 24px;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .back-home:hover {
+            background: #ffffff;
+            transform: translateX(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav" aria-label="Primary">
+        <a href="index.html" class="nav-home">👻 GhostBundle</a>
+        <span class="nav-sep">•</span>
+        <a href="help-ghostreader.html">Ghost Reader</a>
+        <a href="help-ghostcast.html">Ghost Cast</a>
+        <a href="help-ghostnotes.html">Ghost Notes</a>
+        <a href="help-ghoststamp.html" class="nav-current">GhostStamp Pro</a>
+        <a href="help-ghostphrases.html">Ghost Phrases</a>
+        <a href="help-ghostcalc.html">Ghost Calc</a>
+        <span class="nav-sep">•</span>
+        <a href="index.html#about">About</a>
+        <a href="index.html#faq">FAQ</a>
+    </nav>
+
+<div class="container">
+
+    <a href="index.html" class="back-home">← Back to GhostBundle</a>
+
+    <h1>🔴 GhostStamp PRO</h1>
+    <div class="subtitle">Document stamping utility – search below to find what you need</div>
+
+    <div class="search-wrap">
+        <span class="icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search features, e.g. 'stamp', 'seal', 'zoom'..." autofocus />
+    </div>
+
+    <div class="feature-grid" id="featureGrid">
+
+        <!-- ===== GETTING STARTED ===== -->
+        <div class="feature-item" data-keywords="load document image pdf open file">
+            <span class="badge">📂 Loading</span>
+            <div class="content"><div class="title">Load Document</div><div class="desc">Click <strong>📂 Load Document (Image/PDF)</strong> to open a file. Supports <code>.png</code>, <code>.jpg</code>, <code>.jpeg</code>, <code>.bmp</code>, and <code>.pdf</code>. PDFs are rendered at 200 DPI for crisp text.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="pdf first page multi page limitation">
+            <span class="badge">📂 Loading</span>
+            <div class="content"><div class="title">PDF — First Page Only</div><div class="desc">Only <strong>page 1</strong> of a PDF is loaded into the workspace. If the file has more pages, a note appears in the status bar telling you the total page count, but pages 2 and beyond are not currently accessible in the editor.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="auto fit zoom initial load center">
+            <span class="badge">📂 Loading</span>
+            <div class="content"><div class="title">Auto-Fit on Load</div><div class="desc">When a document loads, the app automatically scales it to fit the canvas and centers it. If the document is smaller than the canvas, it stays at 100% (no upscaling — never blurry).</div></div>
+        </div>
+
+        <!-- ===== SEALS ===== -->
+        <div class="feature-item" data-keywords="seal stamp list choose select pick">
+            <span class="badge">🔖 Seals</span>
+            <div class="content"><div class="title">Selecting a Seal</div><div class="desc">Click any seal in the list to equip it. The cursor becomes a crosshair and a ghost preview follows your mouse over the document so you can see exactly where the stamp will land.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="pointer mode deselect navigate scroll">
+            <span class="badge">🔖 Seals</span>
+            <div class="content"><div class="title">Pointer Mode</div><div class="desc">Click <strong>🖱️ Select / Pointer Mode</strong> to deselect the current seal and return the cursor to normal. Safe for scrolling, panning, and inspecting the document without accidentally stamping.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="reviewed reviewer name initials manager stamp label">
+            <span class="badge">🔖 Seals</span>
+            <div class="content"><div class="title">Reviewer Name Field</div><div class="desc">Type your initials or name (default <code>MGR</code>). It's substituted into any seal whose template contains <code>{NAME}</code> — currently only <strong>REVIEWED</strong>, which renders as <em>"BY: MGR DATE: 11-09-2026"</em>.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="date picker process date stamp">
+            <span class="badge">🔖 Seals</span>
+            <div class="content"><div class="title">Process Date</div><div class="desc">Choose a date from the picker (defaults to today). Formatted as <code>dd-MM-yyyy</code> and printed under every non-arrow seal's main label. The arrow seals <strong>SIGN HERE →</strong> and <strong>SIGN HERE ←</strong> skip the date line by design.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="size scale percentage slider seal size">
+            <span class="badge">🔖 Seals</span>
+            <div class="content"><div class="title">Seal Size</div><div class="desc">A percentage field from <strong>10%</strong> to <strong>250%</strong>. At 10% a seal is a tiny thumbprint; at 250% it covers a good portion of an A4 page. The chosen scale is applied when you stamp, so you can place several different sizes in one document.</div></div>
+        </div>
+
+        <!-- ===== SEAL CATALOG ===== -->
+        <div class="feature-item" data-keywords="seal catalog list all available preset">
+            <span class="badge">📋 Catalog</span>
+            <div class="content">
+                <div class="title">All 16 Preset Seals</div>
+                <div class="desc">
+                    <table class="seal-table">
+                        <tr><th>Seal</th><th>Shape</th><th>Colour</th></tr>
+                        <tr><td>PAID</td><td>Rounded Rect</td><td class="seal-red">Stamp Red</td></tr>
+                        <tr><td>OVERDUE</td><td>Sharp Rect</td><td class="seal-red">Stamp Red</td></tr>
+                        <tr><td>VOID</td><td>Oval</td><td class="seal-red">Stamp Red</td></tr>
+                        <tr><td>REFUNDED</td><td>Rounded Rect</td><td class="seal-blue">Admin Blue</td></tr>
+                        <tr><td>RECEIVED</td><td>Sharp Rect</td><td class="seal-blue">Admin Blue</td></tr>
+                        <tr><td>COPY</td><td>Sharp Rect</td><td class="seal-blue">Admin Blue</td></tr>
+                        <tr><td>DRAFT</td><td>Oval</td><td class="seal-blue">Admin Blue</td></tr>
+                        <tr><td>REVIEWED</td><td>Rounded Rect</td><td class="seal-blue">Admin Blue</td></tr>
+                        <tr><td>ENTERED</td><td>Sharp Rect</td><td class="seal-blue">Admin Blue</td></tr>
+                        <tr><td>CONFIDENTIAL</td><td>Sharp Rect</td><td class="seal-red">Stamp Red</td></tr>
+                        <tr><td>RESTRICTED</td><td>Oval</td><td class="seal-red">Stamp Red</td></tr>
+                        <tr><td>SCANNED</td><td>Rounded Rect</td><td class="seal-blue">Admin Blue</td></tr>
+                        <tr><td>APPROVED</td><td>Badge</td><td class="seal-green">Approval Green</td></tr>
+                        <tr><td>COMPLETED</td><td>Rounded Rect</td><td class="seal-green">Approval Green</td></tr>
+                        <tr><td>SIGN HERE →</td><td>Arrow</td><td class="seal-red">Stamp Red</td></tr>
+                        <tr><td>SIGN HERE ←</td><td>Arrow Left</td><td class="seal-red">Stamp Red</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="approved checkmark tick">
+            <span class="badge">📋 Catalog</span>
+            <div class="content"><div class="title">APPROVED ✔</div><div class="desc">The APPROVED seal renders with a checkmark glyph appended, and uses a <strong>double-border Badge</strong> shape (inner + outer rectangle) to stand out as the "final" seal in a workflow.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="sign here arrow pointer red">
+            <span class="badge">📋 Catalog</span>
+            <div class="content"><div class="title">SIGN HERE Arrows</div><div class="desc">Two directional arrow seals: <strong>SIGN HERE →</strong> and <strong>SIGN HERE ←</strong>. The arrow polygon itself conveys the direction, so no date or name is printed. Use them to flag exactly where a signature is required.</div></div>
+        </div>
+
+        <!-- ===== PLACING STAMPS ===== -->
+        <div class="feature-item" data-keywords="place stamp click canvas drop">
+            <span class="badge">📍 Stamping</span>
+            <div class="content"><div class="title">Placing a Stamp</div><div class="desc">With a seal selected, click anywhere on the document to place it. The stamp is stored in image coordinates, so it stays glued to the same document position regardless of zoom level.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="ghost preview cursor follow transparent">
+            <span class="badge">📍 Stamping</span>
+            <div class="content"><div class="title">Ghost Preview</div><div class="desc">While a seal is selected, a semi-transparent copy follows your cursor across the document. What you see is exactly what will be stamped — same position, same size, same colour.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="auto pointer mode return after stamping">
+            <span class="badge">📍 Stamping</span>
+            <div class="content"><div class="title">Auto-Return to Pointer Mode</div><div class="desc">Tick the checkbox to automatically deselect the seal after each stamp. Perfect for workflows where you place one stamp per page — no need to click Pointer Mode between placements.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="stamp counter status count">
+            <span class="badge">📍 Stamping</span>
+            <div class="content"><div class="title">Stamp Counter</div><div class="desc">The status bar shows a running count of stamps placed (<em>"Stamp placed! (3 total)"</em>), so you always know how many overlays are on the current document.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="undo last stamp remove">
+            <span class="badge">📍 Stamping</span>
+            <div class="content"><div class="title">↩️ Undo Last Stamp</div><div class="desc">Removes the most recent stamp. Click repeatedly to peel back one stamp at a time. There's no redo — once undone, you'd have to place the stamp again.</div></div>
+        </div>
+
+        <!-- ===== ZOOM & NAVIGATE ===== -->
+        <div class="feature-item" data-keywords="zoom ctrl mouse wheel scroll scale">
+            <span class="badge">🔍 View</span>
+            <div class="content"><div class="title">Zoom — Ctrl + Mouse Wheel</div><div class="desc">Hold <kbd>Ctrl</kbd> and roll the mouse wheel over the canvas to zoom in and out in 5% steps. Range is 15% to 400%. Plain wheel (no Ctrl) scrolls vertically when the document is larger than the viewport.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="scrollbars horizontal vertical large document">
+            <span class="badge">🔍 View</span>
+            <div class="content"><div class="title">Auto-Appearing Scrollbars</div><div class="desc">When the zoomed document is wider or taller than the canvas, scrollbars slide into place automatically. When it fits, they disappear and the image stays perfectly centered.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="center image canvas middle">
+            <span class="badge">🔍 View</span>
+            <div class="content"><div class="title">Smart Centering</div><div class="desc">Whichever axis fits entirely — horizontal or vertical — stays centered on screen. Only the axis that overflows uses a scrollbar. So a tall document on a wide monitor stays horizontally centered as you scroll up and down.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="maximized window full screen start">
+            <span class="badge">🔍 View</span>
+            <div class="content"><div class="title">Opens Maximized</div><div class="desc">GhostStamp opens full-screen by default so the canvas gets as much room as possible. Drag the window smaller if you want, or resize the sidebar with the splitter.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="splitter resize sidebar drag">
+            <span class="badge">🔍 View</span>
+            <div class="content"><div class="title">Adjustable Sidebar</div><div class="desc">Drag the splitter between the sidebar and canvas to resize the toolbar panel. Useful if you ever add seals with longer names.</div></div>
+        </div>
+
+        <!-- ===== SAVING ===== -->
+        <div class="feature-item" data-keywords="save png export image output">
+            <span class="badge">💾 Saving</span>
+            <div class="content"><div class="title">Save as PNG</div><div class="desc">Exports the stamped document at full original resolution as a lossless PNG. Stamps are redrawn at native scale during export, so they're razor-sharp — no resampling artefacts.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="save pdf export document compile">
+            <span class="badge">💾 Saving</span>
+            <div class="content"><div class="title">Save as PDF</div><div class="desc">Writes a single-page PDF containing the stamped document. The PDF is a real, standards-compliant container — opens cleanly in any reader. The page size matches the document's original dimensions.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="save filename default stamped suffix">
+            <span class="badge">💾 Saving</span>
+            <div class="content"><div class="title">Default Filename</div><div class="desc">The save dialog suggests <code>originalname_Stamped</code> — for example, <code>Invoice.pdf</code> becomes <code>Invoice_Stamped.png</code>. Original files are never overwritten unless you explicitly choose the same path.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="pdf embedded jpeg dct image compression">
+            <span class="badge">💾 Saving</span>
+            <div class="content"><div class="title">PDF Image Format</div><div class="desc">Internally, the exported PDF embeds the document as a JPEG-compressed image to keep file sizes reasonable. If you need lossless PDF output, save as PNG instead — it's the same pixels without any compression.</div></div>
+        </div>
+
+        <!-- ===== WORKFLOW ===== -->
+        <div class="feature-item" data-keywords="workflow typical steps sequence how to use">
+            <span class="badge">📖 Workflow</span>
+            <div class="content">
+                <div class="title">Typical Stamping Session</div>
+                <div class="desc">
+                    <ol style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li>Click <strong>Load Document</strong> and pick your invoice, scan, or contract.</li>
+                        <li>Type your initials in the <strong>Reviewer Name</strong> field.</li>
+                        <li>Pick the correct <strong>process date</strong>.</li>
+                        <li>Select a seal from the list — the cursor becomes a crosshair.</li>
+                        <li>Click on the document to place the stamp. The ghost preview shows you exactly where it will land.</li>
+                        <li>Adjust <strong>Seal Size</strong> if you want a smaller or larger overlay for the next stamp.</li>
+                        <li>Click <strong>Pointer Mode</strong> (or enable auto-return) to safely navigate.</li>
+                        <li>Click <strong>💾 Save Stamped File</strong> and choose PNG or PDF.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="batch multiple stamps same document">
+            <span class="badge">📖 Workflow</span>
+            <div class="content"><div class="title">Multiple Stamps on One Document</div><div class="desc">You can place as many stamps as you need — mix seals, colours, and sizes freely. Every stamp is stored in history and rendered on export. Use <strong>Undo Last Stamp</strong> to peel back one at a time if you misplace one.</div></div>
+        </div>
+
+        <!-- ===== SHORTCUTS ===== -->
+        <div class="feature-item" data-keywords="keyboard mouse shortcuts reference cheat sheet">
+            <span class="badge">⌨️ Shortcuts</span>
+            <div class="content">
+                <div class="title">Mouse &amp; Keyboard</div>
+                <div class="desc">
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><kbd>Ctrl</kbd>+<kbd>Wheel</kbd> — zoom in / out</li>
+                        <li><kbd>Wheel</kbd> (plain) — scroll vertically</li>
+                        <li><kbd>Click</kbd> — place the currently selected seal</li>
+                        <li><kbd>Drag splitter</kbd> — resize the sidebar</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== ADVANCED ===== -->
+        <div class="feature-item" data-keywords="stamp.ico icon">
+            <span class="badge">⚙️ Advanced</span>
+            <div class="content"><div class="title">Icon File</div><div class="desc">GhostStamp loads <code>stamp.ico</code> from the folder next to the exe if it exists. If the file is missing, the app still runs — it just falls back to the default .NET application icon.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="no installation portable usb">
+            <span class="badge">⚙️ Advanced</span>
+            <div class="content"><div class="title">Fully Portable</div><div class="desc">GhostStamp stores nothing outside its own folder. No registry keys, no AppData clutter, no recent-files list. Copy the folder to a USB stick and it works on any Windows machine with the .NET Framework installed.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="no telemetry privacy offline network">
+            <span class="badge">⚙️ Advanced</span>
+            <div class="content"><div class="title">Offline &amp; Private</div><div class="desc">The app never touches the network. Your documents stay on your machine — nothing is uploaded, tracked, or shared. Everything runs locally.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="document coordinates image coords zoom invariant">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">Zoom-Invariant Stamps</div><div class="desc">Stamps are stored in the document's own pixel coordinates, not the canvas's. Zoom in, zoom out, resize the window — the stamps stay glued to the exact same spot on the document. What you see at any zoom is always what gets exported.</div></div>
+        </div>
+
+        <!-- ===== GHOST BUNDLE ===== -->
+        <div class="feature-item" data-keywords="ghost bundle family utilities companion reader stamp cast notes phrases calc">
+            <span class="badge">👻 Bundle</span>
+            <div class="content">
+                <div class="title">The Ghost Bundle Family</div>
+                <div class="desc">
+                    GhostStamp PRO is one of six small utilities under the Ghost Bundle umbrella:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong><a href="help-ghostreader.html" style="color:#a67c52;">Ghost Reader</a></strong> — distraction-free reader</li>
+                        <li><strong><a href="help-ghoststamp.html" style="color:#a67c52;">Ghost Stamp</a></strong> — file timestamping &amp; signing <em>(you are here)</em></li>
+                        <li><strong><a href="help-ghostcast.html" style="color:#a67c52;">Ghost Cast</a></strong> — multi-voice script studio</li>
+                        <li><strong><a href="help-ghostnotes.html" style="color:#a67c52;">Ghost Notes</a></strong> — hierarchical notebook</li>
+                        <li><strong><a href="help-ghostphrases.html" style="color:#a67c52;">Ghost Phrases</a></strong> — text expander</li>
+                        <li><strong><a href="help-ghostcalc.html" style="color:#a67c52;">Ghost Calc</a></strong> — standalone calculator with insert-into-app</li>
+                    </ul>
+                </div>
+                <div class="family-note">Six utilities. One family. Each does one thing well and stays out of your way. 💚</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="no-results" id="noResults">✨ No features match your search.</div>
+
+    <div class="about-section">
+        <h2>🔴 About GhostStamp PRO</h2>
+        <p>GhostStamp PRO is a small document stamping utility built for the mundane but important task of marking paperwork. It loads a scan or PDF, lays one or more seals onto it — PAID, APPROVED, REVIEWED, SIGN HERE, and a dozen others — and exports a clean PNG or PDF. No cloud, no accounts, no subscription. Everything runs on your own machine, stamps are stored in image coordinates so they survive any zoom level, and the exported files are indistinguishable from what you see on the canvas. It's the sort of tool that costs you nothing and saves you the faff of dragging a stamp image around in an image editor. Free, and always will be. 🔴</p>
+    </div>
+
+    <div class="footer">
+        GhostStamp PRO Help &bull; Self-contained &bull; No internet needed<br>
+        Part of the Ghost Bundle — <a href="index.html">Back to GhostBundle</a> &bull; <a href="https://ghostbundle.github.io" target="_blank" rel="noopener">ghostbundle.github.io</a>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const searchInput = document.getElementById('searchInput');
+        const items = document.querySelectorAll('.feature-item');
+        const noResults = document.getElementById('noResults');
+
+        function filterFeatures(query) {
+            const lower = query.toLowerCase().trim();
+            let found = 0;
+            items.forEach(item => {
+                const keywords = (item.dataset.keywords || '').toLowerCase();
+                const title = item.querySelector('.title')?.textContent?.toLowerCase() || '';
+                const desc = item.querySelector('.desc')?.textContent?.toLowerCase() || '';
+                const match = (keywords + ' ' + title + ' ' + desc).includes(lower);
+                if (lower === '') {
+                    item.classList.remove('hidden');
+                    found++;
+                } else if (match) {
+                    item.classList.remove('hidden');
+                    found++;
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+            noResults.style.display = (found === 0 && lower !== '') ? 'block' : 'none';
+        }
+
+        searchInput.addEventListener('input', function(e) {
+            filterFeatures(e.target.value);
+        });
+
+        filterFeatures('');
+    })();
+</script>
+
+</body>
+</html>

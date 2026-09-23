@@ -1,0 +1,638 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ============ PRIMARY SEO ============ -->
+    <title>Ghost Phrases — Help &amp; Documentation | GhostBundle</title>
+    <meta name="description" content="Ghost Phrases help and documentation: system-wide text expander for Windows. Type a shortcut anywhere, get the full paragraph. Phrase picker, date tokens, multi-line expansions. Free from GhostBundle." />
+    <meta name="author" content="GhostBundle" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#f7f2e8" />
+    <link rel="canonical" href="https://ghostbundle.github.io/help-ghostphrases.html" />
+
+    <!-- ============ OPEN GRAPH ============ -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="GhostBundle" />
+    <meta property="og:title" content="Ghost Phrases — Help &amp; Documentation" />
+    <meta property="og:description" content="Every trigger, every token, every setting — the complete Ghost Phrases reference." />
+    <meta property="og:url" content="https://ghostbundle.github.io/help-ghostphrases.html" />
+    <meta property="og:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ============ TWITTER CARD ============ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ghost Phrases — Help &amp; Documentation" />
+    <meta name="twitter:description" content="Every trigger, every token, every setting — the complete Ghost Phrases reference." />
+    <meta name="twitter:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
+
+    <!-- ============ FAVICON ============ -->
+    <link rel="icon" type="image/x-icon" href="ghostphrases.ico">
+
+    <!-- ============ STRUCTURED DATA ============ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Ghost Phrases — Help & Documentation",
+      "description": "Complete feature guide for Ghost Phrases, a system-wide text expander for Windows.",
+      "url": "https://ghostbundle.github.io/help-ghostphrases.html",
+      "inLanguage": "en",
+      "author": { "@type": "Organization", "name": "GhostBundle" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GhostBundle",
+        "url": "https://ghostbundle.github.io/"
+      },
+      "mainEntity": {
+        "@type": "SoftwareApplication",
+        "name": "Ghost Phrases",
+        "alternateName": "GhostPhrases",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "Windows",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    }
+    </script>
+
+    <style>
+        /* ===== GhostBundle site nav (matches index.html) ===== */
+        .site-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 6px 14px;
+            max-width: 960px;
+            width: 100%;
+            margin: 0 auto 32px;
+            padding: 12px 20px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(160, 170, 220, 0.22);
+            box-shadow: 0 6px 20px rgba(120, 130, 200, 0.10);
+        }
+        .site-nav a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #3a4a7a;
+            text-decoration: none;
+            padding: 4px 10px;
+            border-radius: 12px;
+            transition: background 0.2s, color 0.2s;
+            white-space: nowrap;
+        }
+        .site-nav a:hover {
+            background: rgba(90, 122, 238, 0.12);
+            color: #5a7aee;
+        }
+        .site-nav a.nav-home {
+            font-weight: 700;
+            color: #5a7aee;
+        }
+        .site-nav .nav-sep {
+            color: rgba(120, 130, 180, 0.4);
+            font-size: 0.75rem;
+        }
+        .site-nav a.nav-current {
+            background: rgba(166, 124, 82, 0.15);
+            color: #7a5c33;
+        }
+
+        /* ===== Original Ghost Phrases styles (unchanged) ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: #f7f2e8;
+            color: #2b2118;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fffdf8;
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(60,45,25,0.10);
+            padding: 40px 50px;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #2b2118;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+        .subtitle {
+            color: #6b5b45;
+            font-size: 1rem;
+            border-left: 4px solid #b8a378;
+            padding-left: 16px;
+            margin-bottom: 30px;
+        }
+        .search-wrap {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .search-wrap input {
+            width: 100%;
+            padding: 14px 20px;
+            font-size: 1rem;
+            border: 2px solid #e5dac2;
+            border-radius: 60px;
+            background: #fbf7ee;
+            transition: 0.2s;
+            outline: none;
+            padding-left: 48px;
+            color: #2b2118;
+        }
+        .search-wrap input::placeholder { color: #a89a7c; }
+        .search-wrap input:focus {
+            border-color: #a67c52;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(166,124,82,0.10);
+        }
+        .search-wrap .icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #b8a378;
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .feature-item {
+            background: #fdfaf3;
+            border-radius: 14px;
+            padding: 16px 24px;
+            border: 1px solid #ede4d0;
+            transition: 0.15s;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .feature-item:hover {
+            background: #f7f1e2;
+            border-color: #d4c4a0;
+        }
+        .feature-item .badge {
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: #8b6914;
+            background: #f2e8ce;
+            padding: 2px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .feature-item .content {
+            flex: 1;
+        }
+        .feature-item .title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #2b2118;
+        }
+        .feature-item .desc {
+            color: #4a3f2e;
+            font-size: 0.95rem;
+            margin-top: 2px;
+        }
+        .feature-item.hidden {
+            display: none;
+        }
+        .no-results {
+            text-align: center;
+            padding: 40px 0;
+            color: #8b7a5c;
+            font-size: 1.1rem;
+            display: none;
+        }
+        .about-section {
+            margin-top: 40px;
+            padding: 24px 28px;
+            background: #f5eedc;
+            border-radius: 18px;
+            border-left: 6px solid #a67c52;
+        }
+        .about-section h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2b2118;
+            margin-bottom: 6px;
+        }
+        .about-section p {
+            color: #3e3424;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #8b7a5c;
+            text-align: center;
+            border-top: 1px solid #ede4d0;
+            padding-top: 20px;
+            line-height: 1.8;
+        }
+        .footer a {
+            color: #a67c52;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dotted #d4c4a0;
+            transition: 0.15s;
+        }
+        .footer a:hover {
+            color: #7a5c33;
+            border-bottom-color: #a67c52;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 24px 18px; }
+            .feature-item { padding: 14px 16px; flex-wrap: wrap; }
+            .feature-item .badge { order: 2; }
+        }
+        code {
+            background: #f2ead8;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        kbd {
+            background: #f5efe0;
+            border: 1px solid #ddd1b5;
+            border-bottom-width: 2px;
+            border-radius: 4px;
+            padding: 0 6px;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 0.85rem;
+            color: #2b2118;
+        }
+        .new-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: #e8d08a;
+            color: #6b4a00;
+            padding: 1px 6px;
+            border-radius: 3px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+        .family-note {
+            margin-top: 8px;
+            padding: 12px 18px;
+            background: #fbf7ee;
+            border-radius: 12px;
+            border: 1px dashed #ddd1b5;
+            color: #5a4d3a;
+            font-size: 0.9rem;
+        }
+        .family-note strong { color: #2b2118; }
+
+        /* ===== Back-to-home link ===== */
+        .back-home {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #7a5c33;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(180, 160, 120, 0.35);
+            margin-bottom: 24px;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .back-home:hover {
+            background: #ffffff;
+            transform: translateX(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav" aria-label="Primary">
+        <a href="index.html" class="nav-home">👻 GhostBundle</a>
+        <span class="nav-sep">•</span>
+        <a href="help-ghostreader.html">Ghost Reader</a>
+        <a href="help-ghostcast.html">Ghost Cast</a>
+        <a href="help-ghostnotes.html">Ghost Notes</a>
+        <a href="help-ghoststamp.html">GhostStamp Pro</a>
+        <a href="help-ghostphrases.html" class="nav-current">Ghost Phrases</a>
+        <a href="help-ghostcalc.html">Ghost Calc</a>
+        <span class="nav-sep">•</span>
+        <a href="index.html#about">About</a>
+        <a href="index.html#faq">FAQ</a>
+    </nav>
+
+<div class="container">
+
+    <a href="index.html" class="back-home">← Back to GhostBundle</a>
+
+    <h1>💬 Ghost Phrases</h1>
+    <div class="subtitle">System-wide text expander – search below to find what you need</div>
+
+    <div class="search-wrap">
+        <span class="icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search features, e.g. 'expand', 'trigger', 'picker', 'numpad'..." autofocus />
+    </div>
+
+    <div class="feature-grid" id="featureGrid">
+
+        <!-- ===== EXPANSION ===== -->
+        <div class="feature-item" data-keywords="expand shortcut text phrase type insert anywhere">
+            <span class="badge">⚡ Expansion</span>
+            <div class="content"><div class="title">Type a Shortcut, Get the Full Text</div><div class="desc">Type a saved shortcut like <code>;addr</code> anywhere on your computer — in Notepad, a browser, an email, any text box — then press <kbd>Space</kbd>, <kbd>Tab</kbd>, or <kbd>Enter</kbd>. Ghost Phrases silently replaces the shortcut with its full text. No popup, no prompt, no interruption to your typing.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="boundary space tab enter fire expand trailing">
+            <span class="badge">⚡ Expansion</span>
+            <div class="content"><div class="title">Boundary Keys: Space, Tab, Enter</div><div class="desc">All three fire the expansion so it slots into your natural rhythm. The behaviour differs slightly afterwards: <kbd>Space</kbd> is swallowed, so the caret rests right after the last character of the expansion — no trailing space. <kbd>Tab</kbd> and <kbd>Enter</kbd> are passed through, so field navigation and newlines keep working normally.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="case insensitive uppercase lowercase shortcut">
+            <span class="badge">⚡ Expansion</span>
+            <div class="content"><div class="title">Case-Insensitive by Default</div><div class="desc"><code>;addr</code>, <code>;ADDR</code>, and <code>;Addr</code> all expand to the same text. Prefer strict matching? Flip <strong>Case-sensitive shortcuts</strong> in Settings and only the exact spelling will fire.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="multiline newline caret break paragraph">
+            <span class="badge">⚡ Expansion</span>
+            <div class="content"><div class="title">Multi-Line Expansions</div><div class="desc">A single shortcut can expand to an entire paragraph, a signature block, or a whole email template. In <code>Phrases.txt</code> use <code>^</code> where you want a line break — <code>Best regards,^John</code> expands to two lines. Inside the Phrase Manager just type a real line break in the box.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="numpad number pad main keyboard shortcut digits">
+            <span class="badge">⚡ Expansion</span>
+            <div class="content"><div class="title">Numpad &amp; Main Keyboard Both Work</div><div class="desc">Whether you type digits on the numpad or the top number row, Ghost Phrases sees them identically. Numpad <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, and <code>.</code> all register correctly too — so shortcuts that include numbers fire regardless of which hand you're using.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="date time tokens dynamic current timestamp">
+            <span class="badge">⚡ Expansion</span>
+            <div class="content">
+                <div class="title">Date &amp; Time Tokens</div>
+                <div class="desc">
+                    Any expansion can include live date/time tokens that are replaced at the moment of expansion:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><code>$dddd</code> — weekday name</li>
+                        <li><code>$dd</code> / <code>$mm</code> / <code>$yyyy</code> — day, month, year</li>
+                        <li><code>$hh</code> (24-hour) / <code>$hh12</code> (12-hour) / <code>$ss</code> — time</li>
+                        <li><code>%hh:mm:ss</code> and <code>%h:mm tt</code> — full timestamp patterns</li>
+                    </ul>
+                    So a shortcut <code>;inv</code> whose full text is <code>Invoice $dd$mm$yyyy</code> becomes <code>Invoice 14092026</code> today, and something else tomorrow.
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PICKER ===== -->
+        <div class="feature-item" data-keywords="popup picker search trigger ;p semicolon p">
+            <span class="badge">🔍 Picker</span>
+            <div class="content"><div class="title">Pop-up Picker <kbd>;p</kbd> + <kbd>Space</kbd> <span class="new-badge">DEFAULT</span></div><div class="desc">Forgot a shortcut? Type <code>;p</code> then <kbd>Space</kbd> anywhere — the picker pops up on top of whatever you're working in. It's a search box with a list of every saved phrase. Change the trigger any time in Settings.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="search filter shortcut full text both columns">
+            <span class="badge">🔍 Picker</span>
+            <div class="content"><div class="title">Search Both Columns</div><div class="desc">Type into the picker's search box and it matches against <em>both</em> the shortcut and the full text. Searching "John" finds <code>;sig</code> if its full text is "Best regards, John". Searching ";m" finds every shortcut starting with <code>;m</code>. Clear the box to scroll the entire list.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="keyboard navigate arrow down up enter escape">
+            <span class="badge">🔍 Picker</span>
+            <div class="content"><div class="title">Keyboard-Driven</div><div class="desc">Type to filter, press <kbd>↓</kbd> to jump into the list, then <kbd>↑</kbd>/<kbd>↓</kbd> to move. <kbd>Enter</kbd> inserts the highlighted phrase. <kbd>Esc</kbd> or Cancel closes without inserting. Double-click any item to insert it directly.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="standalone insert phrase tray no trigger">
+            <span class="badge">🔍 Picker</span>
+            <div class="content"><div class="title">Insert Phrase (tray menu)</div><div class="desc">Right-click the tray icon → <strong>Insert Phrase…</strong> opens the same picker without typing a trigger. The selected phrase is inserted into whatever window had focus just before the picker opened.</div></div>
+        </div>
+
+        <!-- ===== MANAGER ===== -->
+        <div class="feature-item" data-keywords="phrase manager add edit delete list">
+            <span class="badge">📋 Manager</span>
+            <div class="content"><div class="title">Phrase Manager</div><div class="desc">Right-click the tray icon → <strong>Phrase Manager…</strong>. A window with a full list of every phrase on top, a shortcut field, and a multi-line full-text field below. Select an entry to load it into the editor, change it, then <strong>Save entry</strong>. Or click <strong>New / Clear</strong> to start a fresh one.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="list preview shortcut full text column">
+            <span class="badge">📋 Manager</span>
+            <div class="content"><div class="title">List View with Previews</div><div class="desc">The manager's list shows every shortcut and a one-line preview of its full text — long paragraphs are truncated with an ellipsis so the list stays readable. Double-click or select to load the entry into the edit fields.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="save entry save close cancel">
+            <span class="badge">📋 Manager</span>
+            <div class="content"><div class="title">Save Entry / Save &amp; Close</div><div class="desc"><strong>Save entry</strong> writes the current fields to the in-memory list and refreshes the view — handy when you're adding several phrases in one sitting. <strong>Save &amp; Close</strong> commits everything to <code>Phrases.txt</code> and closes. <strong>Cancel</strong> discards any changes made since you opened the window.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="edit shortcut duplicate overwrite semicolon prefix">
+            <span class="badge">📋 Manager</span>
+            <div class="content"><div class="title">Editing an Existing Shortcut</div><div class="desc">Select an entry, change its shortcut or full text, and click <strong>Save entry</strong>. If you change the shortcut, the old one is removed automatically — no orphan entries. If the new shortcut already exists, it's overwritten (with the change reflected in the list). Shortcuts can contain <strong>any character except the sequence <code>=&gt;</code></strong> — including <code>;</code>, so PhraseExpress-style <code>;addr</code> prefixes work fine.</div></div>
+        </div>
+
+        <!-- ===== SETTINGS ===== -->
+        <div class="feature-item" data-keywords="settings popup trigger change custom semicolon p">
+            <span class="badge">⚙️ Settings</span>
+            <div class="content"><div class="title">Popup Trigger</div><div class="desc">The single most useful setting. Default is <code>;p</code>, but you can set it to <code>@@</code>, <code>//ph</code>, <code>!g</code>, or anything else. Whatever you choose, typing it followed by <kbd>Space</kbd> opens the picker. Blank = popup disabled entirely (shortcut expansions still work).</div></div>
+        </div>
+        <div class="feature-item" data-keywords="case sensitive strict matching">
+            <span class="badge">⚙️ Settings</span>
+            <div class="content"><div class="title">Case-Sensitive Shortcuts</div><div class="desc">Off by default — <code>;addr</code> and <code>;ADDR</code> both fire. Turn it on if you want <code>;addr</code> and <code>;Addr</code> to be treated as different entries (useful when you have both a personal and work version of the same shortcut).</div></div>
+        </div>
+        <div class="feature-item" data-keywords="start with windows startup boot autostart">
+            <span class="badge">⚙️ Settings</span>
+            <div class="content"><div class="title">Start with Windows</div><div class="desc">Adds (or removes) a small entry under <code>HKCU\Software\Microsoft\Windows\CurrentVersion\Run</code> so Ghost Phrases launches automatically at login and starts watching your keys right away. No admin rights required — it's a per-user setting.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="balloon notifications toast silent">
+            <span class="badge">⚙️ Settings</span>
+            <div class="content"><div class="title">Show Balloon Notifications</div><div class="desc">The small tray bubbles that confirm "Phrases saved", "Phrases reloaded", and "Settings saved". Turn off if you want Ghost Phrases to be completely silent unless you specifically ask it to do something.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="tray tooltip trigger display hover">
+            <span class="badge">⚙️ Settings</span>
+            <div class="content"><div class="title">Show Trigger in Tray Tooltip</div><div class="desc">Off by default. Turn on and hovering the tray icon shows <em>"Ghost Phrases — trigger: ;p"</em> so you always know what your current trigger is. Saves you opening Settings just to remember.</div></div>
+        </div>
+
+        <!-- ===== FILES ===== -->
+        <div class="feature-item" data-keywords="phrases txt file format shortcut expansion delimiter arrow reserved">
+            <span class="badge">💾 Files</span>
+            <div class="content">
+                <div class="title">Phrases File: <code>Phrases.txt</code></div>
+                <div class="desc">
+                    Every phrase lives in a plain-text file next to the exe. Open it in Notepad and edit by hand any time. Format:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><code>shortcut=&gt;full text</code> — one entry per line</li>
+                        <li><code>=&gt;</code> is the separator; it's the only sequence a shortcut can't contain</li>
+                        <li><code>;</code> and every other character are fine inside a shortcut — so <code>;addr</code>, <code>;sig</code>, <code>#work</code> all work as shortcuts</li>
+                        <li><code>^</code> in the full text = a line break</li>
+                        <li>Lines starting with <code>#</code> are comments; blank lines ignored</li>
+                        <li>Only the <em>first</em> <code>=&gt;</code> separates shortcut from body — the body can contain as many <code>=&gt;</code> as you like</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="hot reload live edit notepad watcher">
+            <span class="badge">💾 Files</span>
+            <div class="content"><div class="title">Live Reload</div><div class="desc">Edit <code>Phrases.txt</code> in Notepad and save — Ghost Phrases notices within half a second and reloads the list silently. Your very next keystroke sees the new entry. No restart, ever. A <strong>Reload Phrases</strong> item is also in the tray menu if you ever want to force it.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="settings ini file config">
+            <span class="badge">💾 Files</span>
+            <div class="content"><div class="title">Settings File: <code>ghostphrases.ini</code></div><div class="desc">Stores the trigger, case-sensitivity, and behaviour toggles. Everything is editable in-app via the Settings dialog; hand-editing the file also works if you're the type who likes to. Changes take effect on the next keystroke.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="auto create first run starter sample semicolon prefix">
+            <span class="badge">💾 Files</span>
+            <div class="content"><div class="title">Auto-Created on First Run</div><div class="desc">On the very first launch, <code>Phrases.txt</code> and <code>ghostphrases.ini</code> are created with four sample phrases — <code>;addr</code>, <code>;mail</code>, <code>;sig</code>, and <code>;ty</code> — plus sensible defaults, so you can try expansion immediately. Delete either file at any time to reset it.</div></div>
+        </div>
+
+        <!-- ===== TRAY ===== -->
+        <div class="feature-item" data-keywords="tray icon menu right click systray background">
+            <span class="badge">🖥️ Tray</span>
+            <div class="content"><div class="title">Tray Icon</div><div class="desc">Ghost Phrases lives quietly in the notification area. There's no main window — the tray icon <em>is</em> the app. Left-click does nothing (no accidental popups), right-click opens the menu, and double-click opens the Phrase Manager.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="enabled disabled toggle pause off">
+            <span class="badge">🖥️ Tray</span>
+            <div class="content"><div class="title">Enabled Toggle</div><div class="desc">The first item on the tray menu. Unchecking it pauses Ghost Phrases instantly — no expansions, no popup trigger, no interference — while leaving the app running. Perfect when you're typing something where <code>;p</code> would accidentally fire, or in an app that fights the keyboard hook. Check it again to resume.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="reload phrases force refresh tray">
+            <span class="badge">🖥️ Tray</span>
+            <div class="content"><div class="title">Reload Phrases</div><div class="desc">Forces a fresh read of <code>Phrases.txt</code> and shows a balloon confirming the count. You'll rarely need this thanks to live reload, but it's there as an escape hatch if the watcher ever seems stuck.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="help contents manual documentation html">
+            <span class="badge">🖥️ Tray</span>
+            <div class="content"><div class="title">Help Contents</div><div class="desc">Opens this document in your default browser. Fully self-contained — no internet connection needed, and the search box at the top filters live as you type.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="exit quit close tray">
+            <span class="badge">🖥️ Tray</span>
+            <div class="content"><div class="title">Exit</div><div class="desc">Completely shuts down Ghost Phrases — unhooks the keyboard, hides the tray icon, and releases the single-instance mutex. Nothing lingers in memory. Your phrases and settings are already on disk, so nothing to save.</div></div>
+        </div>
+
+        <!-- ===== SHORTCUTS ===== -->
+        <div class="feature-item" data-keywords="keyboard shortcuts keys picker navigation reference">
+            <span class="badge">⌨️ Shortcuts</span>
+            <div class="content">
+                <div class="title">Keyboard Reference</div>
+                <div class="desc">
+                    Ghost Phrases has no global hotkeys of its own — everything is driven by the trigger you type. Inside the picker and other dialogs:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li>Type trigger (<code>;p</code>) + <kbd>Space</kbd> — open the picker</li>
+                        <li><kbd>↓</kbd> from search box — jump into the results list</li>
+                        <li><kbd>↑</kbd> / <kbd>↓</kbd> in list — move selection</li>
+                        <li><kbd>Enter</kbd> — insert the highlighted phrase</li>
+                        <li><kbd>Esc</kbd> — cancel without inserting</li>
+                        <li>Double-click any list item — same as Enter</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== ADVANCED ===== -->
+        <div class="feature-item" data-keywords="global system wide hook all apps">
+            <span class="badge">⚙️ Advanced</span>
+            <div class="content"><div class="title">System-Wide Hook</div><div class="desc">Ghost Phrases installs a low-level keyboard hook (<code>WH_KEYBOARD_LL</code>) so it can see keystrokes in every application — your browser, email client, IDE, chat, anywhere. It uses the same mechanism Windows itself uses for global hotkeys; no drivers, no services, no admin rights required.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="elevated admin windows hook restriction">
+            <span class="badge">⚙️ Advanced</span>
+            <div class="content"><div class="title">Elevated Windows Caveat</div><div class="desc">If an application is running as Administrator and Ghost Phrases is not, Windows deliberately prevents the hook from seeing keystrokes in that window. This is a Windows security feature, not a bug. Workaround: run Ghost Phrases as Administrator too (right-click → Run as administrator).</div></div>
+        </div>
+        <div class="feature-item" data-keywords="antivirus defender security hook warning">
+            <span class="badge">⚙️ Advanced</span>
+            <div class="content"><div class="title">Antivirus Note</div><div class="desc">Low-level keyboard hooks sometimes attract attention from antivirus software, because they're technically the same mechanism keyloggers use. Ghost Phrases only reads the last few characters you typed since the last boundary, and only to check them against your own phrase list — nothing is logged, saved, or transmitted. If your AV flags it, add an exclusion.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="single instance mutex second copy">
+            <span class="badge">⚙️ Advanced</span>
+            <div class="content"><div class="title">Single Instance</div><div class="desc">Only one copy of Ghost Phrases can run at a time. Launching it again is a silent no-op — the existing instance keeps the hook and your phrases. This prevents double-expansions and conflicting keyboard hooks.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="silent no telemetry offline privacy">
+            <span class="badge">⚙️ Advanced</span>
+            <div class="content"><div class="title">No Telemetry, No Network</div><div class="desc">Ghost Phrases never phones home. It doesn't check for updates, doesn't send analytics, and doesn't talk to the internet at all — except the two optional links in the About dialog (website, donation) which you have to click yourself. Fully offline by design.</div></div>
+        </div>
+
+        <!-- ===== HIDDEN ===== -->
+        <div class="feature-item" data-keywords="buffer last word boundary engine">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">The Typed Buffer</div><div class="desc">Ghost Phrases remembers only the last ~128 characters typed since the last Space/Tab/Enter. When a boundary key fires, it checks the tail of that buffer against your phrase list. Anything further back is discarded. This is why expansions happen on space boundaries only — it keeps memory tiny and avoids surprises.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="suppression sendinput feedback loop vkkeyscan">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">SendInput Suppression Window</div><div class="desc">When Ghost Phrases types an expansion for you, it uses Windows' <code>SendInput</code> — the same API a virtual keyboard would use — and it injects characters as real virtual-key presses (via <code>VkKeyScan</code>) so web form fields that listen for keydown events accept them. A short suppression window (~280 ms) is armed just before the expansion is sent, so the hook doesn't hear its own output and loop forever.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="us english keyboard layout vk mapping numpad">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">US English Keyboard Mapping</div><div class="desc">Keystrokes are translated to characters using the US English layout — so <code>;</code> comes from the key right of L, and <code>+</code> from Shift+Equals on the main row, or from the numpad directly. Both numpad and main-keyboard variants of every digit and arithmetic symbol are recognised.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="reserved keys arrows escape home end">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">Boundary Reset Keys</div><div class="desc">Pressing <kbd>←</kbd>, <kbd>→</kbd>, <kbd>↑</kbd>, <kbd>↓</kbd>, <kbd>Home</kbd>, <kbd>End</kbd>, <kbd>PgUp</kbd>, <kbd>PgDn</kbd>, or <kbd>Esc</kbd> clears the typed buffer entirely. That way, if you type a partial trigger and then move the cursor somewhere else, Ghost Phrases won't fire an expansion at the wrong spot.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="legacy file format backward compatible migration semicolon">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">Backward Compatibility</div><div class="desc">The old <code>shortcut;full text</code> format still loads, so any phrases you saved before the <code>=&gt;</code> change aren't lost. Legacy lines that start with <code>;</code> (the old shipped defaults) are handled correctly too. On the next save via the Phrase Manager, the file is rewritten in the new <code>=&gt;</code> format automatically.</div></div>
+        </div>
+
+        <!-- ===== GHOST BUNDLE ===== -->
+        <div class="feature-item" data-keywords="ghost bundle family utilities companion reader stamp cast notes phrases calc">
+            <span class="badge">👻 Bundle</span>
+            <div class="content">
+                <div class="title">The Ghost Bundle Family</div>
+                <div class="desc">
+                    Ghost Phrases is one of six small utilities under the Ghost Bundle umbrella:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong><a href="help-ghostreader.html" style="color:#a67c52;">Ghost Reader</a></strong> — distraction-free reader</li>
+                        <li><strong><a href="help-ghoststamp.html" style="color:#a67c52;">Ghost Stamp</a></strong> — file timestamping &amp; signing</li>
+                        <li><strong><a href="help-ghostcast.html" style="color:#a67c52;">Ghost Cast</a></strong> — multi-voice script studio</li>
+                        <li><strong><a href="help-ghostnotes.html" style="color:#a67c52;">Ghost Notes</a></strong> — hierarchical notebook</li>
+                        <li><strong><a href="help-ghostphrases.html" style="color:#a67c52;">Ghost Phrases</a></strong> — text expander <em>(you are here)</em></li>
+                        <li><strong><a href="help-ghostcalc.html" style="color:#a67c52;">Ghost Calc</a></strong> — standalone calculator with insert-into-app</li>
+                    </ul>
+                </div>
+                <div class="family-note">Six utilities. One family. Each does one thing well and stays out of your way. 💚</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="no-results" id="noResults">✨ No features match your search.</div>
+
+    <div class="about-section">
+        <h2>💬 About Ghost Phrases</h2>
+        <p>Ghost Phrases is a small system-wide text expander in the spirit of classic tools like PhraseExpress and Texter — the kind of utility that sits silently in your tray and then pays for itself every single day. It watches for a handful of characters you type, and turns them into the paragraph you actually wanted, without a dialog, a prompt, or a flicker of interruption. All your phrases live in a plain <code>Phrases.txt</code> you can back up by copying one file, share with a colleague, or edit in Notepad. No accounts, no cloud, no telemetry, no ads. Ghost Phrases is free, and it always will be. 💚</p>
+    </div>
+
+    <div class="footer">
+        Ghost Phrases Help &bull; Self-contained &bull; No internet needed<br>
+        Part of the Ghost Bundle — <a href="index.html">Back to GhostBundle</a> &bull; <a href="https://ghostbundle.github.io" target="_blank" rel="noopener">ghostbundle.github.io</a>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const searchInput = document.getElementById('searchInput');
+        const items = document.querySelectorAll('.feature-item');
+        const noResults = document.getElementById('noResults');
+
+        function filterFeatures(query) {
+            const lower = query.toLowerCase().trim();
+            let found = 0;
+            items.forEach(item => {
+                const keywords = (item.dataset.keywords || '').toLowerCase();
+                const title = item.querySelector('.title')?.textContent?.toLowerCase() || '';
+                const desc = item.querySelector('.desc')?.textContent?.toLowerCase() || '';
+                const match = (keywords + ' ' + title + ' ' + desc).includes(lower);
+                if (lower === '') {
+                    item.classList.remove('hidden');
+                    found++;
+                } else if (match) {
+                    item.classList.remove('hidden');
+                    found++;
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+            noResults.style.display = (found === 0 && lower !== '') ? 'block' : 'none';
+        }
+
+        searchInput.addEventListener('input', function(e) {
+            filterFeatures(e.target.value);
+        });
+
+        filterFeatures('');
+    })();
+</script>
+
+</body>
+</html>

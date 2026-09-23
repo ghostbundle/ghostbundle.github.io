@@ -1,0 +1,734 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ============ PRIMARY SEO ============ -->
+    <title>Ghost Cast — Help &amp; Documentation | GhostBundle</title>
+    <meta name="description" content="Ghost Cast help and documentation: multi-voice script studio for Windows. Assign per-character voices, add styles, SFX, pauses, and background music, then export to MP3. Free from GhostBundle." />
+    <meta name="author" content="GhostBundle" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#f7f2e8" />
+    <link rel="canonical" href="https://ghostbundle.github.io/help-ghostcast.html" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- ============ OPEN GRAPH ============ -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="GhostBundle" />
+    <meta property="og:title" content="Ghost Cast — Help &amp; Documentation" />
+    <meta property="og:description" content="Every style, every tag, every export — the complete Ghost Cast reference." />
+    <meta property="og:url" content="https://ghostbundle.github.io/help-ghostcast.html" />
+    <meta property="og:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ============ TWITTER CARD ============ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ghost Cast — Help &amp; Documentation" />
+    <meta name="twitter:description" content="Every style, every tag, every export — the complete Ghost Cast reference." />
+    <meta name="twitter:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
+
+    <!-- ============ FAVICON ============ -->
+    <link rel="icon" type="image/x-icon" href="ghostcast.ico">
+
+    <!-- ============ STRUCTURED DATA ============ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Ghost Cast — Help & Documentation",
+      "description": "Complete feature guide for Ghost Cast, a multi-voice script studio for Windows.",
+      "url": "https://ghostbundle.github.io/help-ghostcast.html",
+      "inLanguage": "en",
+      "author": { "@type": "Organization", "name": "GhostBundle" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GhostBundle",
+        "url": "https://ghostbundle.github.io/"
+      },
+      "mainEntity": {
+        "@type": "SoftwareApplication",
+        "name": "Ghost Cast",
+        "alternateName": "GhostCast",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Windows",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    }
+    </script>
+
+    <style>
+        /* ===== GhostBundle site nav (matches index.html) ===== */
+        .site-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 6px 14px;
+            max-width: 960px;
+            width: 100%;
+            margin: 0 auto 32px;
+            padding: 12px 20px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(160, 170, 220, 0.22);
+            box-shadow: 0 6px 20px rgba(120, 130, 200, 0.10);
+        }
+        .site-nav a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #3a4a7a;
+            text-decoration: none;
+            padding: 4px 10px;
+            border-radius: 12px;
+            transition: background 0.2s, color 0.2s;
+            white-space: nowrap;
+        }
+        .site-nav a:hover {
+            background: rgba(90, 122, 238, 0.12);
+            color: #5a7aee;
+        }
+        .site-nav a.nav-home {
+            font-weight: 700;
+            color: #5a7aee;
+        }
+        .site-nav .nav-sep {
+            color: rgba(120, 130, 180, 0.4);
+            font-size: 0.75rem;
+        }
+        .site-nav a.nav-current {
+            background: rgba(166, 124, 82, 0.15);
+            color: #7a5c33;
+        }
+
+        /* ===== Original Ghost Cast styles (unchanged) ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: #f7f2e8;
+            color: #2b2118;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fffdf8;
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(60,45,25,0.10);
+            padding: 40px 50px;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #2b2118;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+        .subtitle {
+            color: #6b5b45;
+            font-size: 1rem;
+            border-left: 4px solid #b8a378;
+            padding-left: 16px;
+            margin-bottom: 30px;
+        }
+        .search-wrap {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .search-wrap input {
+            width: 100%;
+            padding: 14px 20px;
+            font-size: 1rem;
+            border: 2px solid #e5dac2;
+            border-radius: 60px;
+            background: #fbf7ee;
+            transition: 0.2s;
+            outline: none;
+            padding-left: 48px;
+            color: #2b2118;
+        }
+        .search-wrap input::placeholder { color: #a89a7c; }
+        .search-wrap input:focus {
+            border-color: #a67c52;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(166,124,82,0.10);
+        }
+        .search-wrap .icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #b8a378;
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .feature-item {
+            background: #fdfaf3;
+            border-radius: 14px;
+            padding: 16px 24px;
+            border: 1px solid #ede4d0;
+            transition: 0.15s;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .feature-item:hover {
+            background: #f7f1e2;
+            border-color: #d4c4a0;
+        }
+        .feature-item .badge {
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: #8b6914;
+            background: #f2e8ce;
+            padding: 2px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .feature-item .content {
+            flex: 1;
+        }
+        .feature-item .title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #2b2118;
+        }
+        .feature-item .desc {
+            color: #4a3f2e;
+            font-size: 0.95rem;
+            margin-top: 2px;
+        }
+        .feature-item.hidden {
+            display: none;
+        }
+        .no-results {
+            text-align: center;
+            padding: 40px 0;
+            color: #8b7a5c;
+            font-size: 1.1rem;
+            display: none;
+        }
+        .about-section {
+            margin-top: 40px;
+            padding: 24px 28px;
+            background: #f5eedc;
+            border-radius: 18px;
+            border-left: 6px solid #a67c52;
+        }
+        .about-section h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2b2118;
+            margin-bottom: 6px;
+        }
+        .about-section p {
+            color: #3e3424;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #8b7a5c;
+            text-align: center;
+            border-top: 1px solid #ede4d0;
+            padding-top: 20px;
+            line-height: 1.8;
+        }
+        .footer a {
+            color: #a67c52;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dotted #d4c4a0;
+            transition: 0.15s;
+        }
+        .footer a:hover {
+            color: #7a5c33;
+            border-bottom-color: #a67c52;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 24px 18px; }
+            .feature-item { padding: 14px 16px; flex-wrap: wrap; }
+            .feature-item .badge { order: 2; }
+        }
+        code {
+            background: #f2ead8;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        .syntax {
+            background: #fbf7ee;
+            border-left: 3px solid #b8a378;
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin-top: 8px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #3e3424;
+            white-space: pre-line;
+        }
+        .family-note {
+            margin-top: 8px;
+            padding: 12px 18px;
+            background: #fbf7ee;
+            border-radius: 12px;
+            border: 1px dashed #ddd1b5;
+            color: #5a4d3a;
+            font-size: 0.9rem;
+        }
+        .family-note strong { color: #2b2118; }
+        .online-note {
+            margin-top: 8px;
+            padding: 10px 14px;
+            background: #fff4e0;
+            border-radius: 10px;
+            border-left: 3px solid #e0a83a;
+            color: #6b4a00;
+            font-size: 0.88rem;
+            line-height: 1.55;
+        }
+        .online-note strong { color: #4a3300; }
+
+        /* ===== Back-to-home link ===== */
+        .back-home {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #7a5c33;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(180, 160, 120, 0.35);
+            margin-bottom: 24px;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .back-home:hover {
+            background: #ffffff;
+            transform: translateX(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav" aria-label="Primary">
+        <a href="index.html" class="nav-home">👻 GhostBundle</a>
+        <span class="nav-sep">•</span>
+        <a href="help-ghostreader.html">Ghost Reader</a>
+        <a href="help-ghostcast.html" class="nav-current">Ghost Cast</a>
+        <a href="help-ghostnotes.html">Ghost Notes</a>
+        <a href="help-ghoststamp.html">GhostStamp Pro</a>
+        <a href="help-ghostphrases.html">Ghost Phrases</a>
+        <a href="help-ghostcalc.html">Ghost Calc</a>
+        <span class="nav-sep">•</span>
+        <a href="index.html#about">About</a>
+        <a href="index.html#faq">FAQ</a>
+    </nav>
+
+<div class="container">
+
+    <a href="index.html" class="back-home">← Back to GhostBundle</a>
+
+    <h1>🎭 Ghost Cast</h1>
+    <div class="subtitle">Multi-voice script studio – search below to find what you need</div>
+
+    <div class="search-wrap">
+        <span class="icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search features, e.g. 'character', 'style', 'sfx'..." autofocus />
+    </div>
+
+    <div class="feature-grid" id="featureGrid">
+
+        <!-- ===== PLAYBACK ===== -->
+        <div class="feature-item" data-keywords="play start performance read">
+            <span class="badge">▶️ Playback</span>
+            <div class="content"><div class="title">Play</div><div class="desc">Reads your script line by line, switching voices per character and applying any <code>[style]</code> tags. SFX, pauses, and music tags trigger as they're encountered.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="stop halt cancel playback">
+            <span class="badge">▶️ Playback</span>
+            <div class="content"><div class="title">Stop</div><div class="desc">Halts all speech, stops any playing SFX, and clears the playback queue.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="pause resume playback">
+            <span class="badge">▶️ Playback</span>
+            <div class="content"><div class="title">Pause / Resume</div><div class="desc">Pauses the current line without losing your place in the script. Click again to continue. Background music keeps playing while speech is paused.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="clear erase script editor">
+            <span class="badge">▶️ Playback</span>
+            <div class="content"><div class="title">Clear</div><div class="desc">Empties the entire script editor after confirmation. Character list and voices are preserved.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="load open file script">
+            <span class="badge">▶️ Playback</span>
+            <div class="content"><div class="title">Load</div><div class="desc">Opens a <code>.txt</code> script file. The <code>[CHARACTERS]</code> block at the top is parsed to restore the character list and their voices; the rest becomes the editable script.</div></div>
+        </div>
+
+        <!-- ===== CHARACTERS ===== -->
+        <div class="feature-item" data-keywords="characters list cast dramatis personae">
+            <span class="badge">👥 Characters</span>
+            <div class="content"><div class="title">Character List</div><div class="desc">The panel on the left holds every character in your production. Click a character to select them, then pick a voice in the Voice panel. <strong>Narrator</strong> is always present and cannot be deleted.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="add character plus new">
+            <span class="badge">👥 Characters</span>
+            <div class="content"><div class="title">Add Character (+)</div><div class="desc">Prompts for a name and adds it to the roster. The first letter is auto-capitalized.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="delete character remove minus">
+            <span class="badge">👥 Characters</span>
+            <div class="content"><div class="title">Delete Character (−)</div><div class="desc">Removes the selected character. The Narrator is protected.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="insert name cursor add to script">
+            <span class="badge">👥 Characters</span>
+            <div class="content"><div class="title">Insert Name at Cursor</div><div class="desc">Drops the selected character's name (with the required <code>:</code>) at the cursor position in the script. Saves you typing the same names over and over.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="export characters save list">
+            <span class="badge">👥 Characters</span>
+            <div class="content"><div class="title">Export Characters</div><div class="desc">Saves just the character names to a plain text file. Useful for keeping a cast list for a series.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="import characters load list replace">
+            <span class="badge">👥 Characters</span>
+            <div class="content"><div class="title">Import Characters</div><div class="desc">Loads a text file (one name per line) and <strong>replaces</strong> the entire character list. A red hint appears whenever you hover this button as a reminder.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="add as character selection right click">
+            <span class="badge">👥 Characters</span>
+            <div class="content"><div class="title">Add as Character (right-click)</div><div class="desc">Highlight a word in the script, right-click, and choose <em>Add as Character</em>. The selected text (with punctuation stripped) is added to the roster.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="add all names capitalized extract characters auto">
+            <span class="badge">👥 Characters</span>
+            <div class="content"><div class="title">Add All Names (right-click)</div><div class="desc">Scans the entire script for anything that looks like <code>Name:</code> and adds every capitalized, unrecognised name to the character list. Ignores common English words and script tags.</div></div>
+        </div>
+
+        <!-- ===== VOICES ===== -->
+        <div class="feature-item" data-keywords="character voice per character online offline cloud desktop">
+            <span class="badge">🎤 Voices</span>
+            <div class="content">
+                <div class="title">Character Voice</div>
+                <div class="desc">Assigns a voice to the currently selected character. Every line that character speaks will use this voice. Changing it previews the voice instantly.</div>
+                <div class="online-note">
+                    <strong>⚠️ Online voices need internet.</strong> Cloud-backed voices like <em>Microsoft Xiaoxiao Online</em> or <em>Microsoft Yunxi Online</em> synthesize on Microsoft's servers, so they require an active connection each time they speak. Local Desktop voices (David, Zira, Hazel) work fully offline, forever.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="narrator voice default text">
+            <span class="badge">🎤 Voices</span>
+            <div class="content"><div class="title">Narrator Voice</div><div class="desc">The fallback voice for any line not spoken by a character, and for unassigned characters. Also previews on change. The same online/offline distinction applies — pick a Desktop voice for fully offline playback.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="voice preview sample hello">
+            <span class="badge">🎤 Voices</span>
+            <div class="content"><div class="title">Voice Preview</div><div class="desc">Whenever you pick a different voice, you immediately hear <em>"Hello, this is [voice] speaking."</em> So you never assign the wrong voice by accident.</div></div>
+        </div>
+
+        <!-- ===== STYLES ===== -->
+        <div class="feature-item" data-keywords="styles tags performance emotion">
+            <span class="badge">🎭 Styles</span>
+            <div class="content"><div class="title">Style Buttons (22)</div><div class="desc">Click any style to insert its tag (<code>[whisper]</code>, <code>[sexy]</code>, etc.) at the cursor. Each style adjusts speech rate and volume to convey the mood.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="normal default">
+            <span class="badge">🎭 Styles</span>
+            <div class="content"><div class="title">Normal</div><div class="desc">Neutral pitch and rate – the default when no style tag is present.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="whisper quiet soft">
+            <span class="badge">🎭 Styles</span>
+            <div class="content"><div class="title">Whisper</div><div class="desc">Low volume, slower rate – spoken close to the mic.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="shout loud angry">
+            <span class="badge">🎭 Styles</span>
+            <div class="content"><div class="title">Shout</div><div class="desc">Maximum volume, faster rate – for moments of passion or rage.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="sexy slutty wanton sultry">
+            <span class="badge">🎭 Styles</span>
+            <div class="content"><div class="title">Sexy / Slutty / Wanton</div><div class="desc">Reduced volume, slower rate – the three flavour-tier intimate styles. Try each to hear the difference.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="sad crying sob melancholy">
+            <span class="badge">🎭 Styles</span>
+            <div class="content"><div class="title">Sad / Crying</div><div class="desc">Slower rate, softer volume – reads like a melancholy monologue or a scene of grief.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="happy excited joyful energetic">
+            <span class="badge">🎭 Styles</span>
+            <div class="content"><div class="title">Happy / Excited</div><div class="desc">Faster rate, standard volume – bright and lively.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="angry furious rage">
+            <span class="badge">🎭 Styles</span>
+            <div class="content"><div class="title">Angry / Furious</div><div class="desc">Faster rate, loud volume – forceful delivery.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="sleepy tired drowsy soft">
+            <span class="badge">🎭 Styles</span>
+            <div class="content"><div class="title">Sleepy</div><div class="desc">Very slow rate, very soft volume – reads like someone drifting off.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="laughing giggling amused chuckling">
+            <span class="badge">🎭 Styles</span>
+            <div class="content"><div class="title">Laughing / Giggling</div><div class="desc">Faster rate, standard volume – animated, mirthful delivery.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="fear nervous worry anxious scared">
+            <span class="badge">🎭 Styles</span>
+            <div class="content"><div class="title">Fear / Nervous / Worry</div><div class="desc">Faster rate, quieter volume – a trembling, uncertain quality.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="calm tender loving serene gentle">
+            <span class="badge">🎭 Styles</span>
+            <div class="content"><div class="title">Calm / Tender</div><div class="desc">Slightly slower, softer volume – warm and gentle delivery.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="serious somber grave">
+            <span class="badge">🎭 Styles</span>
+            <div class="content"><div class="title">Serious</div><div class="desc">Standard rate and volume – flat, no-nonsense delivery.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="singing musical">
+            <span class="badge">🎭 Styles</span>
+            <div class="content"><div class="title">Singing</div><div class="desc">Slower rate, softer volume, higher pitch – a lilting, musical quality.</div></div>
+        </div>
+
+        <!-- ===== SCRIPT SYNTAX ===== -->
+        <div class="feature-item" data-keywords="script syntax format characters block header">
+            <span class="badge">📜 Script Format</span>
+            <div class="content">
+                <div class="title">Script File Format</div>
+                <div class="desc">Ghost Cast scripts are plain text with a small metadata block at the top. The complete syntax looks like this:
+                    <div class="syntax">// Optional comment
+[CHARACTERS]
+Alice=Microsoft David Desktop
+Bob=Microsoft Zira Desktop
+Narrator=Microsoft Hazel Desktop
+[END CHARACTERS]
+
+Alice: Hello there.
+Bob[whisper]: Don't shout, she'll hear us.
+Alice[sexy; vol=60]: Oh really?
+[pause: 1500]
+[SFX: glass_break.wav; vol=80]
+Bob: What was that?
+[music: spooky_theme.mp3]</div>
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="character line colon dialogue speak">
+            <span class="badge">📜 Script Format</span>
+            <div class="content"><div class="title">Character Lines</div><div class="desc">A line that starts with <code>Name:</code> is spoken by that character using their assigned voice. Lines without a name prefix are spoken by the Narrator.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="style tag bracket character inline">
+            <span class="badge">📜 Script Format</span>
+            <div class="content"><div class="title">Inline Style Tags</div><div class="desc">Attach a style to a line by putting it in brackets between the name and the colon: <code>Alice[whisper]: psst…</code></div></div>
+        </div>
+        <div class="feature-item" data-keywords="volume override per line vol">
+            <span class="badge">📜 Script Format</span>
+            <div class="content"><div class="title">Per-Line Volume</div><div class="desc">Add <code>vol=N</code> inside a style tag to override the style's volume for one line only: <code>Alice[sexy; vol=60]: …</code>. Combine multiple attributes with a semicolon.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="pause delay wait milliseconds ms">
+            <span class="badge">📜 Script Format</span>
+            <div class="content"><div class="title">Pause Tag</div><div class="desc"><code>[pause: 1500]</code> on its own line pauses playback for 1500 milliseconds. Insert from the right-click menu or type it manually.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="sfx sound effect audio cue">
+            <span class="badge">📜 Script Format</span>
+            <div class="content"><div class="title">SFX Tag</div><div class="desc"><code>[SFX: filename.wav]</code> plays an audio file from the <code>SFX\</code> folder as the line runs. Optional volume: <code>[SFX: filename.wav; vol=50]</code>.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="music bgm background theme soundtrack">
+            <span class="badge">📜 Script Format</span>
+            <div class="content"><div class="title">Music Tag</div><div class="desc"><code>[music: filename.mp3]</code> switches the background music to a file from the <code>Music\</code> folder. Only one track plays at a time; a new tag replaces the current one.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="comment ignore skip">
+            <span class="badge">📜 Script Format</span>
+            <div class="content"><div class="title">Comments</div><div class="desc">Any line beginning with <code>//</code> is ignored – useful for notes, scene breaks, or reminders to yourself.</div></div>
+        </div>
+
+        <!-- ===== EDITOR ===== -->
+        <div class="feature-item" data-keywords="right click context menu script editor">
+            <span class="badge">✏️ Editor</span>
+            <div class="content">
+                <div class="title">Right-Click Menu</div>
+                <div class="desc">Right-click anywhere in the script editor for the full toolbox:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li>Save / Save As</li>
+                        <li>Export to WAV / Export to MP3</li>
+                        <li>Cut / Copy / Paste</li>
+                        <li>Insert Name at Cursor</li>
+                        <li>Insert Pause (1s, 2s, 5s, 10s, custom)</li>
+                        <li>Insert SFX</li>
+                        <li>Insert Style</li>
+                        <li>Add as Character / Add All Names</li>
+                        <li>Select All / Delete Selected / Clear All Text</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="save script file">
+            <span class="badge">✏️ Editor</span>
+            <div class="content"><div class="title">Save / Save As</div><div class="desc">Writes the character list and script to a single <code>.txt</code> file. If the file was previously loaded, Save overwrites it silently; Save As always prompts.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="insert pause custom milliseconds">
+            <span class="badge">✏️ Editor</span>
+            <div class="content"><div class="title">Insert Pause</div><div class="desc">Right-click menu offers 1, 2, 5, and 10-second presets, plus a Custom option where you type any millisecond value.</div></div>
+        </div>
+
+        <!-- ===== BGM & SFX ===== -->
+        <div class="feature-item" data-keywords="bgm background music toggle on off">
+            <span class="badge">🎵 Audio</span>
+            <div class="content"><div class="title">BGM Toggle</div><div class="desc">Click to pick a background music file (from anywhere on disk, or from the <code>Music\</code> folder). Click again to stop. The button pulses blue while music is playing.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="music folder organize files">
+            <span class="badge">🎵 Audio</span>
+            <div class="content"><div class="title">Music Folder</div><div class="desc">Drop <code>.mp3</code> or <code>.wav</code> files into the <code>Music\</code> folder next to the exe. The <code>[music: name]</code> tag looks here automatically.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="sfx folder sound effects files">
+            <span class="badge">🎵 Audio</span>
+            <div class="content"><div class="title">SFX Folder</div><div class="desc">Drop sound effects (<code>.mp3</code> or <code>.wav</code>) into the <code>SFX\</code> folder. The right-click <em>Insert SFX</em> option lists them for you to pick from.</div></div>
+        </div>
+
+        <!-- ===== VOLUME ===== -->
+        <div class="feature-item" data-keywords="volume master speech sfx bgm slider">
+            <span class="badge">🔊 Volume</span>
+            <div class="content"><div class="title">Volume Control</div><div class="desc">A single dialog with four sliders:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>Master</strong> – scales everything else</li>
+                        <li><strong>Speech</strong> – how loud the voices are</li>
+                        <li><strong>SFX</strong> – how loud sound effects are</li>
+                        <li><strong>BGM</strong> – how loud background music is</li>
+                    </ul>
+                    Master multiplies the other three, so the final volume is always intuitive.
+                </div></div>
+        </div>
+
+        <!-- ===== FLOATING IMAGE ===== -->
+        <div class="feature-item" data-keywords="ghost image floating picture position toggle">
+            <span class="badge">👻 Ghost Image</span>
+            <div class="content">
+                <div class="title">Floating Ghost Image</div>
+                <div class="desc">
+                    A decorative <code>ghostcast.png</code> floats over the Styles panel. Its position, size, and visibility are controlled by <code>ghostcast.txt</code>:
+                    <div class="syntax">Enabled=true
+Topmost=true
+X=340
+Y=20
+Width=150
+Height=150</div>
+                    Edit the file and restart the app to apply. Set <code>Enabled=false</code> to hide it entirely.
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== TRAY ===== -->
+        <div class="feature-item" data-keywords="tray systray minimize icon">
+            <span class="badge">🖥️ Tray</span>
+            <div class="content"><div class="title">System Tray</div><div class="desc">Minimizing the window sends Ghost Cast to the tray. Double-click the tray icon to restore, or right-click for an Open / Exit menu.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="unsaved changes exit close prompt">
+            <span class="badge">🖥️ Tray</span>
+            <div class="content"><div class="title">Unsaved Changes Prompt</div><div class="desc">Closing the app with unsaved script changes shows a friendly dialog with Save, Discard, and Cancel buttons, each with a coloured icon.</div></div>
+        </div>
+
+        <!-- ===== EXPORT ===== -->
+        <div class="feature-item" data-keywords="export wav audio file">
+            <span class="badge">💾 Export</span>
+            <div class="content"><div class="title">Export to WAV</div><div class="desc">Renders the entire script to a WAV file using the Narrator voice. All script tags are stripped, so only the spoken words are recorded.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="export mp3 audio encode media foundation">
+            <span class="badge">💾 Export</span>
+            <div class="content"><div class="title">Export to MP3</div><div class="desc">Exports the script as a <strong>real</strong> MP3 using Windows Media Foundation (via NAudio) at 128 kbps. No external encoder needed – no lame.exe, no LAME.dll, no libmp3lame. One click, real MP3.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="export narrator voice only">
+            <span class="badge">💾 Export</span>
+            <div class="content"><div class="title">Export Voice</div><div class="desc">Export renders with the Narrator voice only. Per-character voices, styles, SFX, pauses, and music tags are <strong>not</strong> applied during export – the result is a single narration of the script's dialogue.</div></div>
+        </div>
+
+        <!-- ===== FILES ===== -->
+        <div class="feature-item" data-keywords="file paths settings voice_overrides window_settings ui_settings">
+            <span class="badge">📁 Files</span>
+            <div class="content"><div class="title">Settings Files</div><div class="desc">
+                Ghost Cast keeps these files next to the exe:
+                <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                    <li><code>voice_overrides.txt</code> – character-to-voice map</li>
+                    <li><code>window_settings.txt</code> – window size and position</li>
+                    <li><code>ui_settings.txt</code> – volume levels</li>
+                    <li><code>ghostcast.txt</code> – floating ghost image position</li>
+                </ul>
+            </div></div>
+        </div>
+        <div class="feature-item" data-keywords="folders music sfx">
+            <span class="badge">📁 Files</span>
+            <div class="content"><div class="title">Auto-Created Folders</div><div class="desc">On first launch, Ghost Cast creates empty <code>Music\</code> and <code>SFX\</code> folders next to the exe. Drop audio files in and they become available immediately.</div></div>
+        </div>
+
+        <!-- ===== STATUS BAR ===== -->
+        <div class="feature-item" data-keywords="status bar mp3 music volume indicator">
+            <span class="badge">📊 Status</span>
+            <div class="content"><div class="title">Status Bar</div><div class="desc">The bottom strip shows three live indicators: the current MP3 export status, the name of the music playing (or "No music playing"), and the master volume percentage.</div></div>
+        </div>
+
+        <!-- ===== GHOST BUNDLE ===== -->
+        <div class="feature-item" data-keywords="ghost bundle family utilities companion reader stamp cast notes phrases calc">
+            <span class="badge">👻 Bundle</span>
+            <div class="content">
+                <div class="title">The Ghost Bundle Family</div>
+                <div class="desc">
+                    Ghost Cast is one of six small utilities under the Ghost Bundle umbrella:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong><a href="help-ghostreader.html" style="color:#a67c52;">Ghost Reader</a></strong> — distraction-free reader</li>
+                        <li><strong><a href="help-ghoststamp.html" style="color:#a67c52;">Ghost Stamp</a></strong> — file timestamping &amp; signing</li>
+                        <li><strong><a href="help-ghostcast.html" style="color:#a67c52;">Ghost Cast</a></strong> — multi-voice script studio <em>(you are here)</em></li>
+                        <li><strong><a href="help-ghostnotes.html" style="color:#a67c52;">Ghost Notes</a></strong> — hierarchical notebook</li>
+                        <li><strong><a href="help-ghostphrases.html" style="color:#a67c52;">Ghost Phrases</a></strong> — text expander</li>
+                        <li><strong><a href="help-ghostcalc.html" style="color:#a67c52;">Ghost Calc</a></strong> — standalone calculator with insert-into-app</li>
+                    </ul>
+                </div>
+                <div class="family-note">Six utilities. One family. Each does one thing well and stays out of your way. 💚</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="no-results" id="noResults">✨ No features match your search.</div>
+
+    <div class="about-section">
+        <h2>🎭 About Ghost Cast</h2>
+        <p>Ghost Cast is a small companion studio for multi-voice scripted performances. Give each character their own voice, layer in styles, sound effects, pauses, and background music, then export the whole thing as a real MP3 — all without leaving the app. It was built alongside Ghost Reader, sharing the same philosophy: stay out of the way, do one thing well, and never sell your data or nag you to pay. Ghost Cast is free and always will be. Pair it with Ghost Reader when you want dialogue, and use Ghost Reader on its own when you just want to listen. 💋</p>
+    </div>
+
+    <div class="footer">
+        Ghost Cast Help &bull; Self-contained &bull; No internet needed<br>
+        Part of the Ghost Bundle — <a href="index.html">Back to GhostBundle</a> &bull; <a href="https://ghostbundle.github.io" target="_blank" rel="noopener">ghostbundle.github.io</a>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const searchInput = document.getElementById('searchInput');
+        const items = document.querySelectorAll('.feature-item');
+        const noResults = document.getElementById('noResults');
+
+        function filterFeatures(query) {
+            const lower = query.toLowerCase().trim();
+            let found = 0;
+            items.forEach(item => {
+                const keywords = (item.dataset.keywords || '').toLowerCase();
+                const title = item.querySelector('.title')?.textContent?.toLowerCase() || '';
+                const desc = item.querySelector('.desc')?.textContent?.toLowerCase() || '';
+                const match = (keywords + ' ' + title + ' ' + desc).includes(lower);
+                if (lower === '') {
+                    item.classList.remove('hidden');
+                    found++;
+                } else if (match) {
+                    item.classList.remove('hidden');
+                    found++;
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+            noResults.style.display = (found === 0 && lower !== '') ? 'block' : 'none';
+        }
+
+        searchInput.addEventListener('input', function(e) {
+            filterFeatures(e.target.value);
+        });
+
+        filterFeatures('');
+    })();
+</script>
+
+</body>
+</html>
