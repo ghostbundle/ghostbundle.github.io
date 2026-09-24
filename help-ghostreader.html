@@ -6,7 +6,7 @@
 
     <!-- ============ PRIMARY SEO ============ -->
     <title>Ghost Reader — Help &amp; Documentation | GhostBundle</title>
-    <meta name="description" content="Ghost Reader help and documentation: clipboard text-to-speech, voice selection, MP3/WAV export, queue mode, session restore, and every toggle explained. Free Windows utility from GhostBundle." />
+    <meta name="description" content="Ghost Reader help and documentation: clipboard text-to-speech, voice selection, MP3/WAV export, queue mode, session restore, URL handling, and every toggle explained. Free Windows utility from GhostBundle." />
     <meta name="author" content="GhostBundle" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#f7f2e8" />
@@ -336,7 +336,7 @@
 
     <div class="search-wrap">
         <span class="icon">🔍</span>
-        <input type="text" id="searchInput" placeholder="Search features, e.g. 'voice', 'queue', 'caret'..." autofocus />
+        <input type="text" id="searchInput" placeholder="Search features, e.g. 'voice', 'url', 'caret'..." autofocus />
     </div>
 
     <div class="feature-grid" id="featureGrid">
@@ -354,10 +354,6 @@
             <span class="badge">⚙️ Toggle</span>
             <div class="content"><div class="title">Skip Duplicates</div><div class="desc">Prevents the same clipboard text from being read again if it hasn't changed.</div></div>
         </div>
-        <div class="feature-item" data-keywords="skip url web links http">
-            <span class="badge">⚙️ Toggle</span>
-            <div class="content"><div class="title">Skip URL's</div><div class="desc">Automatically removes web links (http, https, www) from the text before speaking.</div></div>
-        </div>
         <div class="feature-item" data-keywords="auto start windows boot startup">
             <span class="badge">⚙️ Toggle</span>
             <div class="content"><div class="title">Auto-start with Windows</div><div class="desc">Adds the app to Windows startup so it launches automatically when you log in.</div></div>
@@ -369,6 +365,58 @@
         <div class="feature-item" data-keywords="random goodbye exit farewell">
             <span class="badge">⚙️ Toggle</span>
             <div class="content"><div class="title">Random Goodbye</div><div class="desc">Speaks a random farewell from <code>goodbyes.txt</code> when you close the app. Default goodbyes include a 💋 which is spoken as "kiss".</div></div>
+        </div>
+
+        <!-- ===== URL HANDLING ===== -->
+        <div class="feature-item" data-keywords="url handling silence strip remove links http www domains">
+            <span class="badge">🔗 URL</span>
+            <div class="content">
+                <div class="title">Silence URLs</div>
+                <div class="desc">
+                    Master switch under <strong>Options → URL Handling</strong>. When ticked, all URLs and bare domains — including ones wrapped in <code>[square brackets]</code> like <code>[thestar.com.my]</code> — are stripped from the text before speaking. The three items below it become greyed out because there's nothing left to announce, prefix, or pronounce.
+                    <br><br>
+                    Handles both protocol URLs (<code>http://</code>, <code>https://</code>, <code>www.</code>) and bare domains (<code>rttnews.com</code>, <code>thestar.com.my</code>). Brackets and orphaned whitespace are cleaned up too.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="announce source attribution cite reference">
+            <span class="badge">🔗 URL</span>
+            <div class="content">
+                <div class="title">Announce Source</div>
+                <div class="desc">
+                    When ticked, a sentence-final domain like <code>... data centers [thestar.com.my].</code> is spoken as <code>... data centers. Source: thestar.com.my.</code> — a short pause is inserted before the prefix so it doesn't run into the previous sentence.
+                    <br><br>
+                    Only fires on domains that end a sentence (followed by <code>.</code>, <code>!</code>, <code>?</code>, or the end of the text). A URL on its own — the entire textbox being just a URL — is read plainly with no prefix, because there's no sentence for it to be a source <em>of</em>. Disabled when Silence URLs is ticked.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="source prefix custom word attribution reported from selon quelle">
+            <span class="badge">🔗 URL</span>
+            <div class="content">
+                <div class="title">Source Prefix…</div>
+                <div class="desc">
+                    Opens a small dialog where you choose the word or phrase used by Announce Source. Default is <code>Source:</code>. You can set it to anything — <code>From:</code>, <code>Reported by:</code>, <code>Per:</code>, <code>Quelle:</code>, <code>来源：</code>, or a custom phrase.
+                    <br><br>
+                    <strong>Auto-colon rule:</strong> if what you type ends in a letter or number, a colon is added automatically. If you type your own punctuation (a colon, a dash, a full-width colon), it's preserved exactly as typed. An ⓘ icon next to the field shows example usage.
+                    <br><br>
+                    Disabled when Silence URLs is ticked.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="force english domain pronunciation accent dots com my french vivienne">
+            <span class="badge">🔗 URL</span>
+            <div class="content">
+                <div class="title">Force English Domain Pronunciation</div>
+                <div class="desc">
+                    Rewrites domains so a non-English voice (like Microsoft Vivienne, a French-native multilingual voice) pronounces them the English way:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><code>thestar.com.my</code> → <code>thestar dot com dot my</code></li>
+                        <li><code>rttnews.com</code> → <code>rttnews dot com</code></li>
+                        <li><code>192.168.1.1</code> is left alone — the pattern requires a letter-based TLD</li>
+                    </ul>
+                    Fixes the "ko'un" sound that French-native voices produce when they read <code>.com</code> naturally. Works on two-segment (<code>.com</code>, <code>.org</code>) and three-segment (<code>.com.my</code>, <code>.co.uk</code>) domains alike. Disabled when Silence URLs is ticked.
+                </div>
+            </div>
         </div>
 
         <!-- ===== SPEECH ===== -->
@@ -475,17 +523,18 @@
             <span class="badge">📋 Feedback</span>
             <div class="content"><div class="title">Last Spoken Label</div><div class="desc">A yellow strip below the Reading indicator shows the most recent sentence that finished being spoken. Updated on natural completion, stop, or interruption.</div></div>
         </div>
-        <div class="feature-item" data-keywords="session restore resume continue prompt">
+        <div class="feature-item" data-keywords="session restore resume continue prompt radio">
             <span class="badge">📋 Feedback</span>
             <div class="content">
                 <div class="title">Session Restore</div>
                 <div class="desc">
-                    On exit, the current text is saved to <code>session.txt</code>. On the next launch, after the greeting plays, a prompt appears with three choices:
+                    On exit, the current text is saved to <code>session.txt</code>. On the next launch, after the greeting plays, a prompt appears with three radio-button options — all visible at once, no dropdown to open:
                     <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
-                        <li><strong>1. Restore Session</strong> – loads the text, no speaking</li>
-                        <li><strong>2. Resume Speech</strong> – continues reading from the last completed sentence</li>
-                        <li><strong>3. Clear Session</strong> – starts fresh with an empty editor</li>
+                        <li><strong>Restore Session</strong> (default) – loads the text, no speaking</li>
+                        <li><strong>Resume Speech</strong> – continues reading from the last completed sentence</li>
+                        <li><strong>Clear Session</strong> – starts fresh with an empty editor</li>
                     </ul>
+                    Press <kbd>Enter</kbd> or click OK to confirm. Clicking the window's X (or pressing <kbd>Esc</kbd>) treats it as the default — Restore Session.
                 </div>
             </div>
         </div>
@@ -494,6 +543,10 @@
         <div class="feature-item" data-keywords="sanitize ampersand angle bracket crash fix safe">
             <span class="badge">🛡️ Safety</span>
             <div class="content"><div class="title">Crash-safe Sanitization</div><div class="desc">The following characters are automatically rewritten before reaching the speech engine so they can't crash it: <code>&amp;</code> → "and", <code>&lt;</code> → "less than", <code>&gt;</code> → "greater than", double quotes → single quotes, backslashes → spaces, and invisible control characters are stripped.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="decimal point number 4.9 float version">
+            <span class="badge">🛡️ Safety</span>
+            <div class="content"><div class="title">Decimal Points Read Correctly</div><div class="desc">A period between two digits is spoken as the word <strong>"point"</strong> instead of being treated as a sentence break. So <code>4.9%</code> is read "four point nine percent" with no awkward pause after "four", and version numbers like <code>2.5</code> or IP addresses like <code>192.168.1.1</code> also read cleanly.</div></div>
         </div>
         <div class="feature-item" data-keywords="emoji kiss heart fire ghost smiling spoken name">
             <span class="badge">🛡️ Safety</span>
@@ -513,16 +566,20 @@
             <span class="badge">🌏 Language</span>
             <div class="content"><div class="title">Chinese Punctuation Support</div><div class="desc">The app correctly splits text on Chinese punctuation <code>。！？</code> so long Chinese texts are read sentence by sentence.</div></div>
         </div>
+        <div class="feature-item" data-keywords="multilingual voice vivienne french accent natural">
+            <span class="badge">🌏 Language</span>
+            <div class="content"><div class="title">Multilingual Voices</div><div class="desc">Works with Microsoft's multilingual neural voices (like <em>Microsoft Vivienne Multilingual Online</em>). These voices auto-detect language and can slip into their native accent on short or ambiguous tokens — particularly bare domains. If a French-native voice mangles <code>.com</code>, turn on <strong>Force English Domain Pronunciation</strong> under URL Handling to correct just the domain parts while leaving the rest of the voice's accent intact.</div></div>
+        </div>
 
         <!-- ===== ADVANCED ===== -->
-        <div class="feature-item" data-keywords="restore defaults reset borders speech greetings goodbyes">
+        <div class="feature-item" data-keywords="restore defaults reset borders speech greetings goodbyes url">
             <span class="badge">⚙️ Advanced</span>
             <div class="content">
                 <div class="title">Restore Defaults</div>
                 <div class="desc">In the Help menu, you can restore:
                     <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
                         <li><strong>Default Borders</strong> – reset window layout and reposition all controls</li>
-                        <li><strong>Default Speech Settings</strong> – reset voice, speed, volume, opacity</li>
+                        <li><strong>Default Speech Settings</strong> – reset voice, speed, volume, opacity, and all URL Handling toggles</li>
                         <li><strong>Random Greetings</strong> – restore the default <code>greetings.txt</code></li>
                         <li><strong>Random Goodbyes</strong> – restore the default <code>goodbyes.txt</code></li>
                     </ul>
@@ -535,13 +592,17 @@
         </div>
 
         <!-- ===== HIDDEN ===== -->
+        <div class="feature-item" data-keywords="tld list domains known top level">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">The <code>tlds.txt</code> File</div><div class="desc">A plain-text list of known top-level domains (<code>com</code>, <code>org</code>, <code>my</code>, <code>uk</code>, and so on), one per line, sitting next to the exe. The app uses it to recognise what counts as a domain when applying URL Handling. If the file is missing, a small built-in list is used instead. You can replace it with the full IANA list at any time by saving <code>tlds-alpha-by-domain.txt</code> from <em>data.iana.org</em> as <code>tlds.txt</code>.</div></div>
+        </div>
         <div class="feature-item" data-keywords="log lastspoken sentence debug">
             <span class="badge">🔧 Hidden</span>
             <div class="content"><div class="title">Last Spoken Log</div><div class="desc">Every spoken sentence is appended to <code>lastspoken.log</code> – useful for debugging and tracking interruptions.</div></div>
         </div>
         <div class="feature-item" data-keywords="logs folder crash error debug report">
             <span class="badge">🔧 Hidden</span>
-            <div class="content"><div class="title">Logs Folder</div><div class="desc">The <code>Logs\</code> folder holds rotated crash logs (<code>log1.log</code> … <code>log9.log</code>), memory monitoring output (<code>memory.log</code>), and single-instance events (<code>single_instance.log</code>). If anything ever misbehaves, this is where to look.</div></div>
+            <div class="content"><div class="title">Logs Folder</div><div class="desc">The <code>Logs\</code> folder holds rotated crash logs (<code>log1.log</code> … <code>log9.log</code>), memory monitoring output (<code>memory.log</code>), single-instance events (<code>single_instance.log</code>), and unhandled/thread exception logs. If anything ever misbehaves, this is where to look.</div></div>
         </div>
         <div class="feature-item" data-keywords="borders settings file layout position version marker migration">
             <span class="badge">🔧 Hidden</span>
@@ -553,6 +614,10 @@
                     The file carries a <code>; layout-version=2</code> marker in its header. If the file is missing, it is regenerated from the built‑in defaults. If it exists but was written by an older version of the app, it is backed up to <code>borders.txt.v1.bak</code> and regenerated automatically — so future layout changes never clash with an old file. Use <strong>Restore Default Borders</strong> to regenerate it fresh at any time.
                 </div>
             </div>
+        </div>
+        <div class="feature-item" data-keywords="settings file ini txt save load persist">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">Settings File</div><div class="desc">The <code>settings.txt</code> file next to the exe stores every preference — voice, speed, volume, opacity, autostart, greeting toggles, and all four URL Handling settings (<code>SilenceURLs</code>, <code>AnnounceSource</code>, <code>SourcePrefix</code>, <code>ForceEnglishDomains</code>). Old versions of the app wrote a <code>SkipURLs</code> key; on first load it is migrated to <code>SilenceURLs</code> and never written again.</div></div>
         </div>
 
         <!-- ===== GHOST BUNDLE ===== -->
