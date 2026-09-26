@@ -1,7 +1,6 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -404,9 +403,13 @@
             <span class="badge">🔍 Picker</span>
             <div class="content"><div class="title">Keyboard-Driven</div><div class="desc">Type to filter, press <kbd>↓</kbd> to jump into the list, then <kbd>↑</kbd>/<kbd>↓</kbd> to move. <kbd>Enter</kbd> inserts the highlighted phrase. <kbd>Esc</kbd> or Cancel closes without inserting. Double-click any item to insert it directly.</div></div>
         </div>
-        <div class="feature-item" data-keywords="standalone insert phrase tray no trigger">
+        <div class="feature-item" data-keywords="auto close after insert keep open checkbox multiple picks stay open">
             <span class="badge">🔍 Picker</span>
-            <div class="content"><div class="title">Insert Phrase (tray menu)</div><div class="desc">Right-click the tray icon → <strong>Insert Phrase…</strong> opens the same picker without typing a trigger. The selected phrase is inserted into whatever window had focus just before the picker opened.</div></div>
+            <div class="content"><div class="title">Auto-Close After Insert</div><div class="desc">A checkbox at the bottom-left of the picker (next to the Insert button) controls what happens after a phrase is inserted. <strong>Checked (default):</strong> the picker closes and gets out of your way. <strong>Unchecked:</strong> the picker stays open and pops back to the front, so you can search again and fire another phrase without re-triggering <code>;p</code>. Your choice is remembered in <code>ghostphrases.ini</code> across restarts.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="standalone insert phrase tray no trigger last window focus">
+            <span class="badge">🔍 Picker</span>
+            <div class="content"><div class="title">Insert Phrase (tray menu)</div><div class="desc">Right-click the tray icon → <strong>Insert Phrase…</strong> opens the same picker without typing a trigger. Because clicking the tray briefly steals focus, Ghost Phrases tracks the last real foreground window in the background (ignoring its own dialogs and the Windows shell), then hands focus back to that window and types the expansion into it. The result: it lands where you were typing, not in the taskbar.</div></div>
         </div>
 
         <!-- ===== MANAGER ===== -->
@@ -471,9 +474,9 @@
             <span class="badge">💾 Files</span>
             <div class="content"><div class="title">Live Reload</div><div class="desc">Edit <code>Phrases.txt</code> in Notepad and save — Ghost Phrases notices within half a second and reloads the list silently. Your very next keystroke sees the new entry. No restart, ever. A <strong>Reload Phrases</strong> item is also in the tray menu if you ever want to force it.</div></div>
         </div>
-        <div class="feature-item" data-keywords="settings ini file config">
+        <div class="feature-item" data-keywords="settings ini file config autoclossefterinsert behaviour">
             <span class="badge">💾 Files</span>
-            <div class="content"><div class="title">Settings File: <code>ghostphrases.ini</code></div><div class="desc">Stores the trigger, case-sensitivity, and behaviour toggles. Everything is editable in-app via the Settings dialog; hand-editing the file also works if you're the type who likes to. Changes take effect on the next keystroke.</div></div>
+            <div class="content"><div class="title">Settings File: <code>ghostphrases.ini</code></div><div class="desc">Stores the trigger, case-sensitivity, and behaviour toggles — including <code>AutoCloseAfterInsert</code>, the picker's auto-close checkbox state. Everything is editable in-app via the Settings dialog; hand-editing the file also works if you're the type who likes to. Changes take effect on the next keystroke.</div></div>
         </div>
         <div class="feature-item" data-keywords="auto create first run starter sample semicolon prefix">
             <span class="badge">💾 Files</span>
@@ -552,6 +555,10 @@
             <span class="badge">🔧 Hidden</span>
             <div class="content"><div class="title">SendInput Suppression Window</div><div class="desc">When Ghost Phrases types an expansion for you, it uses Windows' <code>SendInput</code> — the same API a virtual keyboard would use — and it injects characters as real virtual-key presses (via <code>VkKeyScan</code>) so web form fields that listen for keydown events accept them. A short suppression window (~280 ms) is armed just before the expansion is sent, so the hook doesn't hear its own output and loop forever.</div></div>
         </div>
+        <div class="feature-item" data-keywords="surrogate pair emoji astral plane unicode batch">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">Emoji &amp; Astral-Plane Characters</div><div class="desc">Emoji and other characters above U+FFFF are stored in .NET as surrogate pairs — two adjacent UTF-16 code units. Ghost Phrases detects these and sends each pair in a single <code>SendInput</code> batch, so the target application sees the high and low halves together and reconstructs the character. Splitting them would make the app show two <code>?</code> marks instead. Same machinery also handles rare CJK characters and mathematical symbols outside the Basic Multilingual Plane.</div></div>
+        </div>
         <div class="feature-item" data-keywords="us english keyboard layout vk mapping numpad">
             <span class="badge">🔧 Hidden</span>
             <div class="content"><div class="title">US English Keyboard Mapping</div><div class="desc">Keystrokes are translated to characters using the US English layout — so <code>;</code> comes from the key right of L, and <code>+</code> from Shift+Equals on the main row, or from the numpad directly. Both numpad and main-keyboard variants of every digit and arithmetic symbol are recognised.</div></div>
@@ -563,6 +570,14 @@
         <div class="feature-item" data-keywords="legacy file format backward compatible migration semicolon">
             <span class="badge">🔧 Hidden</span>
             <div class="content"><div class="title">Backward Compatibility</div><div class="desc">The old <code>shortcut;full text</code> format still loads, so any phrases you saved before the <code>=&gt;</code> change aren't lost. Legacy lines that start with <code>;</code> (the old shipped defaults) are handled correctly too. On the next save via the Phrase Manager, the file is rewritten in the new <code>=&gt;</code> format automatically.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="foreground tracker last window focus target tray insert">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">Foreground Tracker</div><div class="desc">A background timer running four times a second watches the current foreground window and remembers it — but only if it belongs to another process and isn't <code>explorer.exe</code>. That gives the tray-triggered picker a valid "last real target" to hand focus back to, even after the tray click briefly stole it. The tracker is why <strong>Insert Phrase…</strong> from the tray lands in the right window, and why the same trick works whether you launched the picker with <code>;p</code> or a mouse.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="modal dialog owner hidden window focus steal">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">Hidden Dialog Owner</div><div class="desc">The picker is a modal dialog, and Windows disables a modal dialog's owner for its whole lifetime. Left to its own devices, Windows would pick the current foreground window (Notepad, say) as the owner and disable <em>it</em> — blocking the very handoff we need afterwards. Ghost Phrases therefore creates a tiny invisible owner window from its own process and gives that to the picker instead, so the real target window stays enabled and able to receive focus.</div></div>
         </div>
 
         <!-- ===== GHOST BUNDLE ===== -->

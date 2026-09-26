@@ -1,13 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- ============ PRIMARY SEO ============ -->
     <title>Ghost Calc — Help &amp; Documentation | GhostBundle</title>
-    <meta name="description" content="Ghost Calc help and documentation: a calculator that types its answer into any window. Standard keypad with memory and percent, plus five worksheets: mortgage, fixed deposit, recurring saver, unit conversion, and date calculation. Free from GhostBundle." />
+    <meta name="description" content="Ghost Calc help and documentation: a calculator that types its answer into any window. Standard keypad with memory and percent, plus six worksheets: mortgage, fixed deposit, recurring saver, interest payout, unit conversion, and date calculation. Free from GhostBundle." />
     <meta name="author" content="GhostBundle" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#f7f2e8" />
@@ -462,7 +461,7 @@
             <div class="content">
                 <div class="title">The "Fill Any Four, Solve the Fifth" Pattern</div>
                 <div class="desc">
-                    Every worksheet in Ghost Calc follows one simple rule: fill in all but one field, click Calculate, and the missing field gets solved. No "solve for rate" dropdown, no mode switch — the shape of what you left blank tells the calculator what to do.
+                    Most worksheets in Ghost Calc follow one simple rule: fill in all but one field, click Calculate, and the missing field gets solved. No "solve for rate" dropdown, no mode switch — the shape of what you left blank tells the calculator what to do.
                     <div class="example">Example: Mortgage
 Principal  = 250000
 Rate       = 5.25
@@ -494,14 +493,14 @@ Rate      = (blank)
             <span class="badge">📐 Worksheets</span>
             <div class="content">
                 <div class="title">Fixed Deposit</div>
-                <div class="desc">Lump-sum savings that grows untouched. Five fields: <strong>Principal</strong>, <strong>Rate</strong>, <strong>Term (years)</strong>, <strong>Compounding</strong> (Daily / Monthly / Quarterly / Semi-annually / Annually), and <strong>Maturity</strong>. Fill any four, solve the fifth.
+                <div class="desc">Lump-sum savings that grows untouched. Five fields: <strong>Principal</strong>, <strong>Rate</strong>, <strong>Term (years)</strong>, <strong>Compounding</strong> (Daily / Monthly / Quarterly / Semi-annually / Annually / None for simple interest), and <strong>Maturity</strong>. Fill any four, solve the fifth.
                     <div class="example">Principal  = 10000
 Rate       = 5
 Term       = 5
 Compounding = Annually
 Maturity   = (blank)
 → Calculate → Maturity = 12,762.82</div>
-                    Same inputs with Daily compounding instead of Annually → <code>12,840.03</code>. That's the daily-compounding advantage, made visible.
+                    Same inputs with Daily compounding instead of Annually → <code>12,840.03</code>. That's the daily-compounding advantage, made visible. Choosing <em>None</em> switches to simple interest — useful for the way many Asian fixed deposits are actually quoted.
                 </div>
             </div>
         </div>
@@ -520,6 +519,40 @@ Compounding       = Daily
 Or leave Monthly deposit blank to find out how much
 you'd need to deposit each month to reach a target.</div>
                     The math blends fixed-deposit growth on the initial principal with annuity accumulation on the deposits — matching how real savings accounts actually work.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="interest payout monthly interest day count basis actual 365 366 leap year isda per-block accrual bank">
+            <span class="badge">📐 Worksheets</span>
+            <div class="content">
+                <div class="title">Interest Payout</div>
+                <div class="desc">
+                    Works out the interest a lump sum earns for a specific period — the kind of number a bank prints on a monthly statement. Two fields are always visible — <strong>Principal</strong> and <strong>Rate (% per year)</strong> — and a <strong>Mode</strong> dropdown picks how you want to specify the period:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>Single month</strong> — a Month + Year dropdown pair. Interest is calculated for the entire calendar month.</li>
+                        <li><strong>Date range</strong> — a Start and End date picker. Interest is broken down month-by-month across the range.</li>
+                    </ul>
+                    A third dropdown controls the <strong>day-count basis</strong> — the convention banks use to translate a yearly rate into a daily one:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>Actual/365 (fixed)</strong> — every year is 365 days. The most common retail convention.</li>
+                        <li><strong>Actual/366 in leap years</strong> — the denominator becomes 366 during leap years.</li>
+                        <li><strong>Actual/Actual (ISDA)</strong> — each year uses its own day count (365 or 366), split precisely at year boundaries.</li>
+                    </ul>
+                    Live recalculation: change any field and the summary updates instantly. A small monospace list below the fields shows the per-block breakdown — one line per calendar month, with days and interest for each block, so you can trace exactly how the total was built.
+                    <div class="example">Principal    = 100000
+Rate         = 3.5
+Mode         = Single month
+Month        = February
+Year         = 2024
+Basis        = Actual/366 in leap years
+→ Interest = 100000 × 0.035 × 29 / 366 = 277.3224
+
+Same month with Actual/365:
+→ Interest = 100000 × 0.035 × 29 / 365 = 278.0822
+
+Difference: about 76 sen — which is exactly
+the kind of thing a bank statement hides.</div>
+                    The header line of the summary also flags leap-year years with a small <em>[Leap year]</em> marker so you can see at a glance which convention was applied.
                 </div>
             </div>
         </div>
@@ -557,9 +590,9 @@ you'd need to deposit each month to reach a target.</div>
         </div>
 
         <!-- ===== PANELS & MENUS ===== -->
-        <div class="feature-item" data-keywords="view menu worksheets basic fold ctrl f4 switch panel">
+        <div class="feature-item" data-keywords="view menu worksheets basic fold ctrl f4 switch panel interest payout">
             <span class="badge">🗂️ Menus</span>
-            <div class="content"><div class="title">View Menu</div><div class="desc">The only menu that matters. <strong>Basic</strong> (<kbd>Ctrl</kbd>+<kbd>F4</kbd>) folds every worksheet back to just the calculator. Below that: Mortgage, Fixed deposit, Recurring saver, Unit conversion, Date calculation. A radio dot shows which worksheet is currently open; clicking the same one again closes it.</div></div>
+            <div class="content"><div class="title">View Menu</div><div class="desc">The only menu that matters. <strong>Basic</strong> (<kbd>Ctrl</kbd>+<kbd>F4</kbd>) folds every worksheet back to just the calculator. Below that: Mortgage repayment, Fixed deposit, Recurring saver, Interest payout, then a separator, then Unit conversion and Date calculation. A radio dot shows which worksheet is currently open; clicking the same one again closes it.</div></div>
         </div>
         <div class="feature-item" data-keywords="basic fold close all panels escape hatch home">
             <span class="badge">🗂️ Menus</span>
@@ -642,7 +675,7 @@ you'd need to deposit each month to reach a target.</div>
 
     <div class="about-section">
         <h2>🧮 About Ghost Calc</h2>
-        <p>Ghost Calc is a small calculator that does something no other Windows calculator does: it can type its own answer into whatever you were working on. Open it from the tray, do your arithmetic, click Insert — and the number lands at your cursor, in Notepad, an email, a spreadsheet, anywhere. Underneath it's a proper Windows-Calculator-style keypad with memory buttons, percent, square root, and a proper expression line. Push further and you'll find five worksheets — mortgage, fixed deposit, recurring saver, unit conversion, and date calculation — all built around the same "fill any four, solve the fifth" idea. No accounts, no cloud, no nagging. Ghost Calc is free, and it always will be. 💚</p>
+        <p>Ghost Calc is a small calculator that does something no other Windows calculator does: it can type its own answer into whatever you were working on. Open it from the tray, do your arithmetic, click Insert — and the number lands at your cursor, in Notepad, an email, a spreadsheet, anywhere. Underneath it's a proper Windows-Calculator-style keypad with memory buttons, percent, square root, and a proper expression line. Push further and you'll find six worksheets — mortgage, fixed deposit, recurring saver, interest payout, unit conversion, and date calculation — all built around the same "fill any four, solve the fifth" idea (interest payout excepted, where there's nothing missing to solve — just a period and a basis to pick). No accounts, no cloud, no nagging. Ghost Calc is free, and it always will be. 💚</p>
     </div>
 
     <div class="footer">

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ghost Reader – Help</title>
+    <link rel="icon" type="image/x-icon" href="ghostreader.ico">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: #f7f2e8;
+            color: #2b2118;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fffdf8;
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(60,45,25,0.10);
+            padding: 40px 50px;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #2b2118;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+        .subtitle {
+            color: #6b5b45;
+            font-size: 1rem;
+            border-left: 4px solid #b8a378;
+            padding-left: 16px;
+            margin-bottom: 30px;
+        }
+        .search-wrap {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .search-wrap input {
+            width: 100%;
+            padding: 14px 20px;
+            font-size: 1rem;
+            border: 2px solid #e5dac2;
+            border-radius: 60px;
+            background: #fbf7ee;
+            transition: 0.2s;
+            outline: none;
+            padding-left: 48px;
+            color: #2b2118;
+        }
+        .search-wrap input::placeholder { color: #a89a7c; }
+        .search-wrap input:focus {
+            border-color: #a67c52;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(166,124,82,0.10);
+        }
+        .search-wrap .icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #b8a378;
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .feature-item {
+            background: #fdfaf3;
+            border-radius: 14px;
+            padding: 16px 24px;
+            border: 1px solid #ede4d0;
+            transition: 0.15s;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .feature-item:hover {
+            background: #f7f1e2;
+            border-color: #d4c4a0;
+        }
+        .feature-item .badge {
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: #8b6914;
+            background: #f2e8ce;
+            padding: 2px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .feature-item .content {
+            flex: 1;
+        }
+        .feature-item .title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #2b2118;
+        }
+        .feature-item .desc {
+            color: #4a3f2e;
+            font-size: 0.95rem;
+            margin-top: 2px;
+        }
+        .feature-item.hidden {
+            display: none;
+        }
+        .no-results {
+            text-align: center;
+            padding: 40px 0;
+            color: #8b7a5c;
+            font-size: 1.1rem;
+            display: none;
+        }
+        .about-section {
+            margin-top: 40px;
+            padding: 24px 28px;
+            background: #f5eedc;
+            border-radius: 18px;
+            border-left: 6px solid #a67c52;
+        }
+        .about-section h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2b2118;
+            margin-bottom: 6px;
+        }
+        .about-section p {
+            color: #3e3424;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #8b7a5c;
+            text-align: center;
+            border-top: 1px solid #ede4d0;
+            padding-top: 20px;
+            line-height: 1.8;
+        }
+        .footer a {
+            color: #a67c52;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dotted #d4c4a0;
+            transition: 0.15s;
+        }
+        .footer a:hover {
+            color: #7a5c33;
+            border-bottom-color: #a67c52;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 24px 18px; }
+            .feature-item { padding: 14px 16px; flex-wrap: wrap; }
+            .feature-item .badge { order: 2; }
+        }
+        code {
+            background: #f2ead8;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        .family-note {
+            margin-top: 8px;
+            padding: 12px 18px;
+            background: #fbf7ee;
+            border-radius: 12px;
+            border: 1px dashed #ddd1b5;
+            color: #5a4d3a;
+            font-size: 0.9rem;
+        }
+        .family-note strong { color: #2b2118; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>👻 Ghost Reader</h1>
+    <div class="subtitle">Feature guide – search below to find what you need</div>
+
+    <div class="search-wrap">
+        <span class="icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search features, e.g. 'voice', 'url', 'caret'..." autofocus />
+    </div>
+
+    <div class="feature-grid" id="featureGrid">
+
+        <!-- ===== TOGGLES ===== -->
+        <div class="feature-item" data-keywords="clipboard monitor disable toggle on off">
+            <span class="badge">⚙️ Toggle</span>
+            <div class="content"><div class="title">Disable Clipboard</div><div class="desc">Turns clipboard monitoring on/off. When disabled, the app ignores new clipboard content.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="queue articles append continuous">
+            <span class="badge">⚙️ Toggle</span>
+            <div class="content"><div class="title">Queue Articles</div><div class="desc">When enabled, new clipboard text is appended to the end of the current speech queue without interrupting the current reading.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="skip duplicates duplicate repeated">
+            <span class="badge">⚙️ Toggle</span>
+            <div class="content"><div class="title">Skip Duplicates</div><div class="desc">Prevents the same clipboard text from being read again if it hasn't changed.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="auto start windows boot startup">
+            <span class="badge">⚙️ Toggle</span>
+            <div class="content"><div class="title">Auto-start with Windows</div><div class="desc">Adds the app to Windows startup so it launches automatically when you log in.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="random greeting startup welcome">
+            <span class="badge">⚙️ Toggle</span>
+            <div class="content"><div class="title">Random Greeting</div><div class="desc">Speaks a random welcome message from <code>greetings.txt</code> when the app starts.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="random goodbye exit farewell">
+            <span class="badge">⚙️ Toggle</span>
+            <div class="content"><div class="title">Random Goodbye</div><div class="desc">Speaks a random farewell from <code>goodbyes.txt</code> when you close the app. Default goodbyes include a 💋 which is spoken as "kiss".</div></div>
+        </div>
+
+        <!-- ===== URL HANDLING ===== -->
+        <div class="feature-item" data-keywords="url handling silence strip remove links http www domains">
+            <span class="badge">🔗 URL</span>
+            <div class="content">
+                <div class="title">Silence URLs</div>
+                <div class="desc">
+                    Master switch under <strong>Options → URL Handling</strong>. When ticked, all URLs and bare domains — including ones wrapped in <code>[square brackets]</code> like <code>[thestar.com.my]</code> — are stripped from the text before speaking. The three items below it become greyed out because there's nothing left to announce, prefix, or pronounce.
+                    <br><br>
+                    Handles both protocol URLs (<code>http://</code>, <code>https://</code>, <code>www.</code>) and bare domains (<code>rttnews.com</code>, <code>thestar.com.my</code>). Brackets and orphaned whitespace are cleaned up too.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="announce source attribution cite reference">
+            <span class="badge">🔗 URL</span>
+            <div class="content">
+                <div class="title">Announce Source</div>
+                <div class="desc">
+                    When ticked, a sentence-final domain like <code>... data centers [thestar.com.my].</code> is spoken as <code>... data centers. Source: thestar.com.my.</code> — a short pause is inserted before the prefix so it doesn't run into the previous sentence.
+                    <br><br>
+                    Only fires on domains that end a sentence (followed by <code>.</code>, <code>!</code>, <code>?</code>, or the end of the text). A URL on its own — the entire textbox being just a URL — is read plainly with no prefix, because there's no sentence for it to be a source <em>of</em>. Disabled when Silence URLs is ticked.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="source prefix custom word attribution reported from selon quelle">
+            <span class="badge">🔗 URL</span>
+            <div class="content">
+                <div class="title">Source Prefix…</div>
+                <div class="desc">
+                    Opens a small dialog where you choose the word or phrase used by Announce Source. Default is <code>Source:</code>. You can set it to anything — <code>From:</code>, <code>Reported by:</code>, <code>Per:</code>, <code>Quelle:</code>, <code>来源：</code>, or a custom phrase.
+                    <br><br>
+                    <strong>Auto-colon rule:</strong> if what you type ends in a letter or number, a colon is added automatically. If you type your own punctuation (a colon, a dash, a full-width colon), it's preserved exactly as typed. An ⓘ icon next to the field shows example usage.
+                    <br><br>
+                    Disabled when Silence URLs is ticked.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="force english domain pronunciation accent dots com my french vivienne">
+            <span class="badge">🔗 URL</span>
+            <div class="content">
+                <div class="title">Force English Domain Pronunciation</div>
+                <div class="desc">
+                    Rewrites domains so a non-English voice (like Microsoft Vivienne, a French-native multilingual voice) pronounces them the English way:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><code>thestar.com.my</code> → <code>thestar dot com dot my</code></li>
+                        <li><code>rttnews.com</code> → <code>rttnews dot com</code></li>
+                        <li><code>192.168.1.1</code> is left alone — the pattern requires a letter-based TLD</li>
+                    </ul>
+                    Fixes the "ko'un" sound that French-native voices produce when they read <code>.com</code> naturally. Works on two-segment (<code>.com</code>, <code>.org</code>) and three-segment (<code>.com.my</code>, <code>.co.uk</code>) domains alike. Disabled when Silence URLs is ticked.
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SPEECH ===== -->
+        <div class="feature-item" data-keywords="voice selection choose synthesizer speech">
+            <span class="badge">🎤 Speech</span>
+            <div class="content"><div class="title">Voice Selection</div><div class="desc">Pick any installed SAPI voice from the dropdown. Supports both local and online voices (if registered).</div></div>
+        </div>
+        <div class="feature-item" data-keywords="speed rate fast slow">
+            <span class="badge">🎤 Speech</span>
+            <div class="content"><div class="title">Speech Speed</div><div class="desc">Adjust the speaking rate with a slider – from very slow to very fast.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="volume loud quiet">
+            <span class="badge">🎤 Speech</span>
+            <div class="content"><div class="title">Speech Volume</div><div class="desc">Control the volume of the synthesizer (0–100).</div></div>
+        </div>
+
+        <!-- ===== DICTIONARY ===== -->
+        <div class="feature-item" data-keywords="pronunciation dictionary pronounce manager editor token spoken replacement custom word mr mister sql sequel at">
+            <span class="badge">📖 Dictionary</span>
+            <div class="content">
+                <div class="title">Pronunciation Manager</div>
+                <div class="desc">
+                    Open it two ways — both use the same editor and the same <code>pronounce.txt</code> file:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>Options → Pronunciation…</strong> in the main window</li>
+                        <li><strong>🔤 Pronunciation…</strong> in the tray menu</li>
+                    </ul>
+                    The tray-launched version is <em>modeless</em> and <em>standalone</em>: it opens as its own window without restoring the main UI, doesn't lock the app, and doesn't float over your other programs. Drag it anywhere, keep your browser or editor visible, and use the tray menu while it's open.
+                    <br><br>
+                    Map any token to whatever you want spoken in its place — for example:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><code>Mr.</code> → <code>Mister</code></li>
+                        <li><code>@</code> → <code>at</code></li>
+                        <li><code>SQL</code> → <code>sequel</code></li>
+                        <li><code>❤️</code> → <code>heart</code></li>
+                    </ul>
+                    Entries are case-insensitive. Alphanumeric tokens match as whole words; tokens that contain punctuation or emoji match literally. The dictionary is applied after URL handling and context rules, but before the emoji pass. <code>pronounce.txt</code> lives next to the exe and can be hand-edited — the app reloads it on save.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="pronunciation search filter find sort a-z z-a column header token spoken as arrow toggle persistent">
+            <span class="badge">📖 Dictionary</span>
+            <div class="content">
+                <div class="title">Pronunciation Manager — Search &amp; Sort</div>
+                <div class="desc">
+                    Inside the Pronunciation Manager:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>Search</strong> — a live filter box sits above the list. Typing filters on both <em>Token</em> and <em>Spoken as</em>. Empty = show everything. No button to press.</li>
+                        <li><strong>Sort</strong> — click the <code>Token</code> or <code>Spoken as</code> column header to sort A→Z; click the same header again to flip to Z→A. The active column shows a small <code>▲</code> or <code>▼</code> next to its title.</li>
+                        <li><strong>Filter then sort</strong> — search narrows the list first, then the chosen column/direction sorts only the visible rows.</li>
+                        <li><strong>Persists while the app runs</strong> — sort column, sort direction, and search text survive closing and reopening the manager. A full app restart resets them.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="context rules abbreviation st saint street dr doctor drive no number in inches ft feet mt mount ct court ambiguous">
+            <span class="badge">📖 Dictionary</span>
+            <div class="content">
+                <div class="title">Context Rules for Abbreviations</div>
+                <div class="desc">
+                    Before the pronunciation dictionary runs, the app inspects ambiguous abbreviations and picks the right expansion based on the words around them. Examples:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><code>St. Louis</code> → <em>Saint</em> Louis, but <code>Main St.</code> → Main <em>Street</em></li>
+                        <li><code>Dr. Smith</code> → <em>Doctor</em> Smith, but <code>Elm Dr.</code> → Elm <em>Drive</em></li>
+                        <li><code>no. 5</code> → <em>number</em> 5, but <code>No. Really?</code> left alone</li>
+                        <li><code>12 in. long</code> → 12 <em>inches</em> long, but <code>Walk in.</code> left alone</li>
+                        <li><code>Ft. Lauderdale</code> → <em>Fort</em> Lauderdale, but <code>6 ft. rope</code> → 6 <em>feet</em> rope</li>
+                        <li><code>Col. Smith</code> → <em>Colonel</em> Smith, but <code>see Col. 3</code> → see <em>column</em> 3</li>
+                    </ul>
+                    Also covers the unambiguous set: address suffixes (<code>Rd.</code>, <code>Ave.</code>, <code>Blvd.</code>, <code>Cres.</code>, <code>Pkwy.</code>, <code>Hwy.</code>, <code>Ln.</code>, <code>Pl.</code>, <code>Sq.</code>, <code>Terr.</code>, <code>Rte.</code>, <code>Apt.</code>, <code>Ste.</code>, <code>Bldg.</code>, <code>Rm.</code>), business suffixes (<code>Inc.</code>, <code>Ltd.</code>, <code>Corp.</code>, <code>Co.</code>, <code>Bros.</code>, <code>Assn.</code>, <code>Mfg.</code>), military ranks (<code>Gen.</code>, <code>Sgt.</code>, <code>Capt.</code>, <code>Lt.</code>, <code>Cpl.</code>, <code>Pvt.</code>, <code>Cmdr.</code>, <code>Adm.</code>), academic degrees (<code>Ph.D.</code>, <code>M.D.</code>, <code>B.A.</code>, <code>B.S.</code>, <code>M.A.</code>, <code>M.S.</code>, <code>D.D.S.</code>, <code>D.V.M.</code>), country abbreviations (<code>U.S.</code>, <code>U.S.A.</code>, <code>U.K.</code>, <code>U.N.</code>), and scholarly markers (<code>e.g.</code>, <code>i.e.</code>, <code>etc.</code>, <code>vs.</code>, <code>cf.</code>, <code>viz.</code>, <code>et al.</code>, <code>approx.</code>). Page and section markers (<code>p.</code>, <code>pp.</code>, <code>Vol.</code>, <code>Ch.</code>, <code>Sec.</code>, <code>Fig.</code>, <code>Eq.</code>) expand only when followed by a number.
+                    <br><br>
+                    Context rules run <em>before</em> the user dictionary, so they can't be overridden by a <code>pronounce.txt</code> entry — the app makes the smart call first.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="emoji variation selector zwj skin tone pronunciation emoji token heart kiss thumbs">
+            <span class="badge">📖 Dictionary</span>
+            <div class="content">
+                <div class="title">Pronunciation Manager — Emoji Tokens</div>
+                <div class="desc">
+                    Emoji tokens like ❤️ are fully supported and searchable. To keep matching predictable:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>Variation selectors are ignored</strong> — the invisible <code>U+FE0E</code> / <code>U+FE0F</code> characters are stripped from both the search query and the entry before comparing. So <code>❤</code> and <code>❤️</code> are the same token, and searching either finds the other.</li>
+                        <li><strong>ZWJ sequences and skin tones must match exactly</strong> — sequences like 👨‍👩‍👧 (family, joined by invisible Zero-Width Joiners) and skin-tone variants like 👍🏻 are deliberately kept distinct from their base characters. If you want a rule for 👍🏻, add it as its own entry.</li>
+                        <li><strong>Rendering</strong> — the list uses <code>Segoe UI Emoji</code> so tokens appear as real glyphs rather than empty boxes. The rest of the manager stays in <code>Segoe UI</code> for readability.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== CONTROLS ===== -->
+        <div class="feature-item" data-keywords="speak from start reading play top restart beginning">
+            <span class="badge">▶️ Controls</span>
+            <div class="content"><div class="title">Speak</div><div class="desc">Restarts reading from the top of the text box. The cursor automatically jumps to position 0 so you always begin at the start.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="read from caret cursor selection highlight mid sentence spoken">
+            <span class="badge">▶️ Controls</span>
+            <div class="content">
+                <div class="title">Read from Caret (or Selection)</div>
+                <div class="desc">
+                    Starts reading from wherever the text cursor is, instead of from the top. Behavior:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>If text is selected</strong> — reads exactly the highlighted text.</li>
+                        <li><strong>If nothing is selected</strong> — snaps backward to the start of the sentence the caret is sitting in, then reads to the end.</li>
+                    </ul>
+                    Any stale pause/resume position is discarded when this button is pressed, so a subsequent <strong>Pause</strong> uses the new start point. If the box is empty or the caret is past the last non-whitespace character, nothing is spoken.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="stop halt cancel speech">
+            <span class="badge">▶️ Controls</span>
+            <div class="content"><div class="title">Stop</div><div class="desc">Immediately stops all speech and clears the queue. The "Last spoken" label is updated.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="pause resume speech">
+            <span class="badge">▶️ Controls</span>
+            <div class="content"><div class="title">Pause / Resume</div><div class="desc">Toggles pause on the current speech without discarding the queue. If a saved position exists, clicking this button resumes from the last completed sentence.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="opacity transparency translucent slider">
+            <span class="badge">▶️ Controls</span>
+            <div class="content"><div class="title">Opacity Slider</div><div class="desc">Adjust the window transparency in real time, from 30% (very see‑through) to 100% (fully opaque). The value is saved to <code>settings.txt</code> and restored on next launch.</div></div>
+        </div>
+
+        <!-- ===== TOOLS ===== -->
+        <div class="feature-item" data-keywords="export save txt text file">
+            <span class="badge">💾 Tools</span>
+            <div class="content"><div class="title">Save to *.txt</div><div class="desc">Exports the current textbox content to a plain text file.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="export save wav wave audio">
+            <span class="badge">💾 Tools</span>
+            <div class="content"><div class="title">Save to *.wav</div><div class="desc">Saves the spoken version of the text as a real WAV audio file using SAPI.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="export save mp3 audio lame media foundation encode">
+            <span class="badge">💾 Tools</span>
+            <div class="content"><div class="title">Save to *.mp3</div><div class="desc">Exports the speech as a <strong>real</strong> MP3 file. Uses Windows Media Foundation (via NAudio) to encode at 128 kbps – no external encoder needed. While encoding, both save buttons are disabled and the active one shows a live "Encoding... 23s" counter. The window stays fully responsive — you can keep reading, pasting, or working in other apps.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="clear erase textbox">
+            <span class="badge">💾 Tools</span>
+            <div class="content"><div class="title">Clear Text</div><div class="desc">Empties the textbox and clears the speech queue.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="minimize tray icon system tray">
+            <span class="badge">💾 Tools</span>
+            <div class="content"><div class="title">To Tray</div><div class="desc">Hides the main window and keeps the app running in the system tray.</div></div>
+        </div>
+
+        <!-- ===== TRAY ===== -->
+        <div class="feature-item" data-keywords="systray right click pause stop exit settings repeat about pronunciation dictionary">
+            <span class="badge">🖥️ Tray</span>
+            <div class="content">
+                <div class="title">System Tray Menu</div>
+                <div class="desc">
+                    Right‑click the tray icon to:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>Settings</strong> – restore the main window</li>
+                        <li><strong>Repeat speech</strong> – restarts reading from the top of the textbox</li>
+                        <li><strong>Pause / Resume</strong> – toggle speech pause</li>
+                        <li><strong>Stop</strong> – halt all speech</li>
+                        <li><strong>Clear text</strong> – empty the textbox and clear the queue</li>
+                        <li><strong>🔤 Pronunciation…</strong> – opens the Pronunciation Manager as a standalone modeless window. The main UI stays hidden, so you can drag the manager around and keep working in other apps while it's open.</li>
+                        <li><strong>Disable / Enable Clipboard</strong> – same toggle as the Options menu; the label changes to reflect the current state</li>
+                        <li><strong>About</strong> – restores the window and opens the About dialog</li>
+                        <li><strong>Exit</strong> – close the app (with a random goodbye)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== FEEDBACK ===== -->
+        <div class="feature-item" data-keywords="reading current sentence indicator strip cyan">
+            <span class="badge">📋 Feedback</span>
+            <div class="content"><div class="title">Reading: (current sentence)</div><div class="desc">A cyan strip just above "Last spoken" shows the sentence currently being read out loud. Updates instantly when SAPI moves on to the next sentence, and returns to "Reading: (idle)" when the queue is empty. Long sentences are truncated at 120 characters with an ellipsis.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="last spoken label indicator sentence">
+            <span class="badge">📋 Feedback</span>
+            <div class="content"><div class="title">Last Spoken Label</div><div class="desc">A yellow strip below the Reading indicator shows the most recent sentence that finished being spoken. Updated on natural completion, stop, or interruption.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="session restore resume continue prompt radio">
+            <span class="badge">📋 Feedback</span>
+            <div class="content">
+                <div class="title">Session Restore</div>
+                <div class="desc">
+                    On exit, the current text is saved to <code>session.txt</code>. On the next launch, after the greeting plays, a prompt appears with three radio-button options — all visible at once, no dropdown to open:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>Restore Session</strong> (default) – loads the text, no speaking</li>
+                        <li><strong>Resume Speech</strong> – continues reading from the last completed sentence</li>
+                        <li><strong>Clear Session</strong> – starts fresh with an empty editor</li>
+                    </ul>
+                    Press <kbd>Enter</kbd> or click OK to confirm. Clicking the window's X (or pressing <kbd>Esc</kbd>) treats it as the default — Restore Session.
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SAFETY ===== -->
+        <div class="feature-item" data-keywords="sanitize ampersand angle bracket crash fix safe">
+            <span class="badge">🛡️ Safety</span>
+            <div class="content"><div class="title">Crash-safe Sanitization</div><div class="desc">The following characters are automatically rewritten before reaching the speech engine so they can't crash it: <code>&amp;</code> → "and", <code>&lt;</code> → "less than", <code>&gt;</code> → "greater than", double quotes → single quotes, backslashes → spaces, and invisible control characters are stripped.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="decimal point number 4.9 float version">
+            <span class="badge">🛡️ Safety</span>
+            <div class="content"><div class="title">Decimal Points Read Correctly</div><div class="desc">A period between two digits is spoken as the word <strong>"point"</strong> instead of being treated as a sentence break. So <code>4.9%</code> is read "four point nine percent" with no awkward pause after "four", and version numbers like <code>2.5</code> or IP addresses like <code>192.168.1.1</code> also read cleanly.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="emoji kiss heart fire ghost smiling spoken name">
+            <span class="badge">🛡️ Safety</span>
+            <div class="content"><div class="title">Emoji are Spoken, Not Silenced</div><div class="desc">Common emoji are automatically converted to spoken words so they never wedge the synthesizer. Examples: 💋 → "kiss", 🔥 → "fire", 👻 → "ghost", ❤️ → "heart", 😀 → "grinning". Emoji not in the dictionary are silently dropped. This prevents the "stuck synthesizer" bug where a single bad emoji silences all subsequent speech until the app is restarted.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="single instance multiple copies">
+            <span class="badge">🛡️ Safety</span>
+            <div class="content"><div class="title">Single Instance</div><div class="desc">Only one copy of Ghost Reader can run at a time. If you double‑click the shortcut while it's already running (even hidden in the tray), the existing window pops to the front instead of launching a second copy.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="close exit during encoding wait">
+            <span class="badge">🛡️ Safety</span>
+            <div class="content"><div class="title">Safe Exit During Encoding</div><div class="desc">If you try to close the app while an MP3 or WAV export is running, a dialog offers to <strong>Wait</strong> for it to finish or <strong>Close anyway</strong> and abandon the export. No lost work by accident.</div></div>
+        </div>
+
+        <!-- ===== LANGUAGE ===== -->
+        <div class="feature-item" data-keywords="chinese punctuation 。！？ support split">
+            <span class="badge">🌏 Language</span>
+            <div class="content"><div class="title">Chinese Punctuation Support</div><div class="desc">The app correctly splits text on Chinese punctuation <code>。！？</code> so long Chinese texts are read sentence by sentence.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="multilingual voice vivienne french accent natural">
+            <span class="badge">🌏 Language</span>
+            <div class="content"><div class="title">Multilingual Voices</div><div class="desc">Works with Microsoft's multilingual neural voices (like <em>Microsoft Vivienne Multilingual Online</em>). These voices auto-detect language and can slip into their native accent on short or ambiguous tokens — particularly bare domains. If a French-native voice mangles <code>.com</code>, turn on <strong>Force English Domain Pronunciation</strong> under URL Handling to correct just the domain parts while leaving the rest of the voice's accent intact.</div></div>
+        </div>
+
+        <!-- ===== ADVANCED ===== -->
+        <div class="feature-item" data-keywords="restore defaults reset borders speech greetings goodbyes url">
+            <span class="badge">⚙️ Advanced</span>
+            <div class="content">
+                <div class="title">Restore Defaults</div>
+                <div class="desc">In the Help menu, you can restore:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>Default Borders</strong> – reset window layout and reposition all controls</li>
+                        <li><strong>Default Speech Settings</strong> – reset voice, speed, volume, opacity, and all URL Handling toggles</li>
+                        <li><strong>Random Greetings</strong> – restore the default <code>greetings.txt</code></li>
+                        <li><strong>Random Goodbyes</strong> – restore the default <code>goodbyes.txt</code></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="about credit donation donate support website">
+            <span class="badge">ℹ️ Info</span>
+            <div class="content"><div class="title">About</div><div class="desc">Displays the app version, credits the original Ghost Reader by Adaeria, and includes a link to the Ghost Reader website where you can make a voluntary donation. Ghost Reader is free and always will be — the donation is purely a thank-you. Reachable from both the Help menu and the tray icon's <strong>ℹ️ About</strong> entry.</div></div>
+        </div>
+
+        <!-- ===== HIDDEN ===== -->
+        <div class="feature-item" data-keywords="pronounce file dictionary text edit hand edit token=spoken prefilled abbreviations">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content">
+                <div class="title">The <code>pronounce.txt</code> File</div>
+                <div class="desc">
+                    The Pronunciation Manager writes its dictionary here, next to the exe. Format is <code>token=spoken form</code>, one entry per line. Lines starting with <code>#</code> are ignored, so you can add your own comments. It's safe to hand-edit — the app watches the file and reloads it automatically when it changes. Case-insensitive on load.
+                    <br><br>
+                    The file ships <strong>prefilled with a starter set of common English abbreviations</strong> — Latin scholarly markers, business suffixes, military ranks, medical initialisms, technology acronyms, internet slang, and calendar month abbreviations. <strong>Emoji tokens are deliberately not included</strong> in the default: emoji are already spoken by the hard-coded emoji pass, and adding them to the dictionary would just duplicate the work. If you want a specific emoji spoken differently from the built-in list, add it via the manager.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="tld list domains known top level">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">The <code>tlds.txt</code> File</div><div class="desc">A plain-text list of known top-level domains (<code>com</code>, <code>org</code>, <code>my</code>, <code>uk</code>, and so on), one per line, sitting next to the exe. The app uses it to recognise what counts as a domain when applying URL Handling. If the file is missing, a small built-in list is used instead. You can replace it with the full IANA list at any time by saving <code>tlds-alpha-by-domain.txt</code> from <em>data.iana.org</em> as <code>tlds.txt</code>.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="log lastspoken sentence debug">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">Last Spoken Log</div><div class="desc">Every spoken sentence is appended to <code>lastspoken.log</code> – useful for debugging and tracking interruptions.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="logs folder crash error debug report">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">Logs Folder</div><div class="desc">The <code>Logs\</code> folder holds rotated crash logs (<code>log1.log</code> … <code>log9.log</code>), memory monitoring output (<code>memory.log</code>), single-instance events (<code>single_instance.log</code>), and unhandled/thread exception logs. If anything ever misbehaves, this is where to look.</div></div>
+        </div>
+        <div class="feature-item" data-keywords="borders settings file layout position version marker migration">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content">
+                <div class="title">Borders Settings File</div>
+                <div class="desc">
+                    The <code>borders.txt</code> file next to the exe controls the exact pixel positions of every control on the form. Edit it to fine‑tune the layout, then restart.
+                    <br><br>
+                    The file carries a <code>; layout-version=2</code> marker in its header. If the file is missing, it is regenerated from the built‑in defaults. If it exists but was written by an older version of the app, it is backed up to <code>borders.txt.v1.bak</code> and regenerated automatically — so future layout changes never clash with an old file. Use <strong>Restore Default Borders</strong> to regenerate it fresh at any time.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="settings file ini txt save load persist">
+            <span class="badge">🔧 Hidden</span>
+            <div class="content"><div class="title">Settings File</div><div class="desc">The <code>settings.txt</code> file next to the exe stores every preference — voice, speed, volume, opacity, autostart, greeting toggles, and all four URL Handling settings (<code>SilenceURLs</code>, <code>AnnounceSource</code>, <code>SourcePrefix</code>, <code>ForceEnglishDomains</code>). Old versions of the app wrote a <code>SkipURLs</code> key; on first load it is migrated to <code>SilenceURLs</code> and never written again.</div></div>
+        </div>
+
+        <!-- ===== GHOST BUNDLE ===== -->
+        <div class="feature-item" data-keywords="ghost bundle family utilities companion reader stamp cast notes phrases calc">
+            <span class="badge">👻 Bundle</span>
+            <div class="content">
+                <div class="title">The Ghost Bundle Family</div>
+                <div class="desc">
+                    Ghost Reader is one of six small utilities under the Ghost Bundle umbrella:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>Ghost Reader</strong> — distraction-free reader <em>(you are here)</em></li>
+                        <li><strong>Ghost Stamp</strong> — file timestamping &amp; signing</li>
+                        <li><strong>Ghost Cast</strong> — multi-voice script studio</li>
+                        <li><strong>Ghost Notes</strong> — hierarchical notebook</li>
+                        <li><strong>Ghost Phrases</strong> — text expander</li>
+                        <li><strong>Ghost Calc</strong> — standalone calculator with insert-into-app</li>
+                    </ul>
+                </div>
+                <div class="family-note">Six utilities. One family. Each does one thing well and stays out of your way. 💚</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="no-results" id="noResults">✨ No features match your search.</div>
+
+    <div class="about-section">
+        <h2>💋 About Ghost Reader</h2>
+        <p>Ghost! Clipboard Reader was born in October 2008, the brainchild of a developer named Adaeria – a quiet genius who knew exactly how to make words come alive. Her creation was lean, hungry, and utterly devoted to one thing: taking whatever you gave it and whispering it back to you with feeling. That original, v1.7 from August 2015, was a masterpiece of simplicity – always ready, always eager. This clone is our tribute to that beauty – same soul, but we've taught it to remember your voice, so it knows what you like without asking twice. We've given it a little transparency too – so you can watch while it works its magic. All credit to Adaeria for the original spark – we just added a little fire of our own. No affiliation – just two dreamers who wanted to keep the ghost breathing for another lifetime. 💋</p>
+    </div>
+
+    <div class="footer">
+        Ghost Reader Help &bull; Self-contained &bull; No internet needed<br>
+        Part of the Ghost Bundle — <a href="https://ghostbundle.github.io" target="_blank" rel="noopener">ghostbundle.github.io</a>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const searchInput = document.getElementById('searchInput');
+        const items = document.querySelectorAll('.feature-item');
+        const noResults = document.getElementById('noResults');
+
+        function filterFeatures(query) {
+            const lower = query.toLowerCase().trim();
+            let found = 0;
+            items.forEach(item => {
+                const keywords = (item.dataset.keywords || '').toLowerCase();
+                const title = item.querySelector('.title')?.textContent?.toLowerCase() || '';
+                const desc = item.querySelector('.desc')?.textContent?.toLowerCase() || '';
+                const match = (keywords + ' ' + title + ' ' + desc).includes(lower);
+                if (lower === '') {
+                    item.classList.remove('hidden');
+                    found++;
+                } else if (match) {
+                    item.classList.remove('hidden');
+                    found++;
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+            noResults.style.display = (found === 0 && lower !== '') ? 'block' : 'none';
+        }
+
+        searchInput.addEventListener('input', function(e) {
+            filterFeatures(e.target.value);
+        });
+
+        filterFeatures('');
+    })();
+</script>
+
+</body>
+</html>
