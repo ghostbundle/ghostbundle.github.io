@@ -6,7 +6,7 @@
 
     <!-- ============ PRIMARY SEO ============ -->
     <title>Ghost Reader — Help &amp; Documentation | GhostBundle</title>
-    <meta name="description" content="Ghost Reader help and documentation: clipboard text-to-speech, voice selection, MP3/WAV export, queue mode, session restore, and every toggle explained. Free Windows utility from GhostBundle." />
+    <meta name="description" content="Ghost Reader help and documentation: clipboard text-to-speech, voice selection, MP3/WAV export, queue mode, session restore, URL handling, and every toggle explained. Free Windows utility from GhostBundle." />
     <meta name="author" content="GhostBundle" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#f7f2e8" />
@@ -309,45 +309,6 @@
             background: #ffffff;
             transform: translateX(-3px);
         }
-
-        /* ===== Test blocks ===== */
-        .test-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            margin-top: 12px;
-        }
-        .test-block {
-            background: #ffffff;
-            border: 1px solid #d8e5e5;
-            border-radius: 12px;
-            padding: 12px 16px;
-        }
-        .test-block .test-label {
-            font-weight: 600;
-            font-size: 0.88rem;
-            color: #1a4d4d;
-            margin-bottom: 6px;
-        }
-        .test-block .test-label .arrow {
-            color: #2c8a8a;
-            font-weight: 500;
-        }
-        .test-block pre {
-            margin: 0;
-            font-family: 'Consolas', 'Menlo', 'Courier New', monospace;
-            font-size: 0.85rem;
-            color: #2b2118;
-            line-height: 1.75;
-            white-space: pre-wrap;
-            word-break: break-word;
-        }
-        .test-note {
-            margin-top: 10px;
-            font-size: 0.85rem;
-            color: #6b5b45;
-            font-style: italic;
-        }
     </style>
 </head>
 <body>
@@ -361,6 +322,7 @@
         <a href="help-ghoststamp.html">GhostStamp Pro</a>
         <a href="help-ghostphrases.html">Ghost Phrases</a>
         <a href="help-ghostcalc.html">Ghost Calc</a>
+	<a href="help-ghostchat.html">Ghost Chat</a>
         <span class="nav-sep">•</span>
         <a href="index.html#about">About</a>
         <a href="index.html#faq">FAQ</a>
@@ -375,7 +337,7 @@
 
     <div class="search-wrap">
         <span class="icon">🔍</span>
-        <input type="text" id="searchInput" placeholder="Search features, e.g. 'voice', 'queue', 'caret'..." autofocus />
+        <input type="text" id="searchInput" placeholder="Search features, e.g. 'voice', 'url', 'caret'..." autofocus />
     </div>
 
     <div class="feature-grid" id="featureGrid">
@@ -393,10 +355,6 @@
             <span class="badge">⚙️ Toggle</span>
             <div class="content"><div class="title">Skip Duplicates</div><div class="desc">Prevents the same clipboard text from being read again if it hasn't changed.</div></div>
         </div>
-        <div class="feature-item" data-keywords="skip url web links http">
-            <span class="badge">⚙️ Toggle</span>
-            <div class="content"><div class="title">Skip URL's</div><div class="desc">Automatically removes web links (http, https, www) and bare domains from the text before speaking.</div></div>
-        </div>
         <div class="feature-item" data-keywords="auto start windows boot startup">
             <span class="badge">⚙️ Toggle</span>
             <div class="content"><div class="title">Auto-start with Windows</div><div class="desc">Adds the app to Windows startup so it launches automatically when you log in.</div></div>
@@ -408,6 +366,58 @@
         <div class="feature-item" data-keywords="random goodbye exit farewell">
             <span class="badge">⚙️ Toggle</span>
             <div class="content"><div class="title">Random Goodbye</div><div class="desc">Speaks a random farewell from <code>goodbyes.txt</code> when you close the app. Default goodbyes include a 💋 which is spoken as "kiss".</div></div>
+        </div>
+
+        <!-- ===== URL HANDLING ===== -->
+        <div class="feature-item" data-keywords="url handling silence strip remove links http www domains">
+            <span class="badge">🔗 URL</span>
+            <div class="content">
+                <div class="title">Silence URLs</div>
+                <div class="desc">
+                    Master switch under <strong>Options → URL Handling</strong>. When ticked, all URLs and bare domains — including ones wrapped in <code>[square brackets]</code> like <code>[thestar.com.my]</code> — are stripped from the text before speaking. The three items below it become greyed out because there's nothing left to announce, prefix, or pronounce.
+                    <br><br>
+                    Handles both protocol URLs (<code>http://</code>, <code>https://</code>, <code>www.</code>) and bare domains (<code>rttnews.com</code>, <code>thestar.com.my</code>). Brackets and orphaned whitespace are cleaned up too.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="announce source attribution cite reference">
+            <span class="badge">🔗 URL</span>
+            <div class="content">
+                <div class="title">Announce Source</div>
+                <div class="desc">
+                    When ticked, a sentence-final domain like <code>... data centers [thestar.com.my].</code> is spoken as <code>... data centers. Source: thestar.com.my.</code> — a short pause is inserted before the prefix so it doesn't run into the previous sentence.
+                    <br><br>
+                    Only fires on domains that end a sentence (followed by <code>.</code>, <code>!</code>, <code>?</code>, or the end of the text). A URL on its own — the entire textbox being just a URL — is read plainly with no prefix, because there's no sentence for it to be a source <em>of</em>. Disabled when Silence URLs is ticked.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="source prefix custom word attribution reported from selon quelle">
+            <span class="badge">🔗 URL</span>
+            <div class="content">
+                <div class="title">Source Prefix…</div>
+                <div class="desc">
+                    Opens a small dialog where you choose the word or phrase used by Announce Source. Default is <code>Source:</code>. You can set it to anything — <code>From:</code>, <code>Reported by:</code>, <code>Per:</code>, <code>Quelle:</code>, <code>来源：</code>, or a custom phrase.
+                    <br><br>
+                    <strong>Auto-colon rule:</strong> if what you type ends in a letter or number, a colon is added automatically. If you type your own punctuation (a colon, a dash, a full-width colon), it's preserved exactly as typed. An ⓘ icon next to the field shows example usage.
+                    <br><br>
+                    Disabled when Silence URLs is ticked.
+                </div>
+            </div>
+        </div>
+        <div class="feature-item" data-keywords="force english domain pronunciation accent dots com my french vivienne">
+            <span class="badge">🔗 URL</span>
+            <div class="content">
+                <div class="title">Force English Domain Pronunciation</div>
+                <div class="desc">
+                    Rewrites domains so a non-English voice (like Microsoft Vivienne, a French-native multilingual voice) pronounces them the English way:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><code>thestar.com.my</code> → <code>thestar dot com dot my</code></li>
+                        <li><code>rttnews.com</code> → <code>rttnews dot com</code></li>
+                        <li><code>192.168.1.1</code> is left alone — the pattern requires a letter-based TLD</li>
+                    </ul>
+                    Fixes the "ko'un" sound that French-native voices produce when they read <code>.com</code> naturally. Works on two-segment (<code>.com</code>, <code>.org</code>) and three-segment (<code>.com.my</code>, <code>.co.uk</code>) domains alike. Disabled when Silence URLs is ticked.
+                </div>
+            </div>
         </div>
 
         <!-- ===== SPEECH ===== -->
@@ -428,82 +438,6 @@
         <div class="feature-item" data-keywords="volume loud quiet">
             <span class="badge">🎤 Speech</span>
             <div class="content"><div class="title">Speech Volume</div><div class="desc">Control the volume of the synthesizer (0–100).</div></div>
-        </div>
-
-        <!-- ===== DICTIONARY ===== -->
-        <div class="feature-item" data-keywords="pronunciation dictionary pronounce manager editor token spoken replacement custom word mr mister sql sequel at">
-            <span class="badge">📖 Dictionary</span>
-            <div class="content">
-                <div class="title">Pronunciation Manager</div>
-                <div class="desc">
-                    Open it two ways — both use the same editor and the same <code>pronounce.txt</code> file:
-                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
-                        <li><strong>Options → Pronunciation…</strong> in the main window</li>
-                        <li><strong>🔤 Pronunciation…</strong> in the tray menu</li>
-                    </ul>
-                    The tray-launched version is <em>modeless</em> and <em>standalone</em>: it opens as its own window without restoring the main UI, doesn't lock the app, and doesn't float over your other programs. Drag it anywhere, keep your browser or editor visible, and use the tray menu while it's open.
-                    <br><br>
-                    Map any token to whatever you want spoken in its place — for example:
-                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
-                        <li><code>Mr.</code> → <code>Mister</code></li>
-                        <li><code>@</code> → <code>at</code></li>
-                        <li><code>SQL</code> → <code>sequel</code></li>
-                        <li><code>❤️</code> → <code>heart</code></li>
-                    </ul>
-                    Entries are case-insensitive. A token that <strong>starts with a letter or digit</strong> matches with a word boundary at the front — so <code>est.</code> matches a standalone <code>est.</code> but never inside <code>newest.</code>, <code>largest.</code>, or <code>honest.</code>. A token that <strong>starts with a symbol or emoji</strong> (<code>@</code>, <code>❤️</code>) matches literally, so it still works inside emails and next to word characters. The dictionary is applied after URL handling and context rules, but before the emoji pass. <code>pronounce.txt</code> lives next to the exe and can be hand-edited — the app reloads it on save.
-                </div>
-            </div>
-        </div>
-        <div class="feature-item" data-keywords="pronunciation search filter find sort a-z z-a column header token spoken as arrow toggle persistent">
-            <span class="badge">📖 Dictionary</span>
-            <div class="content">
-                <div class="title">Pronunciation Manager — Search &amp; Sort</div>
-                <div class="desc">
-                    Inside the Pronunciation Manager:
-                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
-                        <li><strong>Search</strong> — a live filter box sits above the list. Typing filters on both <em>Token</em> and <em>Spoken as</em>. Empty = show everything. No button to press.</li>
-                        <li><strong>Sort</strong> — click the <code>Token</code> or <code>Spoken as</code> column header to sort A→Z; click the same header again to flip to Z→A. The active column shows a small <code>▲</code> or <code>▼</code> next to its title.</li>
-                        <li><strong>Filter then sort</strong> — search narrows the list first, then the chosen column/direction sorts only the visible rows.</li>
-                        <li><strong>Persists while the app runs</strong> — sort column, sort direction, and search text survive closing and reopening the manager. A full app restart resets them.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="feature-item" data-keywords="context rules abbreviation st saint street dr doctor drive no number in inches ft feet mt mount ct court ambiguous">
-            <span class="badge">📖 Dictionary</span>
-            <div class="content">
-                <div class="title">Context Rules for Abbreviations</div>
-                <div class="desc">
-                    Before the pronunciation dictionary runs, the app inspects ambiguous abbreviations and picks the right expansion based on the words around them. Examples:
-                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
-                        <li><code>St. Louis</code> → <em>Saint</em> Louis, but <code>Main St.</code> → Main <em>Street</em></li>
-                        <li><code>Dr. Smith</code> → <em>Doctor</em> Smith, but <code>Elm Dr.</code> → Elm <em>Drive</em></li>
-                        <li><code>no. 5</code> → <em>number</em> 5, but <code>No. Really?</code> left alone</li>
-                        <li><code>12 in. long</code> → 12 <em>inches</em> long, but <code>Walk in.</code> left alone</li>
-                        <li><code>Ft. Lauderdale</code> → <em>Fort</em> Lauderdale, but <code>6 ft. rope</code> → 6 <em>feet</em> rope</li>
-                        <li><code>Col. Smith</code> → <em>Colonel</em> Smith, but <code>see Col. 3</code> → see <em>column</em> 3</li>
-                    </ul>
-                    Also covers the unambiguous set: address suffixes (<code>Rd.</code>, <code>Ave.</code>, <code>Blvd.</code>, <code>Cres.</code>, <code>Pkwy.</code>, <code>Hwy.</code>, <code>Ln.</code>, <code>Pl.</code>, <code>Sq.</code>, <code>Terr.</code>, <code>Rte.</code>, <code>Apt.</code>, <code>Ste.</code>, <code>Bldg.</code>, <code>Rm.</code>), business suffixes (<code>Inc.</code>, <code>Ltd.</code>, <code>Corp.</code>, <code>Co.</code>, <code>Bros.</code>, <code>Assn.</code>, <code>Mfg.</code>), military ranks (<code>Gen.</code>, <code>Sgt.</code>, <code>Capt.</code>, <code>Lt.</code>, <code>Cpl.</code>, <code>Pvt.</code>, <code>Cmdr.</code>, <code>Adm.</code>), academic degrees (<code>Ph.D.</code>, <code>M.D.</code>, <code>B.A.</code>, <code>B.S.</code>, <code>M.A.</code>, <code>M.S.</code>, <code>D.D.S.</code>, <code>D.V.M.</code>), country abbreviations (<code>U.S.</code>, <code>U.S.A.</code>, <code>U.K.</code>, <code>U.N.</code>), and scholarly markers (<code>e.g.</code>, <code>i.e.</code>, <code>etc.</code>, <code>vs.</code>, <code>cf.</code>, <code>viz.</code>, <code>et al.</code>, <code>approx.</code>). Page and section markers (<code>p.</code>, <code>pp.</code>, <code>Vol.</code>, <code>Ch.</code>, <code>Sec.</code>, <code>Fig.</code>, <code>Eq.</code>) expand only when followed by a number.
-                    <br><br>
-                    Context rules run <em>before</em> the user dictionary, so they can't be overridden by a <code>pronounce.txt</code> entry — the app makes the smart call first.
-                    <br><br>
-                    <strong>Sentence-boundary safety:</strong> the ambiguous rules for <code>Dr.</code>, <code>St.</code>, <code>Ft.</code>, and <code>Co.</code> only look at the <em>same line</em> for context — they never reach across a newline. So <code>... Oak Dr.</code> at the end of a line followed by a capital on the next line reads as <strong>Drive</strong>, not <em>Doctor</em>. And <code>etc.</code> expands to <strong>"and so on"</strong> rather than "et cetera" — a phrase multilingual voices like Vivienne read unambiguously in English.
-                </div>
-            </div>
-        </div>
-        <div class="feature-item" data-keywords="emoji variation selector zwj skin tone pronunciation emoji token heart kiss thumbs">
-            <span class="badge">📖 Dictionary</span>
-            <div class="content">
-                <div class="title">Pronunciation Manager — Emoji Tokens</div>
-                <div class="desc">
-                    Emoji tokens like ❤️ are fully supported and searchable. To keep matching predictable:
-                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
-                        <li><strong>Variation selectors are ignored</strong> — the invisible <code>U+FE0E</code> / <code>U+FE0F</code> characters are stripped from both the search query and the entry before comparing. So <code>❤</code> and <code>❤️</code> are the same token, and searching either finds the other.</li>
-                        <li><strong>ZWJ sequences and skin tones must match exactly</strong> — sequences like 👨‍👩‍👧 (family, joined by invisible Zero-Width Joiners) and skin-tone variants like 👍🏻 are deliberately kept distinct from their base characters. If you want a rule for 👍🏻, add it as its own entry.</li>
-                        <li><strong>Rendering</strong> — the list uses <code>Segoe UI Emoji</code> so tokens appear as real glyphs rather than empty boxes. The rest of the manager stays in <code>Segoe UI</code> for readability.</li>
-                    </ul>
-                </div>
-            </div>
         </div>
 
         <!-- ===== CONTROLS ===== -->
@@ -561,7 +495,7 @@
         </div>
 
         <!-- ===== TRAY ===== -->
-        <div class="feature-item" data-keywords="systray right click pause stop exit settings repeat about pronunciation dictionary">
+        <div class="feature-item" data-keywords="systray right click pause stop exit settings repeat about">
             <span class="badge">🖥️ Tray</span>
             <div class="content">
                 <div class="title">System Tray Menu</div>
@@ -573,7 +507,6 @@
                         <li><strong>Pause / Resume</strong> – toggle speech pause</li>
                         <li><strong>Stop</strong> – halt all speech</li>
                         <li><strong>Clear text</strong> – empty the textbox and clear the queue</li>
-                        <li><strong>🔤 Pronunciation…</strong> – opens the Pronunciation Manager as a standalone modeless window. The main UI stays hidden, so you can drag the manager around and keep working in other apps while it's open.</li>
                         <li><strong>Disable / Enable Clipboard</strong> – same toggle as the Options menu; the label changes to reflect the current state</li>
                         <li><strong>About</strong> – restores the window and opens the About dialog</li>
                         <li><strong>Exit</strong> – close the app (with a random goodbye)</li>
@@ -636,18 +569,18 @@
         </div>
         <div class="feature-item" data-keywords="multilingual voice vivienne french accent natural">
             <span class="badge">🌏 Language</span>
-            <div class="content"><div class="title">Multilingual Voices</div><div class="desc">Works with Microsoft's multilingual neural voices (like <em>Microsoft Vivienne Multilingual Online</em>). These voices auto-detect language and can slip into their native accent on short or ambiguous tokens — particularly bare domains. Turning on <strong>Skip URL's</strong> under Options strips domains before they hit the voice, which sidesteps the problem entirely. Short Latin abbreviations that survive (like <code>etc.</code>) are now expanded to plain English phrases so the voice stays in one language across the whole sentence.</div></div>
+            <div class="content"><div class="title">Multilingual Voices</div><div class="desc">Works with Microsoft's multilingual neural voices (like <em>Microsoft Vivienne Multilingual Online</em>). These voices auto-detect language and can slip into their native accent on short or ambiguous tokens — particularly bare domains. If a French-native voice mangles <code>.com</code>, turn on <strong>Force English Domain Pronunciation</strong> under URL Handling to correct just the domain parts while leaving the rest of the voice's accent intact.</div></div>
         </div>
 
         <!-- ===== ADVANCED ===== -->
-        <div class="feature-item" data-keywords="restore defaults reset borders speech greetings goodbyes">
+        <div class="feature-item" data-keywords="restore defaults reset borders speech greetings goodbyes url">
             <span class="badge">⚙️ Advanced</span>
             <div class="content">
                 <div class="title">Restore Defaults</div>
                 <div class="desc">In the Help menu, you can restore:
                     <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
                         <li><strong>Default Borders</strong> – reset window layout and reposition all controls</li>
-                        <li><strong>Default Speech Settings</strong> – reset voice, speed, volume, opacity</li>
+                        <li><strong>Default Speech Settings</strong> – reset voice, speed, volume, opacity, and all URL Handling toggles</li>
                         <li><strong>Random Greetings</strong> – restore the default <code>greetings.txt</code></li>
                         <li><strong>Random Goodbyes</strong> – restore the default <code>goodbyes.txt</code></li>
                     </ul>
@@ -660,17 +593,6 @@
         </div>
 
         <!-- ===== HIDDEN ===== -->
-        <div class="feature-item" data-keywords="pronounce file dictionary text edit hand edit token=spoken prefilled abbreviations">
-            <span class="badge">🔧 Hidden</span>
-            <div class="content">
-                <div class="title">The <code>pronounce.txt</code> File</div>
-                <div class="desc">
-                    The Pronunciation Manager writes its dictionary here, next to the exe. Format is <code>token=spoken form</code>, one entry per line. Lines starting with <code>#</code> are ignored, so you can add your own comments. It's safe to hand-edit — the app watches the file and reloads it automatically when it changes. Case-insensitive on load.
-                    <br><br>
-                    The file ships <strong>prefilled with a starter set of common English abbreviations</strong> — Latin scholarly markers, business suffixes, military ranks, medical initialisms, technology acronyms, internet slang, and calendar month abbreviations. <strong>Emoji tokens are deliberately not included</strong> in the default: emoji are already spoken by the hard-coded emoji pass, and adding them to the dictionary would just duplicate the work. If you want a specific emoji spoken differently from the built-in list, add it via the manager.
-                </div>
-            </div>
-        </div>
         <div class="feature-item" data-keywords="tld list domains known top level">
             <span class="badge">🔧 Hidden</span>
             <div class="content"><div class="title">The <code>tlds.txt</code> File</div><div class="desc">A plain-text list of known top-level domains (<code>com</code>, <code>org</code>, <code>my</code>, <code>uk</code>, and so on), one per line, sitting next to the exe. The app uses it to recognise what counts as a domain when applying URL Handling. If the file is missing, a small built-in list is used instead. You can replace it with the full IANA list at any time by saving <code>tlds-alpha-by-domain.txt</code> from <em>data.iana.org</em> as <code>tlds.txt</code>.</div></div>
@@ -696,7 +618,7 @@
         </div>
         <div class="feature-item" data-keywords="settings file ini txt save load persist">
             <span class="badge">🔧 Hidden</span>
-            <div class="content"><div class="title">Settings File</div><div class="desc">The <code>settings.txt</code> file next to the exe stores every preference — voice, speed, volume, opacity, autostart, greeting toggles, and URL Handling. Old versions of the app wrote a <code>SkipURLs</code> key; on first load it is migrated and never written again.</div></div>
+            <div class="content"><div class="title">Settings File</div><div class="desc">The <code>settings.txt</code> file next to the exe stores every preference — voice, speed, volume, opacity, autostart, greeting toggles, and all four URL Handling settings (<code>SilenceURLs</code>, <code>AnnounceSource</code>, <code>SourcePrefix</code>, <code>ForceEnglishDomains</code>). Old versions of the app wrote a <code>SkipURLs</code> key; on first load it is migrated to <code>SilenceURLs</code> and never written again.</div></div>
         </div>
 
         <!-- ===== GHOST BUNDLE ===== -->
@@ -718,117 +640,6 @@
                 <div class="family-note">Six utilities. One family. Each does one thing well and stays out of your way. 💚</div>
             </div>
         </div>
-
-        <!-- ===== TESTING ===== -->
-        <div class="feature-item" data-keywords="test sample context abbreviation st dr co saint street doctor drive county company verify speak">
-            <span class="badge">🧪 Testing</span>
-            <div class="content">
-                <div class="title">Context Rule Test Sentences</div>
-                <div class="desc">
-                    Paste any block below into the textbox and press <strong>Speak</strong>. Each block exercises a different branch of the context rules — perfect for regression-checking after an update.
-                </div>
-                <div class="test-grid">
-
-                    <div class="test-block">
-                        <div class="test-label">St. <span class="arrow">→ Saint / Street</span></div>
-                        <pre>St. Louis is a beautiful city.
-We visited St. Peter's Basilica on Sunday.
-Main St. was closed for repairs.
-The office is at 123 Elm St.</pre>
-                    </div>
-
-                    <div class="test-block">
-                        <div class="test-label">Dr. <span class="arrow">→ Doctor / Drive</span></div>
-                        <pre>Dr. Smith will see you now.
-Dr. Livingstone, I presume?
-Take Elm Dr. to the highway.
-Their address is 123 Oak Dr.</pre>
-                    </div>
-
-                    <div class="test-block">
-                        <div class="test-label">Co. <span class="arrow">→ County / Company</span></div>
-                        <pre>Co. Cork is in southern Ireland.
-Co. Kerry is famous for its scenery.
-Acme Co. filed for bankruptcy.
-Bros. Co. is a family business.</pre>
-                    </div>
-
-                    <div class="test-block">
-                        <div class="test-label">Mixed <span class="arrow">→ everything at once, including newline safety</span></div>
-                        <pre>Dr. Smith lives on Main St. in Co. Cork.
-St. Patrick's Church is at 45 Oak Dr.
-Meeting at 3 PM with Dr. Jones, Acme Co.
-The Co. Galway coast is stunning, Dr. Murphy.</pre>
-                    </div>
-
-                    <div class="test-block">
-                        <div class="test-label">Other ambiguous abbreviations</div>
-                        <pre>no. 5 is missing.          → number 5
-No. Really?                → left alone
-12 in. long.               → 12 inches long
-Walk in.                   → left alone
-Ft. Lauderdale is in FL.   → Fort Lauderdale
-6 ft. rope.                → 6 feet rope
-Col. Smith reported in.    → Colonel Smith
-See Col. 3 for details.    → see column 3
-Mt. Everest is tall.       → Mount Everest
-Ct. room 4 is booked.      → Court room 4
-Gen. Patton was a general. → General Patton</pre>
-                    </div>
-
-                    <div class="test-block">
-                        <div class="test-label">Academic / country / scholarly</div>
-                        <pre>He earned a Ph.D. in physics.        → P H D
-She has an M.D. from Harvard.        → M D
-The U.S.A. and U.K. signed it.       → U S A / U K
-The U.N. met yesterday.              → U N
-Use a comma, e.g. here, i.e. like this.
-Apples, oranges, etc. are fruits.    → and so on (English)
-Red vs. blue.                        → versus
-Approx. 50 people attended.          → approximately</pre>
-                    </div>
-
-                    <div class="test-block">
-                        <div class="test-label">Address suffixes</div>
-                        <pre>123 Maple Rd. is around the corner.  → Road
-456 Oak Ave. is nearby.              → Avenue
-789 Sunset Blvd. is famous.          → Boulevard
-Take the Pkwy. north.                → Parkway
-The Hwy. is busy today.              → Highway
-Turn onto Rose Ln.                   → Lane
-Meet at the Pl. downtown.            → Place
-The Sq. is crowded.                  → Square
-10 Elm Terr. is quiet.               → Terrace
-Follow Rte. 66.                      → Route
-Apt. 4B is upstairs.                 → Apartment
-Ste. 200 is on the left.             → Suite
-Bldg. C is the newest.               → Building
-Rm. 12 is empty.                     → Room</pre>
-                    </div>
-
-                    <div class="test-block">
-                        <div class="test-label">Business &amp; military</div>
-                        <pre>Acme Inc. is hiring.                 → Incorporated
-Globex Ltd. was acquired.            → Limited
-Umbrella Corp. is huge.              → Corporation
-Assn. of Writers met.                → Association
-Mfg. plant closed.                   → Manufacturing
-Sgt. York was a hero.                → Sergeant
-Capt. Kirk commands the ship.        → Captain
-Lt. Data is an android.              → Lieutenant
-Cpl. Jones reported in.              → Corporal
-Pvt. Ryan is missing.                → Private
-Cmdr. Adama leads the fleet.         → Commander
-Adm. Nelson was famous.              → Admiral
-Govt. offices are closed.            → Government
-Gov. Newsom spoke.                   → Governor</pre>
-                    </div>
-
-                </div>
-                <div class="test-note">Tip: turn on <strong>Queue Articles</strong> and paste all blocks at once to run through the whole suite in a single sitting.</div>
-            </div>
-        </div>
-
     </div>
 
     <div class="no-results" id="noResults">✨ No features match your search.</div>
