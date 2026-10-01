@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
@@ -7,7 +7,7 @@
 
     <!-- ============ PRIMARY SEO ============ -->
     <title>GhostBundle — Free Windows utilities that quietly do their thing</title>
-    <meta name="description" content="GhostBundle is a free collection of small Windows tools: a clipboard text-to-speech reader, a multi-voice script studio, a portable hierarchical notepad, a PDF stamper, a text expander, and an insert-anywhere calculator. No ads, no tracking, no cloud." />
+    <meta name="description" content="GhostBundle is a free collection of small Windows tools: a clipboard text-to-speech reader, a multi-voice script studio, a portable hierarchical notepad, a PDF stamper, a text expander, an insert-anywhere calculator, and an offline local-LLM chat. No ads, no tracking, no cloud." />
     <meta name="author" content="GhostBundle" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#eef1fa" />
@@ -17,16 +17,16 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="GhostBundle" />
     <meta property="og:title" content="GhostBundle — Free Windows utilities" />
-    <meta property="og:description" content="Six free, tiny Windows tools that quietly do their thing. No ads, no tracking, no cloud." />
+    <meta property="og:description" content="Seven free, tiny Windows tools that quietly do their thing. No ads, no tracking, no cloud." />
     <meta property="og:url" content="https://ghostbundle.github.io/" />
     <meta property="og:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
-    <meta property="og:image:alt" content="The six GhostBundle mascots gathered in a cozy library." />
+    <meta property="og:image:alt" content="The GhostBundle mascots gathered in a cozy library." />
     <meta property="og:locale" content="en_US" />
 
     <!-- ============ TWITTER CARD ============ -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="GhostBundle — Free Windows utilities" />
-    <meta name="twitter:description" content="Six free, tiny Windows tools that quietly do their thing. No ads, no tracking, no cloud." />
+    <meta name="twitter:description" content="Seven free, tiny Windows tools that quietly do their thing. No ads, no tracking, no cloud." />
     <meta name="twitter:image" content="https://ghostbundle.github.io/ghostbundle-library.webp" />
 
     <!-- ============ FAVICON & APP ICONS ============ -->
@@ -107,6 +107,16 @@
           "operatingSystem": "Windows",
           "description": "A calculator that types its answer into any window. Standard keypad, memory, percent, plus five worksheets: mortgage, fixed deposit, recurring saver, unit conversion, and date calculation.",
           "url": "https://ghostbundle.github.io/help-ghostcalc.html",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Ghost Chat",
+          "alternateName": "GhostChat",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Windows",
+          "description": "A completely offline local-LLM chat app. Load any GGUF model, chat with no accounts, no cloud, no telemetry.",
+          "url": "https://ghostbundle.github.io/help-ghostchat.html",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
         }
       ]
@@ -645,10 +655,11 @@
         .grid .app-card:nth-child(4) { animation-delay: 0.50s; }
         .phrases-row .app-card:nth-child(1) { animation-delay: 0.60s; }
         .phrases-row .app-card:nth-child(2) { animation-delay: 0.70s; }
-        .content-section { animation-delay: 0.75s; }
-        .support-section { animation-delay: 0.80s; }
-        .community-link  { animation-delay: 0.85s; }
-        footer        { animation-delay: 0.90s; }
+        .phrases-row .app-card:nth-child(3) { animation-delay: 0.80s; }
+        .content-section { animation-delay: 0.85s; }
+        .support-section { animation-delay: 0.90s; }
+        .community-link  { animation-delay: 0.95s; }
+        footer        { animation-delay: 1.00s; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(14px); }
@@ -685,6 +696,7 @@
         <a href="help-ghoststamp.html">GhostStamp Pro</a>
         <a href="help-ghostphrases.html">Ghost Phrases</a>
         <a href="help-ghostcalc.html">Ghost Calc</a>
+        <a href="help-ghostchat.html">Ghost Chat</a>
         <span class="nav-sep">•</span>
         <a href="#about">About</a>
         <a href="#faq">FAQ</a>
@@ -808,12 +820,30 @@
             </div>
         </article>
 
+        <article class="app-card">
+            <div class="image-container">
+                <img src="chat.webp" alt="GhostChat mascot with a speech bubble" />
+            </div>
+            <h2><a href="help-ghostchat.html">Ghost Chat</a></h2>
+            <span class="version-badge">v1.0</span>
+            <p class="desc">A completely offline local-LLM chat app.</p>
+            <div class="chips">
+                <span>Offline LLM</span>
+                <span>GGUF models</span>
+                <span>No cloud</span>
+            </div>
+            <div class="card-actions">
+                <a href="GhostChat.zip" class="download-btn" download>Download</a>
+                <a href="help-ghostchat.html" class="docs-btn">Docs</a>
+            </div>
+        </article>
+
     </section>
 
     <section class="content-section" id="about">
         <h2>What is GhostBundle?</h2>
         <p>GhostBundle is a small collection of free Windows utilities built for people who want their tools to stay out of the way. Every app is portable, offline-first, and designed to do exactly one thing well. No account, no sign-in, no telemetry — just a folder you can drop anywhere and run.</p>
-        <p>The bundle currently ships six apps: a clipboard text-to-speech reader, a multi-voice script studio, a hierarchical notepad, a PDF and scan stamper, a text expander, and a calculator that can insert its answer straight into another window.</p>
+        <p>The bundle currently ships seven apps: a clipboard text-to-speech reader, a multi-voice script studio, a hierarchical notepad, a PDF and scan stamper, a text expander, a calculator that can insert its answer straight into another window, and an offline local-LLM chat.</p>
     </section>
 
     <section class="content-section" id="apps">
@@ -836,6 +866,9 @@
 
         <h3><a href="help-ghostcalc.html">Ghost Calc — insert-anywhere calculator</a></h3>
         <p>A standard keypad with memory and percent, plus five worksheets: mortgage, fixed deposit, recurring saver, unit conversion, and date calculation. The difference is that Ghost Calc can type its result directly into whichever window is focused — no manual copy-paste.</p>
+
+        <h3><a href="help-ghostchat.html">Ghost Chat — offline local-LLM chat</a></h3>
+        <p>Load any GGUF language model and chat with it entirely on your own machine. No account, no telemetry, no cloud — every reply is generated locally by the model you supply. Includes sampling presets, prompt-format overrides, session saving, and a rotating image panel.</p>
     </section>
 
     <section class="content-section" id="faq">
@@ -844,13 +877,13 @@
         <h3>Is GhostBundle really free?</h3>
         <p>Yes. Every app is free forever. There are no ads, no upsells, no account required, and no telemetry of any kind.</p>
 
-                <h3>Do the apps need an internet connection?</h3>
-        <p>Mostly no — but it depends on the voice you choose. All six apps run entirely on your machine: no accounts, no sign-ins, no cloud sync, and no telemetry. Download them once and use them forever offline.</p>
+        <h3>Do the apps need an internet connection?</h3>
+        <p>Mostly no — but it depends on the voice you choose. All seven apps run entirely on your machine: no accounts, no sign-ins, no cloud sync, and no telemetry. Download them once and use them forever offline.</p>
 
         <p><strong>The one exception is online voices.</strong> If you pick a cloud-backed SAPI voice such as <em>Microsoft Xiaoxiao Online</em> or <em>Microsoft Yunxi Online</em>, the app needs an active internet connection while it speaks, because the audio is synthesized on Microsoft's servers rather than on your PC. Local Desktop voices (David, Zira, Hazel) work fully offline, forever.</p>
 
         <h3>What are the system requirements?</h3>
-        <p>Windows 7 SP1 or later, with .NET Framework 4.x installed. The apps are portable — no installer required, and no registry changes.</p>
+        <p>Windows 7 SP1 or later, with .NET Framework 4.x installed. The apps are portable — no installer required, and no registry changes. Ghost Chat additionally requires 64-bit Windows, because its local LLM engine only ships 64-bit native libraries.</p>
 
         <h3>Where can I get help with a specific app?</h3>
         <p>Each app has its own help page. Use the navigation bar at the top of this page, or click the Docs button on any app card.</p>
