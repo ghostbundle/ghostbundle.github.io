@@ -18,6 +18,7 @@ All apps are **free forever**. No ads, no tracking, no cloud. Just download, unz
 | **GhostStamp Pro** | Stamp PDFs and scans with clean vector seals. 16 preset stamps, PNG & PDF output, fully offline. | [GhostStampPro.zip](GhostStampPro.zip) |
 | **Ghost Phrases** | A text expander that types the paragraph for you. Type a shortcut anywhere, get the full text. | *I am Home, find me!* |
 | **Ghost Calc** | A calculator that types its answer into any window. Standard keypad, memory, percent, plus five worksheets: mortgage, fixed deposit, recurring saver, unit conversion, and date calculation. | [GhostCalc.zip](GhostCalc.zip) |
+| **Ghost Chat** | Offline chat with GGUF language models. Drop a .gguf in the model folder, pick a prompt format, and chat — no accounts, no cloud, no telemetry. | [GhostChat.zip](GhostChat.zip) |
 
 
 ---
