@@ -12,30 +12,28 @@ All apps are **free forever**. No ads, no tracking, no cloud. Just download, unz
 
 | App | What it does | Download |
 | :--- | :--- | :--- |
-| **Ghost Reader** | A clipboard reader that speaks whatever you copy. Includes MP3/WAV/TXT export and session resume. | [GhostReader.zip](GhostReader.zip) |
-| **Ghost Cast** | Multi-voice script studio for dramatic readings. Per-character voices, SFX, BGM, and MP3 export. | [GhostCast.zip](GhostCast.zip) |
-| **Ghost Notes** | Hierarchical notes in a single portable file. Rich text, auto-backup, and search all notes. | [GhostNotes.zip](GhostNotes.zip) |
-| **GhostStamp Pro** | Stamp PDFs and scans with clean vector seals. 16 preset stamps, PNG & PDF output, fully offline. | [GhostStampPro.zip](GhostStampPro.zip) |
-| **Ghost Phrases** | A text expander that types the paragraph for you. Type a shortcut anywhere, get the full text. | *I am Home, find me!* |
-| **Ghost Calc** | A calculator that types its answer into any window. Standard keypad, memory, percent, plus five worksheets: mortgage, fixed deposit, recurring saver, unit conversion, and date calculation. | [GhostCalc.zip](GhostCalc.zip) |
-| **Ghost Chat** | Offline chat with GGUF language models. Drop a .gguf in the model folder, pick a prompt format, and chat — no accounts, no cloud, no telemetry. | [GhostChat.zip](GhostChat.zip) |
-
+| **Ghost Reader** | A clipboard reader that speaks whatever you copy. Includes MP3/WAV/TXT export and session resume. | [GhostReader.zip](https://github.com/ghostbundle/ghostbundle.github.io/releases/latest/download/GhostReader.zip) |
+| **Ghost Cast** | Multi-voice script studio for dramatic readings. Per-character voices, SFX, BGM, and MP3 export. | [GhostCast.zip](https://github.com/ghostbundle/ghostbundle.github.io/releases/latest/download/GhostCast.zip) |
+| **Ghost Notes** | Hierarchical notes in a single portable file. Rich text, auto-backup, and search all notes. | [GhostNotes.zip](https://github.com/ghostbundle/ghostbundle.github.io/releases/latest/download/GhostNotes.zip) |
+| **GhostStamp Pro** | Stamp PDFs and scans with clean vector seals. 16 preset stamps, PNG & PDF output, fully offline. | [GhostStampPro.zip](https://github.com/ghostbundle/ghostbundle.github.io/releases/latest/download/GhostStampPro.zip) |
+| **Ghost Phrases** | A text expander that types the paragraph for you. Type a shortcut anywhere, get the full text. | [GhostPhrases.zip](https://github.com/ghostbundle/ghostbundle.github.io/releases/latest/download/GhostPhrases.zip) |
+| **Ghost Calc** | Standard keypad, memory, percent, plus five worksheets: mortgage, fixed deposit, recurring saver, unit conversion, and date calculation. | [GhostCalc.zip](https://github.com/ghostbundle/ghostbundle.github.io/releases/latest/download/GhostCalc.zip) |
+| **Ghost Chat** | Offline chat with GGUF language models. Drop a .gguf in the model folder, pick a prompt format, and chat — no accounts, no cloud, no telemetry. | [GhostChat.zip](https://github.com/ghostbundle/ghostbundle.github.io/releases/latest/download/GhostChat.zip) |
 
 ---
 
 ## 💬 Community & Support
 
 - **Questions or ideas?** Head over to the [Discussions tab](../../discussions).
-- **Found a bug?** Please [open an Issue](../../issues) with steps to reproduce it.
+- **Found a bug?** Please [open an issue](../../issues) with steps to reproduce it.
 
 ---
 
-## 💝 Support the project
+## 💗 Support the project
 
 GhostBundle is a labor of love. If these little ghosts have made your day a bit easier, a small donation keeps them fed and keeps the lights on.
 
 [💗 Support GhostBundle](https://square.link/u/EmMBiWhn)
 
 ---
-
 *Free forever — never a paybie. No ads. No tracking. No cloud. 🖤*
