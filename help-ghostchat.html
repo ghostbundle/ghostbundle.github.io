@@ -6,7 +6,7 @@
 
     <!-- ============ PRIMARY SEO ============ -->
     <title>Ghost Chat — Help &amp; Documentation | GhostBundle</title>
-    <meta name="description" content="Ghost Chat help and documentation: offline GGUF chat, model setup, sampling presets, prompt formats, session saving, image rotation, and every toggle explained. Free Windows utility from GhostBundle." />
+    <meta name="description" content="Ghost Chat help and documentation: offline GGUF chat, internet access, vision (image understanding), model setup, sampling presets, prompt formats, session saving, image rotation, and every toggle explained. Free Windows utility from GhostBundle." />
     <meta name="author" content="GhostBundle" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#f7f2e8" />
@@ -37,7 +37,7 @@
       "@context": "https://schema.org",
       "@type": "TechArticle",
       "headline": "Ghost Chat — Help & Documentation",
-      "description": "Complete feature guide for Ghost Chat, an offline local-LLM chat app for Windows.",
+      "description": "Complete feature guide for Ghost Chat, a local-first LLM chat app for Windows with opt-in internet access and vision.",
       "url": "https://ghostbundle.github.io/help-ghostchat.html",
       "inLanguage": "en",
       "author": { "@type": "Organization", "name": "GhostBundle" },
@@ -269,6 +269,14 @@
             border-radius: 4px;
             font-size: 0.9rem;
         }
+        kbd {
+            background: #f2ead8;
+            border: 1px solid #ddd1b5;
+            border-radius: 4px;
+            padding: 1px 6px;
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
         .family-note {
             margin-top: 8px;
             padding: 12px 18px;
@@ -417,11 +425,11 @@
     <a href="index.html" class="back-home">← Back to GhostBundle</a>
 
     <h1>💬 Ghost Chat</h1>
-    <div class="subtitle">Offline LLM chat – search below to find what you need</div>
+    <div class="subtitle">Local-first LLM chat – search below to find what you need</div>
 
     <div class="search-wrap">
         <span class="icon">🔍</span>
-        <input type="text" id="searchInput" placeholder="Search, e.g. 'model', 'gguf', '64-bit', 'sampling'..." autofocus />
+        <input type="text" id="searchInput" placeholder="Search, e.g. 'model', 'gguf', 'internet', 'vision', 'sampling'..." autofocus />
     </div>
 
     <div class="feature-grid" id="featureGrid">
@@ -442,7 +450,7 @@
         </div>
 
         <!-- ===== GETTING STARTED ===== -->
-        <div class="feature-item" data-keywords="first run getting started setup no model download folder gguf">
+        <div class="feature-item" data-keywords="first run getting started setup no model download folder gguf mmproj vision">
             <span class="badge">🚀 Start</span>
             <div class="content">
                 <div class="title">First-time Setup</div>
@@ -453,11 +461,14 @@
                         <li>Drop it into the <code>model</code> folder next to <code>GhostChat64.exe</code> — or use <strong>Settings → Model → Open model folder</strong> to jump there.</li>
                     </ol>
                     Restart the app. It scans the folder, finds your model, and asks you to pick one. Tick <em>Set as default</em> and it will auto-load next time.
+                    <div class="family-note">
+                        <strong>Optional — vision models:</strong> if the model has a matching <code>.mmproj</code> file, drop that in the same folder next to the <code>.gguf</code>. The app pairs them automatically and enables the <em>📎 Attach Image</em> button for that model. See <em>Attach an image</em> below.
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="feature-item" data-keywords="where download model llm huggingface source website">
+        <div class="feature-item" data-keywords="where download model llm huggingface source website vision mmproj">
             <span class="badge">🚀 Start</span>
             <div class="content">
                 <div class="title">Where to get a model</div>
@@ -490,22 +501,30 @@
                             <div class="note">Ollama stores models in its own format. Not directly usable — but the "gguf" tags on Hugging Face match.</div>
                         </div>
                     </div>
+                    <div class="family-note">
+                        <strong>Want vision (image understanding)?</strong> Look for files named <code>mmproj-*.gguf</code> in the same Hugging Face repo as the main model. Download both the main <code>.gguf</code> and the matching <code>.mmproj</code>, and drop them in <code>model\</code> together. The app pairs them by filename prefix.
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="feature-item" data-keywords="file type extension gguf safetensors bin pytorch ggml which works which doesn't">
+        <div class="feature-item" data-keywords="file type extension gguf safetensors bin pytorch ggml which works which doesn't mmproj">
             <span class="badge">🚀 Start</span>
             <div class="content">
                 <div class="title">Which file types work</div>
                 <div class="desc">
-                    The app only loads <strong>GGUF</strong> files. Nothing else.
+                    The app only loads <strong>GGUF</strong> files for the language model, plus an optional <strong>mmproj GGUF</strong> for vision.
                     <table>
                         <tr><th>Extension</th><th>Works?</th><th>Notes</th></tr>
                         <tr>
                             <td><code>.gguf</code></td>
                             <td style="color:#2c5a1a;font-weight:600;">✅ Yes</td>
                             <td>The only format the app reads. Can be a single file or split into <code>-00001-of-00003.gguf</code> parts — the app picks the first part automatically.</td>
+                        </tr>
+                        <tr>
+                            <td><code>.mmproj</code> / <code>*.mmproj.gguf</code></td>
+                            <td style="color:#2c5a1a;font-weight:600;">✅ Yes</td>
+                            <td>Vision encoder. Enables the <em>📎 Attach Image</em> feature. Must share a filename prefix with the main model. See <em>Attach an image</em> below.</td>
                         </tr>
                         <tr>
                             <td><code>.ggml</code></td>
@@ -534,7 +553,7 @@
                         </tr>
                     </table>
                     <div class="ok">
-                        <strong>Quick test:</strong> if the filename ends in <code>.gguf</code>, it will work. If it ends in anything else, it won't.
+                        <strong>Quick test:</strong> if the filename ends in <code>.gguf</code> (including <code>.mmproj.gguf</code>), it will work. If it ends in anything else, it won't.
                     </div>
                 </div>
             </div>
@@ -623,6 +642,88 @@
             </div>
         </div>
 
+        <div class="feature-item" data-keywords="status bar context tokens tok/s speed history preset format model net vision indicator bottom">
+            <span class="badge">💬 Chat</span>
+            <div class="content">
+                <div class="title">Status bar</div>
+                <div class="desc">
+                    The thin line at the very bottom of the window shows live state:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>Context</strong> — used / budget tokens and percentage of history consumed.</li>
+                        <li><strong>tok/s</strong> — speed of the last reply.</li>
+                        <li><strong>History</strong> — number of exchanges currently in memory.</li>
+                        <li><strong>Preset</strong> — current sampling preset (Precise / Balanced / Creative).</li>
+                        <li><strong>Format</strong> — current prompt-format family (Mistral / Llama 3 / ChatML / Gemma / Alpaca).</li>
+                        <li><strong>model.gguf</strong> — filename of the loaded model.</li>
+                        <li><strong>Net</strong> — Internet toggle state (<code>ON</code> / <code>OFF</code>).</li>
+                        <li><strong>Vision</strong> — whether a vision encoder is loaded (<code>ON</code> / <code>OFF</code>).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== INTERNET ===== -->
+        <div class="feature-item" data-keywords="internet web online search news google duckduckgo url live data realtime toggle privacy">
+            <span class="badge">🌐 Internet</span>
+            <div class="content">
+                <div class="title">Internet Access (optional)</div>
+                <div class="desc">
+                    Ghost Chat works offline by default. When you need real-world data — today's news, current prices, a specific web page — you can flip on Internet mode for that conversation.
+                    <br><br>
+                    <strong>How to toggle:</strong> the pill button below the chat input (<em>✔ Internet ON</em> / <em>✘ Internet OFF</em>), or <strong>Settings → Behaviour → Internet access</strong>. The state is saved and restored on next launch.
+                    <br><br>
+                    <strong>What routes through the internet:</strong>
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li>Any message containing a URL (<code>https://…</code>) — the page is fetched and its text extracted.</li>
+                        <li>Explicit "search for …", "google …", "look up …", "find online …".</li>
+                        <li>Questions about weather, prices, stocks, exchange rates, scores, headlines, breaking news.</li>
+                        <li>"Latest", "today", "current", "right now" combined with a factual topic (weather, stocks, news, events, etc.).</li>
+                        <li>News requests about one or more countries ("news about Australia and Singapore"). Multi-country financial news queries fetch a Google News RSS feed per country.</li>
+                    </ul>
+                    Trivial or creative prompts ("hi", "write me a story", "tell me a joke", "what is your name") are never routed online, even when the switch is on.
+                    <div class="warn">
+                        <strong>Privacy:</strong> while Internet is ON, the text of matching prompts (and any URLs you paste) is sent to DuckDuckGo Lite, Google News RSS, or the page in question. It is <em>not</em> sent to the model provider — everything still runs on your machine — but those third-party services see the query. Turn Internet OFF when you're done.
+                    </div>
+                    <div class="ok">
+                        <strong>Best results:</strong> ask for one country or one topic at a time. The internet prompt strongly instructs the model to drop its persona and answer factually, so roleplay characters won't bleed into the answer. Multi-country queries are supported but take longer to fetch.
+                    </div>
+                    <div class="family-note">
+                        <strong>Behind the scenes:</strong> the app runs a DuckDuckGo Lite search, fetches Google News RSS per country, or extracts text from a specific URL. The merged result is injected into a factual "override" prompt that bypasses your normal persona. The model then answers strictly from that data.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== VISION ===== -->
+        <div class="feature-item" data-keywords="vision image attach multimodal mmproj picture photo describe ask about image">
+            <span class="badge">👁️ Vision</span>
+            <div class="content">
+                <div class="title">Attach an image</div>
+                <div class="desc">
+                    If the loaded model has a paired vision encoder, you can attach a picture and ask about it. Click <strong>📎 Attach Image</strong> in the button row under the input box, pick a file, and send a question. If you leave the prompt blank, the app defaults to <em>"Describe this image."</em> so you can just attach and hit Send.
+                    <br><br>
+                    <strong>Requirements:</strong>
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li>Place a matching <code>.mmproj</code> file in the <code>model\</code> folder, next to the main <code>.gguf</code>. Filenames must share a prefix — e.g. <code>Ministral-3-14B.gguf</code> + <code>Ministral-3-14B.mmproj</code>, or <code>qwen2-vl-7b.gguf</code> + <code>qwen2-vl-7b-mmproj.gguf</code>.</li>
+                        <li>Vision encoders are published alongside vision-capable models on Hugging Face — look for files starting with <code>mmproj</code> or containing <code>mmproj</code> in the name.</li>
+                        <li>The base model itself must be trained for multimodal input (Ministral, LLaVA, Qwen-VL, InternVL, etc.). Adding an <code>.mmproj</code> to a text-only model does nothing useful.</li>
+                    </ul>
+                    <strong>Supported image formats:</strong> <code>.jpg</code>, <code>.jpeg</code>, <code>.png</code>, <code>.bmp</code>.
+                    <br><br>
+                    <strong>How to tell if Vision is active:</strong> the status bar at the bottom of the window shows <em>Vision:ON</em> or <em>Vision:OFF</em>. If it says OFF, no <code>.mmproj</code> was paired with the currently loaded model — the app logs <em>"No .mmproj file found. Vision disabled."</em> in the chat log when this happens.
+                    <div class="warn">
+                        <strong>If Vision is OFF but you attached an image:</strong> the app falls back to the standard text path. Your prompt is still processed normally, but the image itself is ignored. Reload the model (Settings → Model → Reload) after adding the <code>.mmproj</code> to pick it up.
+                    </div>
+                    <div class="ok">
+                        <strong>Each image is processed with a fresh context.</strong> The app disposes and recreates the model's key-value cache before processing a new image, so the previous image (and its tokens) don't linger. Your chat history is preserved in memory and re-injected into the prompt normally.
+                    </div>
+                    <div class="family-note">
+                        <strong>Performance:</strong> vision inference is slower than text-only — the image has to be encoded through the vision tower before the first token appears. Expect a few seconds of extra latency on CPU for a typical photo.
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- ===== SAMPLING ===== -->
         <div class="feature-item" data-keywords="sampling preset temperature precise balanced creative randomness">
             <span class="badge">🎛️ Sampling</span>
@@ -670,16 +771,18 @@
                 <div class="title">Select Model</div>
                 <div class="desc">
                     Under <strong>Settings → Model → Select model…</strong> you get a list of every <code>.gguf</code> in the <code>model</code> folder. Pick one to load it. Tick <em>Set as default</em> and it will auto-load next time the app starts.
+                    <br><br>
+                    If a matching <code>.mmproj</code> file is present, the model is marked with a <strong>👁️ Vision</strong> label in the list, and Vision is enabled on load.
                 </div>
             </div>
         </div>
 
-        <div class="feature-item" data-keywords="reload current model re-read disk swap">
+        <div class="feature-item" data-keywords="reload current model re-read disk swap mmproj">
             <span class="badge">🧠 Models</span>
             <div class="content">
                 <div class="title">Reload current model</div>
                 <div class="desc">
-                    Re-reads the currently active model from disk. Use this after changing Generation Limits, or after replacing the file on disk with a newer version.
+                    Re-reads the currently active model from disk. Use this after changing Generation Limits, after replacing the file on disk with a newer version, or after adding a new <code>.mmproj</code> alongside the model (the mmproj is picked up on reload).
                 </div>
             </div>
         </div>
@@ -709,7 +812,7 @@
             <div class="content">
                 <div class="title">Open model folder</div>
                 <div class="desc">
-                    Opens <code>model\</code> in Explorer. Use this to drop in new <code>.gguf</code> files, or to see what the app has detected.
+                    Opens <code>model\</code> in Explorer. Use this to drop in new <code>.gguf</code> files (and matching <code>.mmproj</code> files), or to see what the app has detected.
                 </div>
             </div>
         </div>
@@ -777,6 +880,9 @@
                     The right panel cycles through any images placed in <code>images\</code>. It scans subfolders too, and skips hidden/system files. Supported: <code>.png</code>, <code>.jpg</code>, <code>.jpeg</code>, <code>.bmp</code>, <code>.gif</code>.
                     <br><br>
                     Toggle rotation on/off under <strong>Settings → Image Display</strong>. Set the interval (1–600 seconds) there too.
+                    <div class="family-note">
+                        <strong>Note:</strong> the image rotation panel is <em>decorative</em> — it displays images to you. To <em>ask the model about</em> an image, use the <strong>📎 Attach Image</strong> button instead (see <em>Attach an image</em> above).
+                    </div>
                 </div>
             </div>
         </div>
@@ -796,7 +902,7 @@
             <div class="content">
                 <div class="title">Supported image formats</div>
                 <div class="desc">
-                    The image panel only reads formats Windows can decode natively: <code>.png</code>, <code>.jpg</code>, <code>.jpeg</code>, <code>.bmp</code>, <code>.gif</code>.
+                    Both the rotating panel and the vision attach button read formats Windows can decode natively. The rotation panel accepts <code>.png</code>, <code>.jpg</code>, <code>.jpeg</code>, <code>.bmp</code>, <code>.gif</code>; the attach button accepts <code>.jpg</code>, <code>.jpeg</code>, <code>.png</code>, <code>.bmp</code>.
                     <div class="warn">
                         <strong>Not supported:</strong> <code>.webp</code>, <code>.avif</code>, <code>.heic</code>. These need a third-party decoder that isn't bundled. Convert them to <code>.png</code> or <code>.jpg</code> first.
                     </div>
@@ -805,7 +911,7 @@
         </div>
 
         <!-- ===== FILES ===== -->
-        <div class="feature-item" data-keywords="files folder config settings txt json">
+        <div class="feature-item" data-keywords="files folder config settings txt json mmproj model">
             <span class="badge">📁 Files</span>
             <div class="content">
                 <div class="title">Files this app reads and writes</div>
@@ -813,14 +919,16 @@
                     All live next to <code>GhostChat64.exe</code> (or next to the <code>.csproj</code> during development):
                     <table>
                         <tr><th>File / folder</th><th>Purpose</th></tr>
-                        <tr><td><code>model\</code></td><td>Where <code>.gguf</code> files go. Scanned recursively.</td></tr>
+                        <tr><td><code>model\</code></td><td>Where <code>.gguf</code> files go. Scanned recursively. Also holds matching <code>.mmproj</code> vision encoders.</td></tr>
+                        <tr><td><code>model\*.mmproj</code></td><td>Vision encoders. Paired automatically with a matching <code>.gguf</code> to enable image understanding.</td></tr>
                         <tr><td><code>images\</code></td><td>Rotation images. Subfolders scanned too.</td></tr>
-                        <tr><td><code>settings.txt</code></td><td>App-wide preferences (names, presets, limits, layout).</td></tr>
+                        <tr><td><code>settings.txt</code></td><td>App-wide preferences (names, presets, limits, layout, Internet state).</td></tr>
                         <tr><td><code>system_prompt.txt</code></td><td>The persistent instruction sent to the model.</td></tr>
                         <tr><td><code>model_settings.json</code></td><td>Per-model state — default model, prompt-format overrides.</td></tr>
                         <tr><td><code>ghostchat.png</code></td><td>About dialog image.</td></tr>
-                        <tr><td><code>pc.ico</code></td><td>App icon (also embedded in the exe).</td></tr>
-                        <tr><td><code>help.html</code></td><td>This file.</td></tr>
+                        <tr><td><code>ghostchat.ico</code></td><td>App icon (embedded in the exe, shown in the title bar and taskbar).</td></tr>
+                        <tr><td><code>pc.ico</code></td><td>Favicon for the GhostBundle help pages.</td></tr>
+                        <tr><td><code>help-ghostchat.html</code></td><td>This page (bundled with the app as <code>help.html</code>).</td></tr>
                     </table>
                 </div>
             </div>
@@ -833,11 +941,11 @@
                 <div class="desc">
                     To restore the app to a fresh-install state, close it and delete these files next to the exe:
                     <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
-                        <li><code>settings.txt</code></li>
-                        <li><code>system_prompt.txt</code></li>
-                        <li><code>model_settings.json</code></li>
+                        <li><code>settings.txt</code> — resets names, presets, limits, layout, and Internet state.</li>
+                        <li><code>system_prompt.txt</code> — clears the system prompt.</li>
+                        <li><code>model_settings.json</code> — forgets the default model and any prompt-format overrides.</li>
                     </ul>
-                    The app recreates them with defaults on next launch. Your models and images are untouched.
+                    The app recreates them with defaults on next launch. Your models, mmproj files, and images are untouched.
                 </div>
             </div>
         </div>
@@ -864,7 +972,7 @@
             <div class="content">
                 <div class="title">Reply is gibberish, empty, or repeating</div>
                 <div class="desc">
-                    Almost always a prompt-format mismatch. Open the debug line in the chat log (it says <code>[Debug]: Gen: N tok ... tail: ...</code>) and look at the tail. If the tail shows the model writing role labels like <code>User:</code> or special tokens like <code>&lt;|im_end|&gt;</code>, it means the model wasn't wrapped in its expected format.
+                    Almost always a prompt-format mismatch. Open the debug line in the chat log (it says <code>[Debug]: Gen: N tok … tail: …</code>) and look at the tail. If the tail shows the model writing role labels like <code>User:</code> or special tokens like <code>&lt;|im_end|&gt;</code>, it means the model wasn't wrapped in its expected format.
                     <br><br>
                     Fix: <strong>Settings → Model → Prompt Format</strong> → pick the family matching the model (see the Prompt Format entry above) → Reload current model.
                 </div>
@@ -900,6 +1008,40 @@
             </div>
         </div>
 
+        <div class="feature-item" data-keywords="vision not working attach image ignored mmproj missing vision off">
+            <span class="badge">🩺 Fix</span>
+            <div class="content">
+                <div class="title">Attached image is ignored</div>
+                <div class="desc">
+                    The status bar shows <em>Vision:OFF</em>. That means no <code>.mmproj</code> was paired with the current model. Checklist:
+                    <ol style="margin-top:6px;padding-left:22px;color:#4a3f2e;">
+                        <li>Is there an <code>.mmproj</code> file in <code>model\</code> next to the main <code>.gguf</code>?</li>
+                        <li>Do the two filenames share a prefix? (e.g. <code>Ministral-3-14B.gguf</code> and <code>Ministral-3-14B.mmproj</code>)</li>
+                        <li>Did you reload the model after adding the mmproj? The app only pairs on load.</li>
+                        <li>Is the base model actually vision-capable? A text-only model with an mmproj attached still can't see.</li>
+                    </ol>
+                    If all four are true and Vision is still off, check the chat log — the app prints <em>"Loading Vision Model: …"</em> or <em>"No .mmproj file found. Vision disabled."</em> on every model load.
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-item" data-keywords="internet not working search returns nothing network offline">
+            <span class="badge">🩺 Fix</span>
+            <div class="content">
+                <div class="title">Internet search returns nothing</div>
+                <div class="desc">
+                    A few things to check:
+                    <ol style="margin-top:6px;padding-left:22px;color:#4a3f2e;">
+                        <li>Is the pill button showing <em>✔ Internet ON</em>? The status bar should show <em>Net:ON</em>.</li>
+                        <li>Does your machine have internet? The app uses your normal Windows network stack.</li>
+                        <li>Did the prompt actually trigger a fetch? Trivial prompts ("hi", "tell me a joke", "write me a story") are routed locally even when Internet is on. Try "latest news about Singapore" or paste a URL.</li>
+                        <li>DuckDuckGo Lite or Google News RSS could be rate-limiting. Wait a minute and try again.</li>
+                    </ol>
+                    If the fetch itself fails, the app logs the error into the prompt sent to the model (so the model can tell you it couldn't fetch), rather than crashing.
+                </div>
+            </div>
+        </div>
+
         <!-- ===== GHOST BUNDLE ===== -->
         <div class="feature-item" data-keywords="ghost bundle family utilities companion reader stamp cast notes phrases calc">
             <span class="badge">👻 Bundle</span>
@@ -922,13 +1064,18 @@
         </div>
 
         <!-- ===== ABOUT ===== -->
-        <div class="feature-item" data-keywords="about privacy offline local no cloud">
+        <div class="feature-item" data-keywords="about privacy offline local no cloud internet vision optional">
             <span class="badge">ℹ️ Info</span>
             <div class="content">
                 <div class="title">About</div>
                 <div class="desc">
-                    Ghost Chat is a completely offline local-LLM chat app. Nothing is sent anywhere. Every reply is generated on your own machine by the <code>.gguf</code> model you loaded. No account, no telemetry, no cloud.
+                    Ghost Chat is a local-LLM chat app. By default, everything stays on your machine — every reply is generated by the <code>.gguf</code> model you loaded. No account, no telemetry, no cloud.
                     <br><br>
+                    Two features are <em>opt-in</em> and worth knowing about:
+                    <ul style="margin-top:4px;padding-left:20px;color:#4a3f2e;">
+                        <li><strong>Internet</strong> (off by default) — sends the <em>text</em> of qualifying prompts to DuckDuckGo Lite / Google News RSS / the URL you paste. Turn it off when you're done. Nothing else leaves the machine.</li>
+                        <li><strong>Vision</strong> — images you attach are only ever processed by the local model. They are never uploaded.</li>
+                    </ul>
                     Built with .NET 8 WinForms + LLamaSharp, running the llama.cpp backend on CPU. Model files are not distributed with the app — the user supplies them.
                     <br><br>
                     Reachable from <strong>Help → About</strong>. The dialog shows the version, a link to the Ghost Bundle website, and a voluntary donation button.
@@ -942,7 +1089,7 @@
 
     <div class="about-section">
         <h2>💬 About Ghost Chat</h2>
-        <p>A no-nonsense, offline front-end for GGUF language models. Drop a model file in, chat, done. No accounts, no cloud, no telemetry — everything happens on your machine. If a model misbehaves, the fix is almost always a prompt-format override or a context-size adjustment, both of which are one click away in the Settings menu. Made for people who want to run their own models without a launcher, a subscription, or a company watching over their shoulder. Ghost Chat is free, and it always will be.</p>
+        <p>A no-nonsense, local-first front-end for GGUF language models. Drop a model file in, chat, done. No accounts, no cloud, no telemetry — everything happens on your machine. Two features reach beyond your desktop, both opt-in: <strong>Internet</strong> (off by default) fetches live data via DuckDuckGo Lite / Google News RSS, and <strong>Vision</strong> uses a paired <code>.mmproj</code> to let the model understand attached images — and images never leave your machine. If a model misbehaves, the fix is almost always a prompt-format override or a context-size adjustment, both of which are one click away in the Settings menu. Made for people who want to run their own models without a launcher, a subscription, or a company watching over their shoulder. Ghost Chat is free, and it always will be.</p>
 
         <div class="donate-box">
             <strong>💗 Enjoying Ghost Chat?</strong><br>
